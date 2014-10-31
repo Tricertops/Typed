@@ -16,14 +16,15 @@ TArrayGenerate(NSNumber)
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        TArray(NSString) *names = @[ @"Martin" ];
-        TArray(NSNumber) *counts = @[ @42 ];
-        __unused NSString *me = [names objectAtIndex:0];
-        __unused NSString *ultimate = [counts objectAtIndex:0];
-        __unused NSArray *untyped = (NSArray *)counts;
+        TArray(NSString) names = TArrayMake(NSString, @"Martin", @"George");
+        TArray(NSNumber) counts = TArrayMake(NSNumber, @42 );
+        __unused NSArray *untyped = (NSArray *)names;
+        __unused NSString *me = names[0];
+        __unused NSNumber *ultimate = counts[0];
+        names = [names arrayByAddingObject:@"George"];
         
-//        __unused NSNumber *notMe = [names objectAtIndex:0];
-//        __unused NSNumber *notUltimate = [counts objectAtIndex:0];
+//        __unused NSNumber *notMe = names[0];
+//        __unused NSString *notUltimate = counts[0];
 //        counts = names;
         
     }
