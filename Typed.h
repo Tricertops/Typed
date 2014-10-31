@@ -10,4 +10,19 @@
 
 
 
+typedef NSObject TArray;
+
+
+
+#define TArray(Class)   TArray<TArray_##Class>
+
+
+
+#define TArrayGenerate(Class) \
+@class Class; \
+@protocol TArray_##Class <NSObject> \
+- (NSString *)objectAtIndex:(NSUInteger)index; \
+@end \
+@interface NSArray (TArray_##Class) <TArray_##Class> @end \
+
 
