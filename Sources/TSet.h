@@ -16,6 +16,7 @@
 typedef void (^TSetEnumerator_##Element)(Element *object, BOOL *stop); \
 typedef BOOL (^TSetPredicate_##Element)(Element *object, BOOL *stop); \
 _TArrayForward(Element) \
+_TMutableSetForward(Element) \
 /*! NSArray Interface */ \
 @protocol TSet_##Element <_TProtocols> \
 /*! Initializing a Set */ \
@@ -46,8 +47,8 @@ _TArrayForward(Element) \
 /*! Copying a Set */ \
 - (TSet(Element))copy; \
 - (TSet(Element))copyWithZone:(NSZone *)zone; \
-- (TSet(Element))mutableCopy; \
-- (TSet(Element))mutableCopyWithZone:(NSZone *)zone; \
+- (TMutableSet(Element))mutableCopy; \
+- (TMutableSet(Element))mutableCopyWithZone:(NSZone *)zone; \
 /*! Deriving New Sets */ \
 - (TSet(Element))setByAddingObject:(Element *)object; \
 - (TSet(Element))setByAddingObjectsFromSet:(TSet(Element))otherSet; \

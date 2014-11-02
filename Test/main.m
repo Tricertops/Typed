@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Triceratops. All rights reserved.
 //
 
+@import Foundation;
 #import "Typed.h"
 
 
