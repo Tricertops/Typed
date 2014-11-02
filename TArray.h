@@ -9,14 +9,14 @@
 #import "TDeclarations.h"
 
 
-/* Used by TArrayGenerate() */
+
 _TArrayForward(NSString)
 _TArrayForward(NSSortDescriptor)
 
 
-//TODO: _TArrayGenerateType(Type) that can take id and doesn’t rely on *.
+
 #define TArrayGenerate(Element) \
-/*! Type Declarations */ \
+/*! Types */ \
 @class Element; \
 typedef BOOL (^TArrayPredicate_##Element)(Element *object, NSUInteger index, BOOL *stop); \
 typedef NSComparisonResult (^TArrayComparator_##Element)(Element *object1, Element *object2); \
@@ -24,7 +24,7 @@ typedef void (^TArrayEnumerator_##Element)(Element *object, NSUInteger index, BO
 typedef NSInteger (*TArraySortFunction_##Element)(Element *, Element *, void *); \
 _TMutableArrayForward(Element) \
 /*! NSArray Interface */ \
-@protocol TArray_##Element <NSObject> \
+@protocol TArray_##Element <NSObject, NSFastEnumeration, NSCopying, NSMutableCopying> \
 /*! Creating an Array */ \
 + (TArray(Element))array; \
 + (TArray(Element))arrayWithArray:(TArray(Element))array; \
@@ -41,6 +41,7 @@ _TMutableArrayForward(Element) \
 - (TArray(Element))initWithContentsOfURL:(NSURL *)url; \
 - (TArray(Element))initWithObjects:(Element *)firstObject, ... NS_REQUIRES_NIL_TERMINATION; \
 - (TArray(Element))initWithObjects:(const Element * __autoreleasing [])objects count:(NSUInteger)cnt; \
+- (TArray(Element))initWithCoder:(NSCoder *)coder; \
 /*! Querying an Array */ \
 - (BOOL)containsObject:(Element *)object; \
 @property (readonly) NSUInteger count; \
@@ -72,8 +73,15 @@ _TMutableArrayForward(Element) \
 - (void)enumerateObjectsAtIndexes:(NSIndexSet *)indexes options:(NSEnumerationOptions)options usingBlock:(TArrayEnumerator_##Element)block; \
 /*! Comparing Arrays */ \
 - (Element *)firstObjectCommonWithArray:(TArray(Element))otherArray; \
+- (BOOL)isEqual:(TArray(Element))otherArray; \
 - (BOOL)isEqualToArray:(TArray(Element))otherArray; \
+/*! Copying */ \
+- (TArray(Element))copy; \
+- (TArray(Element))copyWithZone:(NSZone *)zone; \
+- (TMutableArray(Element))mutableCopy; \
+- (TMutableArray(Element))mutableCopyWithZone:(NSZone *)zone; \
 /*! Deriving New Arrays */ \
+- (TArray(Element))self; \
 - (TArray(Element))arrayByAddingObject:(Element *)object; \
 - (TArray(Element))arrayByAddingObjectsFromArray:(TArray(Element))otherArray; \
 - (TArray(Element))filteredArrayUsingPredicate:(NSPredicate *)predicate; \
@@ -95,29 +103,18 @@ _TMutableArrayForward(Element) \
 - (BOOL)writeToFile:(NSString *)path atomically:(BOOL)useAuxiliaryFile; \
 - (BOOL)writeToURL:(NSURL *)url atomically:(BOOL)atomically; \
 /*! Collecting Paths */ \
-- (TArray(NSString))pathsMatchingExtensions:(NSArray *)filterTypes; /* Receiver should be TArray(NSString) */ \
+- (TArray(NSString))pathsMatchingExtensions:(NSArray *)filterTypes; \
 /*! Key-Value Observing */ \
-/* Methods from NSObject+NSKeyValueObserverRegistration are not available on NSArray anyway.*/ \
 - (void)addObserver:(NSObject *)observer toObjectsAtIndexes:(NSIndexSet *)indexes forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context; \
 - (void)removeObserver:(NSObject *)observer fromObjectsAtIndexes:(NSIndexSet *)indexes forKeyPath:(NSString *)keyPath context:(void *)context; \
 - (void)removeObserver:(NSObject *)observer fromObjectsAtIndexes:(NSIndexSet *)indexes forKeyPath:(NSString *)keyPath; \
 /*! Key-Value Coding */ \
 - (id)valueForKey:(NSString *)key; \
 - (void)setValue:(id)value forKey:(NSString *)key; \
-/* NSKeyValueCoding informal protocol */ \
 - (id)valueForKeyPath:(NSString *)keyPath; \
 - (void)setValue:(id)value forKeyPath:(NSString *)keyPath; \
 - (NSDictionary *)dictionaryWithValuesForKeys:(TArray(NSString) *)keys; \
 - (void)setValuesForKeysWithDictionary:(NSDictionary *)keyedValues; \
-/*! Copying */ \
-- (TArray(Element))copy; \
-- (TArray(Element))copyWithZone:(NSZone *)zone; \
-- (TMutableArray(Element))mutableCopy; \
-- (TMutableArray(Element))mutableCopyWithZone:(NSZone *)zone; \
 @end \
-
-//TODO: NSSecureCoding
-//TODO: NSFastEnumeration
-//TODO: NSKeyValueCoding
 
 
