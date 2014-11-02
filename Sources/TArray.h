@@ -48,6 +48,7 @@ _TMutableArrayForward(Element) \
 /*! Finding Objects in an Array */ \
 - (NSUInteger)indexOfObject:(Element *)object; \
 - (NSUInteger)indexOfObject:(Element *)object inRange:(NSRange)range; \
+- (NSUInteger)indexOfObject:(Element *)object inSortedRange:(NSRange)range options:(NSBinarySearchingOptions)options usingComparator:(TArrayComparator_##Element)cmp; \
 - (NSUInteger)indexOfObjectIdenticalTo:(Element *)object; \
 - (NSUInteger)indexOfObjectIdenticalTo:(Element *)object inRange:(NSRange)range; \
 - (NSUInteger)indexOfObjectPassingTest:(TArrayPredicate_##Element)predicate; \
@@ -56,7 +57,6 @@ _TMutableArrayForward(Element) \
 - (NSIndexSet *)indexesOfObjectsPassingTest:(TArrayPredicate_##Element)predicate; \
 - (NSIndexSet *)indexesOfObjectsWithOptions:(NSEnumerationOptions)options passingTest:(TArrayPredicate_##Element)predicate; \
 - (NSIndexSet *)indexesOfObjectsAtIndexes:(NSIndexSet *)indexes options:(NSEnumerationOptions)options passingTest:(TArrayPredicate_##Element)predicate; \
-- (NSUInteger)indexOfObject:(Element *)object inSortedRange:(NSRange)range options:(NSBinarySearchingOptions)options usingComparator:(NSComparator)cmp; \
 /*! Sending Messages to Elements */ \
 - (void)makeObjectsPerformSelector:(SEL)aSelector; \
 - (void)makeObjectsPerformSelector:(SEL)aSelector withObject:(id)argument; \
@@ -78,7 +78,7 @@ _TMutableArrayForward(Element) \
 - (TArray(Element))arrayByAddingObjectsFromArray:(TArray(Element))otherArray; \
 - (TArray(Element))filteredArrayUsingPredicate:(NSPredicate *)predicate; \
 - (TArray(Element))subarrayWithRange:(NSRange)range; \
-/*! Sorting */ \
+/*! Sorting an Array */ \
 @property (readonly, copy) NSData *sortedArrayHint; \
 - (TArray(Element))sortedArrayUsingFunction:(TArraySortFunction_##Element)comparator context:(void *)context; \
 - (TArray(Element))sortedArrayUsingFunction:(TArraySortFunction_##Element)comparator context:(void *)context hint:(NSData *)hint; \
