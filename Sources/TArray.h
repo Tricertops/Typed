@@ -15,7 +15,7 @@ _TArrayForward(NSSortDescriptor)
 
 
 
-#define TArrayGenerate(Element) \
+#define _TArrayCreateProtocol(Element) \
 /*! Types */ \
 @class Element; \
 typedef BOOL (^TArrayPredicate_##Element)(Element *object, NSUInteger index, BOOL *stop); \
@@ -25,23 +25,6 @@ typedef NSInteger (*TArraySortFunction_##Element)(Element *, Element *, void *);
 _TMutableArrayForward(Element) \
 /*! NSArray Interface */ \
 @protocol TArray_##Element <NSObject, NSFastEnumeration, NSCopying, NSMutableCopying> \
-/*! Creating an Array */ \
-+ (TArray(Element))array; \
-+ (TArray(Element))arrayWithArray:(TArray(Element))array; \
-+ (TArray(Element))arrayWithContentsOfFile:(NSString *)path; \
-+ (TArray(Element))arrayWithContentsOfURL:(NSURL *)url; \
-+ (TArray(Element))arrayWithObject:(Element *)object; \
-+ (TArray(Element))arrayWithObjects:(const Element * __autoreleasing [])objects count:(NSUInteger)cnt; \
-+ (TArray(Element))arrayWithObjects:(Element *)firstObject, ... NS_REQUIRES_NIL_TERMINATION; \
-/*! Initializing an Array */ \
-- (TArray(Element))init; \
-- (TArray(Element))initWithArray:(TArray(Element))array; \
-- (TArray(Element))initWithArray:(TArray(Element))array copyItems:(BOOL)flag; \
-- (TArray(Element))initWithContentsOfFile:(NSString *)path; \
-- (TArray(Element))initWithContentsOfURL:(NSURL *)url; \
-- (TArray(Element))initWithObjects:(Element *)firstObject, ... NS_REQUIRES_NIL_TERMINATION; \
-- (TArray(Element))initWithObjects:(const Element * __autoreleasing [])objects count:(NSUInteger)cnt; \
-- (TArray(Element))initWithCoder:(NSCoder *)coder; \
 /*! Querying an Array */ \
 - (BOOL)containsObject:(Element *)object; \
 @property (readonly) NSUInteger count; \

@@ -14,6 +14,14 @@ typedef id _TObject;
 
 
 
+#pragma mark Generating
+
+#define TArrayGenerate(Element) \
+_TArrayCreateProtocol(Element) \
+_TMutableArrayCreateProtocol(Element) \
+
+
+
 #pragma mark - TArray
 
 typedef _TObject TArray;
@@ -42,5 +50,4 @@ typedef TArray TMutableArray;
 
 #define _TMutableArrayForward(Element)          @protocol TMutableArray_##Element;
 
-//TODO: TMutableArray
 
