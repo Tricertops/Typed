@@ -13,6 +13,9 @@
 
 
 TArrayGenerate(NSString)
+TArrayGenerate(NSDate)
+TArrayGenerate(NSNumber)
 TArrayGenerate(NSSortDescriptor)
+TArrayGenerate(NSURL)
 
 
