@@ -42,6 +42,15 @@ int main(int argc, const char * argv[]) {
 //        TArray(NSDate) dates = [strings arrayByAddingObject:@"Peach"];
 //        TArray(NSNumber) answers = [strings subarrayWithRange:NSMakeRange(0, 3)];
         
+        TMutableArray(NSString) mutableStrings = [strings mutableCopy];
+        
+        [mutableStrings addObject:@"Pineapple"];
+        [mutableStrings replaceObjectAtIndex:2 withObject:@"Lemon"];
+//        [mutableStrings addObject:@42];
+//        [mutableStrings replaceObjectAtIndex:2 withObject:websiteURL];
+        
     }
     return EXIT_SUCCESS;
 }
+
+

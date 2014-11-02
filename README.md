@@ -12,10 +12,11 @@ This project provides a way to declare `NSArray` typed for one specific class, s
 
 TArray
 ------
-_TArray_ is **drop-in replacement** for `NSArray` type, but it’s **parametrized** with element class. This declares an array of strings:
+_TArray_ and _TMutableArray_ are **drop-in replacements** for `NSArray` and `NSMutableArray` classes, but they are **parametrized** with element class. This declares an array of strings:
 
 ```objc
 TArray(NSString) strings = nil;
+TMutableArray(NSString) mutableStrings = nil;
 ```
 
 However, for every element class you plan to use, you’ll need to generate the typed version of _TArray_:
@@ -24,11 +25,10 @@ However, for every element class you plan to use, you’ll need to generate the 
 // Typically in .h file
 TArrayGenerate(NSString)
 ```
-
-Typed version fo the basic foundation classes are already provided.
+This will also generate _TMutableArray_ interface. Typed version fo the basic foundation classes are already provided.
 
 ### Creating
-Objects stored as _TArrays_ at runtime are in fact `NSArray` instances. The type-checking trick is made at **compile-time** using customized protocol interface.
+Objects stored as _TArrays_ at runtime are in fact `NSArray` instances (`NSMutableArray` for _TMutableArray_). The type-checking trick is made at **compile-time** using customized protocol interface.
 
 You can store any `NSArray` in variable of this type, but you have to **cast** it:
 
@@ -93,6 +93,18 @@ TArray(NSURL) URLs = ⚠️[strings copy];
 TArray(NSDate) dates = ⚠️[strings arrayByAddingObject:@"Peach"];
 TArray(NSNumber) answers = ⚠️[strings subarrayWithRange:NSMakeRange(0, 3)];
 ```
+
+Mutating typed array:
+
+```objc
+TMutableArray(NSString) mutableStrings = [strings mutableCopy];        
+[mutableStrings addObject:@"Pineapple"];
+[mutableStrings replaceObjectAtIndex:2 withObject:@"Lemon"];
+TMutableArray(NSDate) mutableDates = ⚠️[strings mutableCopy];        
+[mutableStrings addObject:⚠️@42];
+[mutableStrings replaceObjectAtIndex:2 withObject:⚠️websiteURL];
+```
+
 ---
 
 > More typed collection classes will be implemented in near future.
