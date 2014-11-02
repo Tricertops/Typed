@@ -17,7 +17,7 @@ typedef void (^TSetEnumerator_##Element)(Element *object, BOOL *stop); \
 typedef BOOL (^TSetPredicate_##Element)(Element *object, BOOL *stop); \
 _TArrayForward(Element) \
 _TMutableSetForward(Element) \
-/*! NSArray Interface */ \
+/*! NSSet Interface */ \
 @protocol TSet_##Element <_TProtocols> \
 /*! Initializing a Set */ \
 - (TSet(Element))initWithArray:(TArray(Element))array; \
