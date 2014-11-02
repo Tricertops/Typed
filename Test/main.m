@@ -9,23 +9,38 @@
 #import "Typed.h"
 
 
-TArrayGenerate(NSNumber)
-
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        TArray(NSString) names = TArrayMake(NSString, @"Martin", @"George");
-        TArray(NSNumber) counts = TArrayMake(NSNumber, @42 );
-        __unused NSArray *untyped = (NSArray *)names;
-        __unused NSString *me = names[0];
-        __unused NSNumber *ultimate = counts[0];
-        names = [names arrayByAddingObject:@"George"];
+        //! Creating array:
+        TArray(NSString) strings = TArrayMake(NSString, @"Apple", @"Orange", @"Pear");
+//        TArray(NSString) strings = TArrayMake(NSString, @"Apple", @42);
+//        TArray(NSString) strings = @[ @"Apple", @42 ];
+
+        //! Casting to NSArray:
+        NSArray *objects = (NSArray *)strings;
+//        NSArray *objects = strings;
         
+        //! Accessing objects:
+        NSString *apple = strings.firstObject;
+        NSString *orange = strings[1];
+//        NSURL *websiteURL = strings.firstObject;
+//        NSNumber *ultimateAnswer = strings[1];
         
-//        __unused NSNumber *notMe = names[0];
-//        __unused NSString *notUltimate = counts[0];
-//        counts = names;
+        //! Finding objects:
+        BOOL containsApple = [strings containsObject:@"Apple"];
+        NSUInteger orangeIndex = [strings indexOfObject:@"Orange"];
+//        BOOL containsUltimateAnswer = [strings containsObject:@42];
+//        NSUInteger websiteURLIndex = [strings indexOfObject:websiteURL];
+        
+        //! Deriving arrays:
+        strings = [strings copy];
+        strings = [strings arrayByAddingObject:@"Peach"];
+        strings = [strings subarrayWithRange:NSMakeRange(0, 3)];
+//        TArray(NSURL) URLs = [strings copy];
+//        TArray(NSDate) dates = [strings arrayByAddingObject:@"Peach"];
+//        TArray(NSNumber) answers = [strings subarrayWithRange:NSMakeRange(0, 3)];
         
     }
     return EXIT_SUCCESS;
