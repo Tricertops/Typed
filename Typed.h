@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Triceratops. All rights reserved.
 //
 
+#import "TDeclarations.h"
+
 #import "TArray.h"
 
 

@@ -23,6 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5B8F5BA61A064A7000253734 /* TDeclarations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDeclarations.h; sourceTree = "<group>"; };
 		5BDA3FC81A02364E00B3F9E0 /* Typed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Typed.h; sourceTree = "<group>"; };
 		5BDA3FD21A023EEB00B3F9E0 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BDA3FD41A023EEB00B3F9E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -44,6 +45,7 @@
 			isa = PBXGroup;
 			children = (
 				5BDA3FC81A02364E00B3F9E0 /* Typed.h */,
+				5B8F5BA61A064A7000253734 /* TDeclarations.h */,
 				5BFDBB3D1A06416100131D77 /* TArray.h */,
 				5BDA3FD31A023EEB00B3F9E0 /* Test */,
 				5BDA3FAB1A0235F700B3F9E0 /* Products */,

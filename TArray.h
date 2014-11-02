@@ -6,22 +6,8 @@
 //  Copyright (c) 2014 Triceratops. All rights reserved.
 //
 
-@import Foundation;
+#import "TDeclarations.h"
 
-
-
-typedef id TArray;
-#define TArray(Element)                 TArray<TArray_##Element>
-#define TArrayClass(Element, method)    ((TArray(Element))[NSArray method])
-#define TArrayMake(Element, ...) \
-(TArray(Element))({ \
-    Element * __autoreleasing objects[] = { __VA_ARGS__ }; \
-    TArrayClass(Element, arrayWithObjects:objects count:sizeof(objects) / sizeof(Element *));\
-})
-
-
-
-#define _TArrayForward(Element)  @protocol TArray_##Element;
 
 /* Used by TArrayGenerate() */
 _TArrayForward(NSString)
@@ -36,6 +22,7 @@ typedef BOOL (^TArrayPredicate_##Element)(Element *object, NSUInteger index, BOO
 typedef NSComparisonResult (^TArrayComparator_##Element)(Element *object1, Element *object2); \
 typedef void (^TArrayEnumerator_##Element)(Element *object, NSUInteger index, BOOL *stop); \
 typedef NSInteger (*TArraySortFunction_##Element)(Element *, Element *, void *); \
+_TMutableArrayForward(Element) \
 /*! NSArray Interface */ \
 @protocol TArray_##Element <NSObject> \
 /*! Creating an Array */ \
@@ -117,17 +104,19 @@ typedef NSInteger (*TArraySortFunction_##Element)(Element *, Element *, void *);
 /*! Key-Value Coding */ \
 - (id)valueForKey:(NSString *)key; \
 - (void)setValue:(id)value forKey:(NSString *)key; \
-- (BOOL)validateValue:(inout id *)ioValue forKey:(NSString *)inKey error:(out NSError **)outError; \
+/* NSKeyValueCoding informal protocol */ \
 - (id)valueForKeyPath:(NSString *)keyPath; \
 - (void)setValue:(id)value forKeyPath:(NSString *)keyPath; \
-- (BOOL)validateValue:(inout id *)ioValue forKeyPath:(NSString *)inKeyPath error:(out NSError **)outError; \
-- (NSDictionary *)dictionaryWithValuesForKeys:(NSArray *)keys; \
+- (NSDictionary *)dictionaryWithValuesForKeys:(TArray(NSString) *)keys; \
 - (void)setValuesForKeysWithDictionary:(NSDictionary *)keyedValues; \
+/*! Copying */ \
+- (TArray(Element))copy; \
+- (TArray(Element))copyWithZone:(NSZone *)zone; \
+- (TMutableArray(Element))mutableCopy; \
+- (TMutableArray(Element))mutableCopyWithZone:(NSZone *)zone; \
 @end \
 
-//TODO: NSCopying
 //TODO: NSSecureCoding
-//TODO: NSMutableCopying
 //TODO: NSFastEnumeration
 //TODO: NSKeyValueCoding
 
