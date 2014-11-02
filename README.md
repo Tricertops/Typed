@@ -6,7 +6,7 @@ This project provides a way to declare `NSArray` typed for one specific class, s
 
 ![Image](Image.png)
 
-**Project Status: In development.** _TArray_ is implemented and _TMutableArray_, _TDictionary_, _TSet_, and more are on the roadmap. Stay tuned.
+**Project Status: In development.** _TArray_ is implemented and _TDictionary_, _TSet_, and more are on the roadmap. Stay tuned.
 
 > Symbol ⚠️ in the following code examples marks the point, where Xcode emits warning about incompatible types. These warning can be turned into errors for better safety.
 
@@ -47,7 +47,7 @@ _TArray_ provides a convenience constructor with static type-checking:
 ```objc
 TArray(NSString) strings = TArrayMake(NSString, @"Apple", @"Orange", @"Pear");
 TArray(NSString) strings = TArrayMake(NSString, @"Apple", ⚠️@42);
-```objc
+```
 
 To use a typed array as `NSArray`, cast it again:
 
@@ -65,7 +65,7 @@ _TArray_ has **exact** the same interface as `NSArray` class, but all occurences
 - (TArray(NSString))arrayByAddingObjectsFromArray:(TArray(NSString))otherArray;
 ```
 
-Accessing objects from a typed array:
+Accessing objects in a typed array:
 
 ```objc
 NSString *apple = strings.firstObject;
