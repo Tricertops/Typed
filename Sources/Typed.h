@@ -13,10 +13,10 @@
 
 
 
-TArrayGenerate(NSString)
+TArrayGenerate(NSString) // Used by TArrayGenerate itself.
+TArrayGenerate(NSSortDescriptor) // Used by TArrayGenerate itself.
 TArrayGenerate(NSDate)
 TArrayGenerate(NSNumber)
-TArrayGenerate(NSSortDescriptor)
 TArrayGenerate(NSURL)
 
 

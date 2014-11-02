@@ -24,7 +24,7 @@ typedef void (^TArrayEnumerator_##Element)(Element *object, NSUInteger index, BO
 typedef NSInteger (*TArraySortFunction_##Element)(Element *, Element *, void *); \
 _TMutableArrayForward(Element) \
 /*! NSArray Interface */ \
-@protocol TArray_##Element <NSObject, NSFastEnumeration, NSCopying, NSMutableCopying> \
+@protocol TArray_##Element <_TProtocols> \
 /*! Querying an Array */ \
 - (BOOL)containsObject:(Element *)object; \
 @property (readonly) NSUInteger count; \

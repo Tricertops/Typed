@@ -27,6 +27,7 @@
 		5B8F5BA91A06619600253734 /* TDeclarations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDeclarations.h; sourceTree = "<group>"; };
 		5B8F5BAA1A06619600253734 /* Typed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Typed.h; sourceTree = "<group>"; };
 		5B8F5BAB1A06683400253734 /* TMutableArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMutableArray.h; sourceTree = "<group>"; };
+		5B8F5BAC1A06710C00253734 /* TSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSet.h; sourceTree = "<group>"; };
 		5BDA3FD21A023EEB00B3F9E0 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BDA3FD41A023EEB00B3F9E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -49,6 +50,7 @@
 				5B8F5BA91A06619600253734 /* TDeclarations.h */,
 				5B8F5BA81A06619600253734 /* TArray.h */,
 				5B8F5BAB1A06683400253734 /* TMutableArray.h */,
+				5B8F5BAC1A06710C00253734 /* TSet.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";

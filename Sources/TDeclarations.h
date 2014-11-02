@@ -11,6 +11,7 @@
 
 
 typedef id _TObject;
+#define _TProtocols     NSObject, NSFastEnumeration, NSCopying, NSMutableCopying, NSSecureCoding
 
 
 
@@ -49,5 +50,16 @@ typedef TArray TMutableArray;
 })
 
 #define _TMutableArrayForward(Element)          @protocol TMutableArray_##Element;
+
+
+
+#pragma mark - TSet
+
+typedef _TObject TSet;
+#define TSet(Element)               TSet<TSet_##Element>
+#define TSetClass(Element, method)  ((TMutableArray(Element))[NSMutableArray method])
+#define TSetMake(Element, ...)      ( (TSet(Element)) TSetClass(Element, setWithArray:TArray(Element, __VA_ARGS__)) )
+
+#define _TSetForward(Element)       @protocol TSet_##Element;
 
 
