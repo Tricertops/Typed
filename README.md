@@ -14,13 +14,13 @@ TArray
 ------
 _TArray_ is **drop-in replacement** for `NSArray` type, but it’s **parametrized** with element class. This declares an array of strings:
 
-```
+```objc
 TArray(NSString) strings = nil;
 ```
 
 However, for every element class you plan to use, you’ll need to generate the typed version of _TArray_:
 
-```
+```objc
 // Typically in .h file
 TArrayGenerate(NSString)
 ```
@@ -32,7 +32,7 @@ Objects stored as _TArrays_ at runtime are in fact `NSArray` instances. The type
 
 You can store any `NSArray` in variable of this type, but you have to **cast** it:
 
-```
+```objc
 TArray(NSString) strings = (TArray(NSString))objects;
 TArray(NSString) strings = (TArray(NSString))@[ @"Apple", @"Orange", @"Pear" ];
 TArray(NSString) strings = ⚠️objects;
@@ -42,16 +42,16 @@ TArray(NSString) strings = ⚠️(TArray(NSNumber))objects;
 
 Such casting makes **no** static (nor dynamic) type-checking, so you have to be sure the array contains only instances of given class.
 
-_TArray_ provides a convenience constructor that with static type-checking:
+_TArray_ provides a convenience constructor with static type-checking:
 
-```
+```objc
 TArray(NSString) strings = TArrayMake(NSString, @"Apple", @"Orange", @"Pear");
 TArray(NSString) strings = TArrayMake(NSString, @"Apple", ⚠️@42);
-```
+```objc
 
 To use a typed array as `NSArray`, cast it again:
 
-```
+```objc
 NSArray *objects = (NSArray *)strings;
 NSArray *objects = ⚠️strings;
 ```
@@ -59,7 +59,7 @@ NSArray *objects = ⚠️strings;
 ### Methods
 _TArray_ has **exact** the same interface as `NSArray` class, but all occurences of `id` are replaced with the class of the elements and `NSArray` types are replaced with a _TArray_ of the same type:
 
-```
+```objc
 - (NSString *)objectAtIndex:(NSUInteger)index;
 - (BOOL)containsObject:(NSString *)object;
 - (TArray(NSString))arrayByAddingObjectsFromArray:(TArray(NSString))otherArray;
@@ -67,7 +67,7 @@ _TArray_ has **exact** the same interface as `NSArray` class, but all occurences
 
 Accessing objects from a typed array:
 
-```
+```objc
 NSString *apple = strings.firstObject;
 NSString *orange = strings[1];
 NSURL *websiteURL = ⚠️strings.firstObject;
@@ -76,7 +76,7 @@ NSNumber *ultimateAnswer = ⚠️strings[1];
 
 Finding objects in a typed array:
 
-```
+```objc
 BOOL containsApple = [strings containsObject:@"Apple"];
 NSUInteger orangeIndex = [strings indexOfObject:@"Orange"];
 BOOL containsUltimateAnswer = [strings containsObject:⚠️@42];
@@ -85,7 +85,7 @@ NSUInteger websiteURLIndex = [strings indexOfObject:⚠️websiteURL];
 
 Deriving new typed arrays:
 
-```
+```objc
 strings = [strings copy];
 strings = [strings arrayByAddingObject:@"Peach"];
 strings = [strings subarrayWithRange:NSMakeRange(0, 3)];
