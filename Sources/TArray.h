@@ -30,10 +30,10 @@ _TMutableArrayForward(Element) \
 - (TArray(Element))initWithArray:(TArray(Element))array; \
 - (TArray(Element))initWithArray:(TArray(Element))array copyItems:(BOOL)flag; \
 - (TArray(Element))initWithContentsOfFile:(NSString *)path; \
-- (TArray(Element))initWithContentsOfURL:(NSURL *)url; \
+- (TArray(Element))initWithContentsOfURL:(NSURL *)URL; \
 - (TArray(Element))initWithObjects:(Element *)firstObject, ... NS_REQUIRES_NIL_TERMINATION; \
 - (TArray(Element))initWithObjects:(const Element * __autoreleasing [])objects count:(NSUInteger)count; \
-- (TArray(Element))initWithCoder:(NSCoder *)coder; \
+- (TArray(Element))initWithCoder:(NSCoder *)decoder; \
 /*! Querying an Array */ \
 - (BOOL)containsObject:(Element *)object; \
 @property (readonly) NSUInteger count; \
@@ -67,7 +67,7 @@ _TMutableArrayForward(Element) \
 - (Element *)firstObjectCommonWithArray:(TArray(Element))otherArray; \
 - (BOOL)isEqual:(TArray(Element))otherArray; \
 - (BOOL)isEqualToArray:(TArray(Element))otherArray; \
-/*! Copying */ \
+/*! Copying an Array */ \
 - (TArray(Element))copy; \
 - (TArray(Element))copyWithZone:(NSZone *)zone; \
 - (TMutableArray(Element))mutableCopy; \
