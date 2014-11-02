@@ -10,13 +10,14 @@
 
 #import "TArray.h"
 #import "TMutableArray.h"
+#import "TSet.h"
 
 
 
-TArrayGenerate(NSString) // Used by TArrayGenerate itself.
-TArrayGenerate(NSSortDescriptor) // Used by TArrayGenerate itself.
-TArrayGenerate(NSDate)
-TArrayGenerate(NSNumber)
-TArrayGenerate(NSURL)
+TGenerate(NSString) // Used by TArrayGenerate itself.
+TGenerate(NSSortDescriptor) // Used by TArrayGenerate itself.
+TGenerate(NSDate)
+TGenerate(NSNumber)
+TGenerate(NSURL)
 
 

@@ -25,6 +25,15 @@ typedef NSInteger (*TArraySortFunction_##Element)(Element *, Element *, void *);
 _TMutableArrayForward(Element) \
 /*! NSArray Interface */ \
 @protocol TArray_##Element <_TProtocols> \
+/*! Initializing an Array */ \
+- (TArray(Element))init; \
+- (TArray(Element))initWithArray:(TArray(Element))array; \
+- (TArray(Element))initWithArray:(TArray(Element))array copyItems:(BOOL)flag; \
+- (TArray(Element))initWithContentsOfFile:(NSString *)path; \
+- (TArray(Element))initWithContentsOfURL:(NSURL *)url; \
+- (TArray(Element))initWithObjects:(Element *)firstObject, ... NS_REQUIRES_NIL_TERMINATION; \
+- (TArray(Element))initWithObjects:(const Element * __autoreleasing [])objects count:(NSUInteger)count; \
+- (TArray(Element))initWithCoder:(NSCoder *)coder; \
 /*! Querying an Array */ \
 - (BOOL)containsObject:(Element *)object; \
 @property (readonly) NSUInteger count; \

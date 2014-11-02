@@ -17,9 +17,10 @@ typedef id _TObject;
 
 #pragma mark Generating
 
-#define TArrayGenerate(Element) \
+#define TGenerate(Element) \
 _TArrayCreateProtocol(Element) \
 _TMutableArrayCreateProtocol(Element) \
+_TSetCreateProtocol(Element) \
 
 
 
@@ -27,11 +28,11 @@ _TMutableArrayCreateProtocol(Element) \
 
 typedef _TObject TArray;
 #define TArray(Element)                 TArray<TArray_##Element>
-#define TArrayClass(Element, method)    ((TArray(Element))[NSArray method])
+#define TArrayAlloc(Element)            ( (TArray(Element)) [NSArray alloc] )
 #define TArrayMake(Element, ...) \
 (TArray(Element))({ \
     Element * __autoreleasing objects[] = { __VA_ARGS__ }; \
-    TArrayClass(Element, arrayWithObjects:objects count:sizeof(objects) / sizeof(Element *));\
+    [TArrayAlloc(Element) initWithObjects:objects count:sizeof(objects) / sizeof(Element *)]; \
 })
 
 #define _TArrayForward(Element)         @protocol TArray_##Element;
@@ -41,25 +42,25 @@ typedef _TObject TArray;
 #pragma mark TMutableArray
 
 typedef TArray TMutableArray;
-#define TMutableArray(Element)                  TMutableArray<TMutableArray_##Element>
-#define TMutableArrayClass(Element, method)     ((TMutableArray(Element))[NSMutableArray method])
+#define TMutableArray(Element)          TMutableArray<TMutableArray_##Element>
+#define TMutableArrayAlloc(Element)     ( (TMutableArray(Element)) [NSMutableArray alloc] )
 #define TMutableArrayMake(Element, ...) \
 (TMutableArray(Element))({ \
     Element * __autoreleasing objects[] = { __VA_ARGS__ }; \
-    TMutableArrayClass(Element, arrayWithObjects:objects count:sizeof(objects) / sizeof(Element *));\
+    [TMutableArrayAlloc(Element) initWithObjects:objects count:sizeof(objects) / sizeof(Element *)]; \
 })
 
-#define _TMutableArrayForward(Element)          @protocol TMutableArray_##Element;
+#define _TMutableArrayForward(Element)  @protocol TMutableArray_##Element;
 
 
 
 #pragma mark - TSet
 
 typedef _TObject TSet;
-#define TSet(Element)               TSet<TSet_##Element>
-#define TSetClass(Element, method)  ((TMutableArray(Element))[NSMutableArray method])
-#define TSetMake(Element, ...)      ( (TSet(Element)) TSetClass(Element, setWithArray:TArray(Element, __VA_ARGS__)) )
+#define TSet(Element)                   TSet<TSet_##Element>
+#define TSetAlloc(Element)              ( (TSet(Element)) [NSSet alloc] )
+#define TSetMake(Element, ...)          ( (TSet(Element)) TSetClass(Element, setWithArray:TArray(Element, __VA_ARGS__)) )
 
-#define _TSetForward(Element)       @protocol TSet_##Element;
+#define _TSetForward(Element)           @protocol TSet_##Element;
 
 

@@ -14,6 +14,15 @@
 @class Element; \
 /*! NSMutableArray Interface */ \
 @protocol TMutableArray_##Element <TArray_##Element> \
+/*! Initializing an Array */ \
+- (TMutableArray(Element))init; \
+- (TMutableArray(Element))initWithArray:(TArray(Element))array; \
+- (TMutableArray(Element))initWithArray:(TArray(Element))array copyItems:(BOOL)flag; \
+- (TMutableArray(Element))initWithContentsOfFile:(NSString *)path; \
+- (TMutableArray(Element))initWithContentsOfURL:(NSURL *)url; \
+- (TMutableArray(Element))initWithObjects:(Element *)firstObject, ... NS_REQUIRES_NIL_TERMINATION; \
+- (TMutableArray(Element))initWithObjects:(const Element * __autoreleasing [])objects count:(NSUInteger)cnt; \
+- (TMutableArray(Element))initWithCoder:(NSCoder *)coder; \
 /*! Adding Objects */ \
 - (void)addObject:(Element *)object; \
 - (void)addObjectsFromArray:(TArray(Element))otherArray; \
