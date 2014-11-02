@@ -59,7 +59,11 @@ typedef TArray TMutableArray;
 typedef _TObject TSet;
 #define TSet(Element)                   TSet<TSet_##Element>
 #define TSetAlloc(Element)              ( (TSet(Element)) [NSSet alloc] )
-#define TSetMake(Element, ...)          ( [TSetAlloc(Element) initWithArray:TArrayMake(Element, __VA_ARGS__)] )
+#define TSetMake(Element, ...) \
+(TSet(Element))({ \
+    Element * __autoreleasing objects[] = { __VA_ARGS__ }; \
+    [TSetAlloc(Element) initWithObjects:objects count:sizeof(objects) / sizeof(Element *)]; \
+})
 
 #define _TSetForward(Element)           @protocol TSet_##Element;
 

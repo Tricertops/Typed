@@ -60,7 +60,7 @@ TArray(NSString) strings = [TArrayAlloc(NSString) initWithObjects:@"Apple", nil]
 In addition, every typed collection provides a convenience constructor with static type-checking of every element:
 
 ```objc
-TArray(NSString) strings = TArrayMake(NSString, @"Apple", @"Orange", @"Pear");
+TSet(NSString) strings = TSetMake(NSString, @"Apple", @"Orange", @"Pear");
 ```
 
 ```objc
@@ -69,7 +69,7 @@ TArray(NSString) strings = TArrayMake(NSString, @"Apple", @42);
 ```
 
 ### Methods
-Typed collections has **exact** the same interface as their Foundation counterparts, but all occurences of `id` are **replaced with the class** of the elements. Also, all collection parameters (or return values) are **converted to typed** collections.
+Typed collections have **exact** the same interface as their Foundation counterparts, but all occurences of `id` are **replaced with the class** of the elements. Also, all collection parameters (or return values) are **converted to typed** collections.
 
 ```objc
 - (NSString *)objectAtIndex:(NSUInteger)index;
@@ -77,14 +77,14 @@ Typed collections has **exact** the same interface as their Foundation counterpa
 - (TArray(NSString))arrayByAddingObjectsFromArray:(TArray(NSString))otherArray;
 ```
 
-**There is no implementation.** The method calls will be dispatched to their untyped variants in runtime.
+**There is no implementation.** The method calls will be dispatched to their untyped variants at runtime.
 
 
 Typed Examples
 --------------
-> You will find actual code examples in `Test/main.m`.
+> You can find these code examples in `Test/main.m`.
 
-Accessing objects in a typed array:
+**Accessing** objects in a typed array:
 
 ```objc
 NSString *apple = strings.firstObject;
@@ -97,7 +97,7 @@ NSURL *websiteURL = strings.firstObject;
 NSNumber *ultimateAnswer = strings[1];
 ```
 
-Finding objects in a typed array:
+**Finding** objects in a typed array:
 
 ```objc
 BOOL containsApple = [strings containsObject:@"Apple"];
@@ -110,7 +110,7 @@ BOOL containsUltimateAnswer = [strings containsObject:@42];
 NSUInteger websiteURLIndex = [strings indexOfObject:websiteURL];
 ```
 
-Deriving new typed arrays:
+**Deriving** new typed arrays:
 
 ```objc
 strings = [strings copy];
@@ -125,7 +125,7 @@ TArray(NSDate) dates = [strings arrayByAddingObject:@"Peach"];
 TArray(NSNumber) answers = [strings subarrayWithRange:NSMakeRange(0, 3)];
 ```
 
-Mutating typed array:
+**Mutating** typed array:
 
 ```objc
 TMutableArray(NSString) mutableStrings = [strings mutableCopy];        
@@ -140,7 +140,7 @@ TMutableArray(NSDate) mutableDates = [strings mutableCopy];
 [mutableStrings replaceObjectAtIndex:2 withObject:websiteURL];
 ```
 
-Sorting typed set into typed array:
+**Sorting** typed set into typed array:
 
 ```objc
 NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES];
