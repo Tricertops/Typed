@@ -9,7 +9,6 @@
 #import "Typed.h"
 
 
-TArrayGenerate(NSString)
 TArrayGenerate(NSNumber)
 
 
@@ -22,6 +21,7 @@ int main(int argc, const char * argv[]) {
         __unused NSString *me = names[0];
         __unused NSNumber *ultimate = counts[0];
         names = [names arrayByAddingObject:@"George"];
+        
         
 //        __unused NSNumber *notMe = names[0];
 //        __unused NSString *notUltimate = counts[0];
