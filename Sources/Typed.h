@@ -8,9 +8,8 @@
 
 #import "TDeclarations.h"
 
-#import "TArray.h"
 #import "TMutableArray.h"
-#import "TSet.h"
+#import "TMutableSet.h"
 
 
 

@@ -35,7 +35,7 @@ int main(int argc, const char * argv[]) {
             BOOL containsApple = [strings containsObject:@"Apple"];
             NSUInteger orangeIndex = [strings indexOfObject:@"Orange"];
 //          BOOL containsUltimateAnswer = [strings containsObject:@42];
-//          NSUInteger websiteURLIndex = [strings indexOfObject:websiteURL];
+//          NSUInteger websiteURLIndex = [strings indexOfObject:@[]];
             
             //! Deriving arrays:
             strings = [strings copy];
@@ -51,7 +51,7 @@ int main(int argc, const char * argv[]) {
             [mutableStrings addObject:@"Pineapple"];
             [mutableStrings replaceObjectAtIndex:2 withObject:@"Lemon"];
 //          [mutableStrings addObject:@42];
-//          [mutableStrings replaceObjectAtIndex:2 withObject:websiteURL];
+//          [mutableStrings replaceObjectAtIndex:2 withObject:@[]];
         }
         
 #pragma mark - TSet
@@ -79,6 +79,14 @@ int main(int argc, const char * argv[]) {
             TArray(NSString) sorted = [strings sortedArrayUsingDescriptors:descriptors];
 //          strings = [strings setByAddingObject:@42];
 //          TArray(NSNumber) sorted = [strings sortedArrayUsingDescriptors:descriptors];
+            
+            //! Mutating set:
+            TMutableSet(NSString) mutableStrings = [strings mutableCopy];
+            
+            [mutableStrings addObject:@"Pineapple"];
+            [mutableStrings removeObject:@"Pear"];
+//          [mutableStrings addObject:@42];
+//          [mutableStrings removeObject:@[]];
             
         }
     }

@@ -27,6 +27,7 @@
 _TArrayCreateProtocol(Element) \
 _TMutableArrayCreateProtocol(Element) \
 _TSetCreateProtocol(Element) \
+_TMutableSetCreateProtocol(Element) \
 
 
 
