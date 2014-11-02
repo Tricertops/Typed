@@ -6,108 +6,152 @@ This project provides a way to declare `NSArray` typed for one specific class, s
 
 ![Image](Image.png)
 
-**Project Status: In development.** _TArray_ is implemented and _TDictionary_, _TSet_, and more are on the roadmap. Stay tuned.
+**Project Status: In development.** _TArray_ and _TSet_ are implemented and _TDictionary_, _TSet_, _TIndexSet_ and more are on the roadmap. Stay tuned.
 
-> Symbol ⚠️ in the following code examples marks the point, where Xcode emits warning about incompatible types. These warning can be turned into errors for better safety.
 
-TArray
-------
-_TArray_ and _TMutableArray_ are **drop-in replacements** for `NSArray` and `NSMutableArray` classes, but they are **parametrized** with element class. This declares an array of strings:
+Typed Collections
+-----------------
+_TArray_ and _TSet_ (with their mutable counterparts) are **parametrized drop-in replacements** for Foundation classes: `NSArray` and `NSSet` respectively. Their parameter is the element class you wish to store, for example: `TArray(NSString)`.
 
-```objc
-TArray(NSString) strings = nil;
-TMutableArray(NSString) mutableStrings = nil;
+However, for **every element class** you plan to use, you’ll need to generate the appropriate interfaces using a macro:
+
 ```
-
-However, for every element class you plan to use, you’ll need to generate the typed version of _TArray_:
-
-```objc
 // Typically in .h file
-TArrayGenerate(NSString)
+TGenerate(NSString)
 ```
-This will also generate _TMutableArray_ interface. Typed version fo the basic foundation classes are already provided.
 
-### Creating
-Objects stored as _TArrays_ at runtime are in fact `NSArray` instances (`NSMutableArray` for _TMutableArray_). The type-checking trick is made at **compile-time** using customized protocol interface.
+Typed version fo the basic foundation classes are already provided.
 
-You can store any `NSArray` in variable of this type, but you have to **cast** it:
+### Casting
+Objects stored as typed collections type are in fact Foundation collections (`NSArray` and `NSSet` respectively). The type-checking trick is made at **compile-time** using customized protocol interface.
 
-```objc
+You can store any `NSArray` in variable of _TArray_ type, but you have to **cast** it:
+
+```
 TArray(NSString) strings = (TArray(NSString))objects;
 TArray(NSString) strings = (TArray(NSString))@[ @"Apple", @"Orange", @"Pear" ];
-TArray(NSString) strings = ⚠️objects;
-TArray(NSString) strings = ⚠️@[ @"Apple", @"Orange" ];
-TArray(NSString) strings = ⚠️(TArray(NSNumber))objects;
+```
+
+When not doing so, the compiler will **emit a warning**:
+
+```
+// Warning: Incompatible pointer types 3×:
+TArray(NSString) strings = objects;
+TArray(NSString) strings = @[ @"Apple", @"Orange" ];
+TArray(NSString) strings = (TArray(NSNumber))objects;
 ```
 
 Such casting makes **no** static (nor dynamic) type-checking, so you have to be sure the array contains only instances of given class.
 
-_TArray_ provides a convenience constructor with static type-checking:
+You can use the typed collections in place of Foundation collections **without any casting**:
 
-```objc
-TArray(NSString) strings = TArrayMake(NSString, @"Apple", @"Orange", @"Pear");
-TArray(NSString) strings = TArrayMake(NSString, @"Apple", ⚠️@42);
+```
+TSet(NSString) strings = ...
+NSSet *objects = strings;
 ```
 
-To use a typed array as `NSArray`, cast it again:
+### Creating
+Every typed collection has an allocation macro, that returns a new instance, but you **need to call `-init...`** method just like when allocating manually. Initialization methods are already type-checked against the element class:
 
-```objc
-NSArray *objects = (NSArray *)strings;
-NSArray *objects = ⚠️strings;
+```
+TArray(NSString) strings = [TArrayAlloc(NSString) initWithObjects:@"Apple", nil];
+```
+
+In addition, every typed collection provides a convenience constructor with static type-checking of every element:
+
+```
+TArray(NSString) strings = TArrayMake(NSString, @"Apple", @"Orange", @"Pear");
+```
+
+```
+// Warning: Incompatible pointer types:
+TArray(NSString) strings = TArrayMake(NSString, @"Apple", @42);
 ```
 
 ### Methods
-_TArray_ has **exact** the same interface as `NSArray` class, but all occurences of `id` are replaced with the class of the elements and `NSArray` types are replaced with a _TArray_ of the same type:
+Typed collections has **exact** the same interface as their Foundation counterparts, but all occurences of `id` are **replaced with the class** of the elements. Also, all collection parameters (or return values) are **converted to typed** collections.
 
-```objc
+```
 - (NSString *)objectAtIndex:(NSUInteger)index;
 - (BOOL)containsObject:(NSString *)object;
 - (TArray(NSString))arrayByAddingObjectsFromArray:(TArray(NSString))otherArray;
 ```
 
+**There is no implementation.** The method calls will be dispatched to their untyped variants in runtime.
+
+
+Typed Examples
+--------------
+> You will find actual code examples in `Test/main.m`.
+
 Accessing objects in a typed array:
 
-```objc
+```
 NSString *apple = strings.firstObject;
 NSString *orange = strings[1];
-NSURL *websiteURL = ⚠️strings.firstObject;
-NSNumber *ultimateAnswer = ⚠️strings[1];
+```
+
+```
+// Warning: Incompatible pointer types 2×:
+NSURL *websiteURL = strings.firstObject;
+NSNumber *ultimateAnswer = strings[1];
 ```
 
 Finding objects in a typed array:
 
-```objc
+```
 BOOL containsApple = [strings containsObject:@"Apple"];
 NSUInteger orangeIndex = [strings indexOfObject:@"Orange"];
-BOOL containsUltimateAnswer = [strings containsObject:⚠️@42];
-NSUInteger websiteURLIndex = [strings indexOfObject:⚠️websiteURL];
+```
+
+```
+// Warning: Incompatible pointer types 2×:
+BOOL containsUltimateAnswer = [strings containsObject:@42];
+NSUInteger websiteURLIndex = [strings indexOfObject:websiteURL];
 ```
 
 Deriving new typed arrays:
 
-```objc
+```
 strings = [strings copy];
 strings = [strings arrayByAddingObject:@"Peach"];
 strings = [strings subarrayWithRange:NSMakeRange(0, 3)];
-TArray(NSURL) URLs = ⚠️[strings copy];
-TArray(NSDate) dates = ⚠️[strings arrayByAddingObject:@"Peach"];
-TArray(NSNumber) answers = ⚠️[strings subarrayWithRange:NSMakeRange(0, 3)];
+```
+
+```
+// Warning: Incompatible pointer types 3×:
+TArray(NSURL) URLs = [strings copy];
+TArray(NSDate) dates = [strings arrayByAddingObject:@"Peach"];
+TArray(NSNumber) answers = [strings subarrayWithRange:NSMakeRange(0, 3)];
 ```
 
 Mutating typed array:
 
-```objc
+```
 TMutableArray(NSString) mutableStrings = [strings mutableCopy];        
 [mutableStrings addObject:@"Pineapple"];
 [mutableStrings replaceObjectAtIndex:2 withObject:@"Lemon"];
-TMutableArray(NSDate) mutableDates = ⚠️[strings mutableCopy];        
-[mutableStrings addObject:⚠️@42];
-[mutableStrings replaceObjectAtIndex:2 withObject:⚠️websiteURL];
 ```
 
----
+```
+// Warning: Incompatible pointer types 3×:
+TMutableArray(NSDate) mutableDates = [strings mutableCopy];        
+[mutableStrings addObject:@42];
+[mutableStrings replaceObjectAtIndex:2 withObject:websiteURL];
+```
 
-> More typed collection classes will be implemented in near future.
+Sorting typed set into typed array:
+
+```
+NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES];
+TArray(NSSortDescriptor) descriptors = TArrayMake(NSSortDescriptor, descriptor);
+TArray(NSString) sorted = [strings sortedArrayUsingDescriptors:descriptors];
+```
+
+```
+// Warning: Incompatible pointer types:
+TArray(NSNumber) sorted = [strings sortedArrayUsingDescriptors:descriptors];
+```
 
 ---
 The MIT License (MIT)  

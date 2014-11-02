@@ -13,42 +13,73 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        //! Creating array:
-        TArray(NSString) strings = TArrayMake(NSString, @"Apple", @"Orange", @"Pear");
-//        TArray(NSString) strings = TArrayMake(NSString, @"Apple", @42);
-//        TArray(NSString) strings = @[ @"Apple", @42 ];
+#pragma mark - TArray
+        {
+            //! Creating:
+            TArray(NSString) strings = TArrayMake(NSString, @"Apple", @"Orange", @"Pear");
+            strings = [TArrayAlloc(NSString) initWithArray:strings];
+//          TArray(NSString) strings = TArrayMake(NSString, @"Apple", @42);
+            
+            //! Casting to NSArray:
+            NSArray *objects = (NSArray *)strings;
+//          TArray(NSString) strings = [NSArray new];
+            
+            //! Accessing objects:
+            NSString *apple = strings.firstObject;
+            NSString *orange = strings[1];
+//          NSURL *websiteURL = strings.firstObject;
+//          NSNumber *ultimateAnswer = strings[1];
+            
+            //! Finding objects:
+            BOOL containsApple = [strings containsObject:@"Apple"];
+            NSUInteger orangeIndex = [strings indexOfObject:@"Orange"];
+//          BOOL containsUltimateAnswer = [strings containsObject:@42];
+//          NSUInteger websiteURLIndex = [strings indexOfObject:websiteURL];
+            
+            //! Deriving arrays:
+            strings = [strings copy];
+            strings = [strings arrayByAddingObject:@"Peach"];
+            strings = [strings subarrayWithRange:NSMakeRange(0, 3)];
+//          TArray(NSURL) URLs = [strings copy];
+//          TArray(NSDate) dates = [strings arrayByAddingObject:@"Peach"];
+//          TArray(NSNumber) answers = [strings subarrayWithRange:NSMakeRange(0, 3)];
+            
+            //! Mutating array:
+            TMutableArray(NSString) mutableStrings = [strings mutableCopy];
+            
+            [mutableStrings addObject:@"Pineapple"];
+            [mutableStrings replaceObjectAtIndex:2 withObject:@"Lemon"];
+//          [mutableStrings addObject:@42];
+//          [mutableStrings replaceObjectAtIndex:2 withObject:websiteURL];
+        }
+        
+#pragma mark - TSet
+        {
+            //! Creating:
+            TSet(NSString) strings = TSetMake(NSString, @"Apple", @"Orange", @"Pear");
+            strings = [TSetAlloc(NSString) initWithArray:[strings allObjects]];
+//          TSet(NSString) strings = TSetMake(NSString, @"Apple", @42);
 
-        //! Casting to NSArray:
-        NSArray *objects = (NSArray *)strings;
-//        NSArray *objects = strings;
-        
-        //! Accessing objects:
-        NSString *apple = strings.firstObject;
-        NSString *orange = strings[1];
-//        NSURL *websiteURL = strings.firstObject;
-//        NSNumber *ultimateAnswer = strings[1];
-        
-        //! Finding objects:
-        BOOL containsApple = [strings containsObject:@"Apple"];
-        NSUInteger orangeIndex = [strings indexOfObject:@"Orange"];
-//        BOOL containsUltimateAnswer = [strings containsObject:@42];
-//        NSUInteger websiteURLIndex = [strings indexOfObject:websiteURL];
-        
-        //! Deriving arrays:
-        strings = [strings copy];
-        strings = [strings arrayByAddingObject:@"Peach"];
-        strings = [strings subarrayWithRange:NSMakeRange(0, 3)];
-//        TArray(NSURL) URLs = [strings copy];
-//        TArray(NSDate) dates = [strings arrayByAddingObject:@"Peach"];
-//        TArray(NSNumber) answers = [strings subarrayWithRange:NSMakeRange(0, 3)];
-        
-        TMutableArray(NSString) mutableStrings = [strings mutableCopy];
-        
-        [mutableStrings addObject:@"Pineapple"];
-        [mutableStrings replaceObjectAtIndex:2 withObject:@"Lemon"];
-//        [mutableStrings addObject:@42];
-//        [mutableStrings replaceObjectAtIndex:2 withObject:websiteURL];
-        
+            //! Casting to NSSet:
+            NSSet *objects = strings;
+//          strings = [NSSet new];
+            
+            //! Accessing objects:
+            NSString *fruit = [strings anyObject];
+            TArray(NSString) fruits = [strings allObjects];
+//          NSNumber *answer = [strings anyObject];
+//          TArray(NSURL) websiteURLs = [strings allObjects];
+            
+            //! Deriving collections:
+            NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES];
+            TArray(NSSortDescriptor) descriptors = TArrayMake(NSSortDescriptor, descriptor);
+            
+            strings = [strings setByAddingObject:@"Peach"];
+            TArray(NSString) sorted = [strings sortedArrayUsingDescriptors:descriptors];
+//          strings = [strings setByAddingObject:@42];
+//          TArray(NSNumber) sorted = [strings sortedArrayUsingDescriptors:descriptors];
+            
+        }
     }
     return EXIT_SUCCESS;
 }
