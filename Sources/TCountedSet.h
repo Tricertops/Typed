@@ -12,8 +12,19 @@
 
 #define _TCountedSetCreateProtocol(Element) \
 @class Element; \
-/*! NSMutableSet Interface */ \
+/*! NSCountedSet Interface */ \
 @protocol TCountedSet_##Element <TMutableSet_##Element> \
+/*! Initializing a Set */ \
+- (TCountedSet(Element))initWithArray:(TArray(Element))array; \
+- (TCountedSet(Element))initWithObjects:(Element *)firstObject, ... NS_REQUIRES_NIL_TERMINATION; \
+- (TCountedSet(Element))initWithObjects:(const Element * __autoreleasing [])objects count:(NSUInteger)count; \
+- (TCountedSet(Element))initWithSet:(TSet(Element))set; \
+- (TCountedSet(Element))initWithSet:(TSet(Element))set copyItems:(BOOL)flag; \
+- (TCountedSet(Element))init; \
+- (TCountedSet(Element))initWithCoder:(NSCoder *)decoder; \
+- (TCountedSet(Element))initWithCapacity:(NSUInteger)capacity; \
+/*! Examining a Counted Set */ \
+- (NSUInteger)countForObject:(Element *)object; \
 @end
 
 
