@@ -6,24 +6,22 @@
 //  Copyright (c) 2014 Triceratops. All rights reserved.
 //
 
-//TODO: Prevet importing multiple times.
 #import "TDeclarations.h"
 
 #import "TMutableArray.h"
 #import "TMutableSet.h"
-#import "TOrderedSet.h"
-//TODO: TMutableOrderedSet
+#import "TMutableOrderedSet.h"
+//TODO: TCountedSet
 //TODO: TDictionary
 //TODO: TCache
 
-//TODO: TWeakArray as weakObjectsPointerArray
-//TODO: TWeakSet as weakObjectsHashTable
-//TODO: TWeakKeysDictionary as weakToStrongObjectsMapTable
-//TODO: TWeakValuesDictionary as strongToWeakObjectsMapTable
-//TODO: TWeakDictionary as weakToWeakObjectsMapTable
+//TODO: TPointerArray (Strong or Weak)
+//TODO: THashTable (Strong or Weak)
+//TODO: TMapTable (Strong or Weak Keys, Strong or Weak Values)
 
 
 
+TGenerate(NSObject) // Used by TArrayGenerate itself.
 TGenerate(NSString) // Used by TArrayGenerate itself.
 TGenerate(NSSortDescriptor) // Used by TArrayGenerate itself.
 TGenerate(NSDate)

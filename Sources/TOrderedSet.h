@@ -59,10 +59,10 @@ _TSetForward(Element) \
 - (void)enumerateObjectsWithOptions:(NSEnumerationOptions)options usingBlock:(TArrayEnumerator_##Element)block; \
 - (void)enumerateObjectsAtIndexes:(NSIndexSet *)indexes options:(NSEnumerationOptions)options usingBlock:(TArrayEnumerator_##Element)block; \
 /*! Comparing Sets */ \
-- (BOOL)isEqual:(TOrderedSet(Element))otherOrderedSet; \
-- (BOOL)isEqualToOrderedSet:(TOrderedSet(Element))otherOrderedSet; \
-- (BOOL)isSubsetOfOrderedSet:(TOrderedSet(Element))otherOrderedSet; \
-- (BOOL)intersectsOrderedSet:(TOrderedSet(Element))otherOrderedSet; \
+- (BOOL)isEqual:(TOrderedSet(Element))other; \
+- (BOOL)isEqualToOrderedSet:(TOrderedSet(Element))other; \
+- (BOOL)isSubsetOfOrderedSet:(TOrderedSet(Element))other; \
+- (BOOL)intersectsOrderedSet:(TOrderedSet(Element))other; \
 - (BOOL)isSubsetOfSet:(TSet(Element))set; \
 - (BOOL)intersectsSet:(TSet(Element))set; \
 /*! Copying an Ordered Set */ \

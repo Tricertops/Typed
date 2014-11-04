@@ -29,6 +29,7 @@ _TMutableArrayCreateProtocol(Element) \
 _TSetCreateProtocol(Element) \
 _TMutableSetCreateProtocol(Element) \
 _TOrderedSetCreateProtocol(Element) \
+_TMutableOrderedSetCreateProtocol(Element) \
 
 
 
@@ -74,5 +75,14 @@ _TOrderedSetCreateProtocol(Element) \
 #define TOrderedSetAlloc(Element)       ( (TOrderedSet(Element)) [NSOrderedSet alloc] )
 #define TOrderedSetMake(Element, ...)   _TCollectionMake(TOrderedSet, Element, __VA_ARGS__)
 #define _TOrderedSetForward(Element)    @protocol TOrderedSet_##Element;
+
+
+
+#pragma mark - TMutableOrderedSet
+
+#define TMutableOrderedSet(Element)             _TCollection<TMutableOrderedSet_##Element>
+#define TMutableOrderedSetAlloc(Element)        ( (TMutableOrderedSet(Element)) [NSMutableOrderedSet alloc] )
+#define TMutableOrderedSetMake(Element, ...)    _TCollectionMake(TMutableOrderedSet, Element, __VA_ARGS__)
+#define _TMutableOrderedSetForward(Element)     @protocol TMutableOrderedSet_##Element;
 
 
