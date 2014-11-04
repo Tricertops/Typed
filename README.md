@@ -2,16 +2,14 @@ Statically typed Objective-C collections
 =============================
 Do you like typed arrays in Swift (or other languages)? Would you like to have them in Objective-C? Now you can.
 
-This project provides a way to declare `NSArray` typed for one specific class, so all methods you call will be type-checked by the compiler.
-
 ![Image](Image.png)
 
-**Project Status: In development.** _TArray_ and _TSet_ are implemented and _TDictionary_, _TSet_, _TIndexSet_ and more are on the roadmap. Stay tuned.
+**Project Status: In development.** _TArray_, _TSet_, and _TOrderedSet_ are implemented, _TDictionary_, _TCache_ and more are on the roadmap. Stay tuned.
 
 
 Typed Collections
 -----------------
-_TArray_ and _TSet_ (with their mutable counterparts) are **parametrized drop-in replacements** for Foundation classes: `NSArray` and `NSSet` respectively. Their parameter is the element class you wish to store, for example: `TArray(NSString)`.
+_TArray_, _TSet_, and _TOrderedSet_ (with their mutable counterparts) are **parametrized drop-in replacements** for Foundation classes: `NSArray`, `NSSet`, and `NSOrderedSet` respectively. Their parameter is the element class you wish to store, for example: `TArray(NSString)`.
 
 However, for **every element class** you plan to use, you’ll need to generate the appropriate interfaces using a macro:
 
@@ -23,7 +21,7 @@ TGenerate(NSString)
 Typed version fo the basic foundation classes are already provided.
 
 ### Casting
-Objects stored as typed collections type are in fact Foundation collections (`NSArray` and `NSSet` respectively). The type-checking trick is made at **compile-time** using customized protocol interface.
+Objects stored as typed collections type are in fact Foundation collections (`NSArray`, `NSSet`, or `NSOrderedSet` respectively). The type-checking trick is made at **compile-time** using customized protocol interface.
 
 You can store any `NSArray` in variable of _TArray_ type, but you have to **cast** it:
 
