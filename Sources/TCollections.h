@@ -1,15 +1,15 @@
 //
-//  TDeclarations.h
+//  TCollections.h
 //  Typed
 //
 //  Created by Martin Kiss on 2.11.14.
 //  Copyright (c) 2014 Triceratops. All rights reserved.
 //
 
+#pragma mark -
+#pragma mark TCollection
 
-#pragma mark - _TCollection
-
-#define _TCollection id
+#define _TCollection    id
 #define _TProtocols     NSObject, NSFastEnumeration, NSCopying, NSMutableCopying, NSSecureCoding
 
 #define _TCollectionMake(Type, Element, ...) \
@@ -21,7 +21,7 @@
 
 
 
-#pragma mark - Generating
+#pragma mark Generating
 
 #define TGenerate(Element) \
 _TArrayCreateProtocol(Element) \
@@ -34,7 +34,8 @@ _TMutableOrderedSetCreateProtocol(Element) \
 
 
 
-#pragma mark - TArray
+#pragma mark -
+#pragma mark TArray
 
 #define TArray(Element)                 _TCollection<TArray_##Element>
 #define TArrayAlloc(Element)            ( (TArray(Element)) [NSArray alloc] )
@@ -52,7 +53,8 @@ _TMutableOrderedSetCreateProtocol(Element) \
 
 
 
-#pragma mark - TSet
+#pragma mark -
+#pragma mark TSet
 
 #define TSet(Element)                   _TCollection<TSet_##Element>
 #define TSetAlloc(Element)              ( (TSet(Element)) [NSSet alloc] )
@@ -61,7 +63,7 @@ _TMutableOrderedSetCreateProtocol(Element) \
 
 
 
-#pragma mark - TMutableSet
+#pragma mark TMutableSet
 
 #define TMutableSet(Element)            _TCollection<TMutableSet_##Element>
 #define TMutableSetAlloc(Element)       ( (TMutableSet(Element)) [NSMutableSet alloc] )
@@ -70,7 +72,7 @@ _TMutableOrderedSetCreateProtocol(Element) \
 
 
 
-#pragma mark - TCountedSet
+#pragma mark TCountedSet
 
 #define TCountedSet(Element)            _TCollection<TCountedSet_##Element>
 #define TCountedSetAlloc(Element)       ( (TCountedSet(Element)) [NSCountedSet alloc] )
@@ -79,7 +81,8 @@ _TMutableOrderedSetCreateProtocol(Element) \
 
 
 
-#pragma mark - TOrderedSet
+#pragma mark -
+#pragma mark TOrderedSet
 
 #define TOrderedSet(Element)            _TCollection<TOrderedSet_##Element>
 #define TOrderedSetAlloc(Element)       ( (TOrderedSet(Element)) [NSOrderedSet alloc] )
@@ -88,7 +91,7 @@ _TMutableOrderedSetCreateProtocol(Element) \
 
 
 
-#pragma mark - TMutableOrderedSet
+#pragma mark TMutableOrderedSet
 
 #define TMutableOrderedSet(Element)             _TCollection<TMutableOrderedSet_##Element>
 #define TMutableOrderedSetAlloc(Element)        ( (TMutableOrderedSet(Element)) [NSMutableOrderedSet alloc] )
