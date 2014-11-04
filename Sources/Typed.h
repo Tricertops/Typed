@@ -10,8 +10,8 @@
 
 #import "TMutableArray.h"
 #import "TMutableSet.h"
+#import "TCountedSet.h"
 #import "TMutableOrderedSet.h"
-//TODO: TCountedSet
 //TODO: TDictionary
 //TODO: TCache
 

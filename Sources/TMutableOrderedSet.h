@@ -14,7 +14,7 @@
 /*! Types */ \
 @class Element; \
 /*! NSMutableOrderedSet Interface */ \
-@protocol TMutableOrderedSet_##Element <_TProtocols> \
+@protocol TMutableOrderedSet_##Element <TOrderedSet_##Element> \
 /*! Initializing an Ordered Set */ \
 - (TMutableOrderedSet(Element))initWithArray:(TArray(Element))array; \
 - (TMutableOrderedSet(Element))initWithArray:(TArray(Element))set copyItems:(BOOL)flag; \

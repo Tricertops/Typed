@@ -28,6 +28,7 @@ _TArrayCreateProtocol(Element) \
 _TMutableArrayCreateProtocol(Element) \
 _TSetCreateProtocol(Element) \
 _TMutableSetCreateProtocol(Element) \
+_TCountedSetCreateProtocol(Element) \
 _TOrderedSetCreateProtocol(Element) \
 _TMutableOrderedSetCreateProtocol(Element) \
 
@@ -66,6 +67,15 @@ _TMutableOrderedSetCreateProtocol(Element) \
 #define TMutableSetAlloc(Element)       ( (TMutableSet(Element)) [NSMutableSet alloc] )
 #define TMutableSetMake(Element, ...)   _TCollectionMake(TMutableSet, Element, __VA_ARGS__)
 #define _TMutableSetForward(Element)    @protocol TMutableSet_##Element;
+
+
+
+#pragma mark - TCountedSet
+
+#define TCountedSet(Element)            _TCollection<TCountedSet_##Element>
+#define TCountedSetAlloc(Element)       ( (TCountedSet(Element)) [NSCountedSet alloc] )
+#define TCountedSetMake(Element, ...)   _TCollectionMake(TCountedSet, Element, __VA_ARGS__)
+#define _TCountedSetForward(Element)    @protocol TCountedSet_##Element;
 
 
 
