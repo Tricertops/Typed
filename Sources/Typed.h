@@ -13,7 +13,7 @@
 #import "TMutableSet.h"
 #import "TCountedSet.h"
 #import "TMutableOrderedSet.h"
-#import "TDictionary.h"
+#import "TMutableDictionary.h"
 //TODO: TCache
 
 //TODO: TPointerArray (Strong or Weak)

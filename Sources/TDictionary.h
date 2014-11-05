@@ -20,6 +20,7 @@ _TArrayForward(Key) \
 _TArrayForward(Value) \
 _TSetForward(Key) \
 _TDictionaryForward(NSString, Value); \
+_TMutableDictionaryForward(Key, Value); \
 /*! NSDictionary Interface */ \
 @protocol TDictionary_##Key##_##Value <_TAssociativeProtocols> \
 - (TDictionary(Key, Value))self; \
@@ -52,8 +53,8 @@ _TDictionaryForward(NSString, Value); \
 /*! Copying a Dictionary */ \
 - (TDictionary(Key, Value))copy; \
 - (TDictionary(Key, Value))copyWithZone:(NSZone *)zone; \
-- (TDictionary(Key, Value))mutableCopy; \
-- (TDictionary(Key, Value))mutableCopyWithZone:(NSZone *)zone; \
+- (TMutableDictionary(Key, Value))mutableCopy; \
+- (TMutableDictionary(Key, Value))mutableCopyWithZone:(NSZone *)zone; \
 /*! Sorting a Dictionary */ \
 - (TArray(Key))keysSortedByValueUsingSelector:(SEL)comparator; \
 - (TArray(Key))keysSortedByValueUsingComparator:(TComparator_##Value)comparator; \
