@@ -37,6 +37,7 @@
 		5BDA3FD41A023EEB00B3F9E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5BFA59181A0A1865003027A8 /* TDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDictionary.h; sourceTree = "<group>"; };
 		5BFA59191A0A3978003027A8 /* TMutableDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMutableDictionary.h; sourceTree = "<group>"; };
+		5BFA591A1A0A3ECA003027A8 /* TCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCache.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +66,7 @@
 				5B8F5BC31A08D07900253734 /* TAssociativeCollections.h */,
 				5BFA59181A0A1865003027A8 /* TDictionary.h */,
 				5BFA59191A0A3978003027A8 /* TMutableDictionary.h */,
+				5BFA591A1A0A3ECA003027A8 /* TCache.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";

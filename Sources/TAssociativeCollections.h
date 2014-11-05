@@ -15,8 +15,9 @@
 #define TAssociativeGenerate(Key, Value) \
 _TDictionaryCreateProtocol(Key, Value) \
 _TMutableDictionaryCreateProtocol(Key, Value) \
+_TCacheCreateProtocol(Key, Value) \
 
-#define TPair(Key, Value)               _associative[Key] = Value
+#define TPair(Key, Value)               [_associative setObject:(Value) forKey:(Key)]
 #define _TAssociativeCollectionMake(MutableType, Key, Value, Pairs...) \
 (MutableType(Key, Value))({ \
     MutableType(Key, Value) _associative = [MutableType##Alloc(Key, Value) init];\
@@ -42,5 +43,14 @@ _TMutableDictionaryCreateProtocol(Key, Value) \
 #define TMutableDictionaryAlloc(Key, Value)             ( (TMutableDictionary(Key, Value)) [NSMutableDictionary alloc] )
 #define TMutableDictionaryMake(Key, Value, TPairs...)   _TAssociativeCollectionMake(TMutableDictionary, Key, Value, TPairs)
 #define _TMutableDictionaryForward(Key, Value)          @protocol TMutableDictionary_##Key##_##Value;
+
+
+
+#pragma mark - TCache
+
+#define TCache(Key, Value)                  _TAssociativeCollection<TCache_##Key##_##Value>
+#define TCacheAlloc(Key, Value)             ( (TCache(Key, Value)) [NSCache alloc] )
+#define TCacheMake(Key, Value, TPairs...)   _TAssociativeCollectionMake(TCache, Key, Value, TPairs)
+#define _TCacheForward(Key, Value)          @protocol TCache_##Key##_##Value;
 
 

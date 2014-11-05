@@ -28,4 +28,6 @@
 - (NSUInteger)countForObject:(Element *)object; \
 @end
 
+//TODO: What returns -copy and -mutableCopy?
+
 
