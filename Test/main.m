@@ -87,10 +87,59 @@ int main(int argc, const char * argv[]) {
             [mutableStrings removeObject:@"Pear"];
 //          [mutableStrings addObject:@42];
 //          [mutableStrings removeObject:@[]];
+        }
+#pragma mark - TDictionary
+        {
+            //! Creating:
+            TDictionary(NSString, NSNumber) fruitCounts = [TDictionaryAlloc(NSString, NSNumber) initWithObjectsAndKeys:
+                                                      @5, @"Apple",
+                                                      @2, @"Orange",
+                                                      @3, @"Pear",
+                                                      nil];
+            //! Casting to NSDictionary:
+            NSDictionary *dictionary = fruitCounts;
+//            fruitCounts = [NSDictionary new];
             
+            //! Lookup:
+            NSUInteger apples = fruitCounts[@"Apple"].unsignedIntegerValue;
+//            NSURL *website = fruitCounts[@"Apple"];
+//            NSNumber *answer = fruitCounts[@42];
+            
+            //! Accessing keys and values:
+            TArray(NSString) fruits = fruitCounts.allKeys;
+            TArray(NSNumber) counts = fruitCounts.allValues;
+//            TArray(NSURL) websites = fruitCounts.allKeys;
+//            TArray(NSString) titles = fruitCounts.allValues;
         }
     }
     return EXIT_SUCCESS;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

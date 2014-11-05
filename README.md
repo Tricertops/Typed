@@ -4,24 +4,25 @@ Do you like typed arrays in Swift (or other languages)? Would you like to have t
 
 ![Image](Image.png)
 
-**Project Status: In development.** _TArray_, _TSet_, and _TOrderedSet_ are implemented, _TDictionary_, _TCache_ and more are on the roadmap. Stay tuned.
+**Project Status: In development.** _TArray_, _TSet_, _TOrderedSet_, and _TDictionary_ are implemented, _TCache_ and more are on the roadmap. Stay tuned.
 
 
 Typed Collections
 -----------------
-_TArray_, _TSet_, and _TOrderedSet_ (with their mutable counterparts) are **parametrized drop-in replacements** for Foundation classes: `NSArray`, `NSSet`, and `NSOrderedSet` respectively. Their parameter is the element class you wish to store, for example: `TArray(NSString)`.
+_TArray_, _TSet_, _TOrderedSet_, and _TDictionary_ (with their mutable counterparts) are **parametrized drop-in replacements** for Foundation classes: `NSArray`, `NSSet`, `NSOrderedSet`, and `NSDictionary` respectively. Their parameter is the element class you wish to store, for example `TArray(NSString)`. Associative collections take two parameters, one for keys and one for values, for example `TDictionary(NSString, NSURL)`.
 
-However, for **every element class** you plan to use, you’ll need to generate the appropriate interfaces using a macro:
+However, for **every element class** or association class pair you plan to use, you’ll need to generate the appropriate interfaces using a macro:
 
 ```objc
 // Typically in .h file
 TGenerate(NSString)
+TAssociativeGenerate(NSString, NSURL)
 ```
 
 Typed version fo the basic foundation classes are already provided.
 
 ### Casting
-Objects stored as typed collections type are in fact Foundation collections (`NSArray`, `NSSet`, or `NSOrderedSet` respectively). The type-checking trick is made at **compile-time** using customized protocol interface.
+Objects stored as typed collections type are in fact Foundation collections (`NSArray`, `NSSet`, `NSDictionary`, …). The type-checking trick is made at **compile-time** using customized protocol interface.
 
 You can store any `NSArray` in variable of _TArray_ type, but you have to **cast** it:
 
@@ -67,12 +68,18 @@ TArray(NSString) strings = TArrayMake(NSString, @"Apple", @42);
 ```
 
 ### Methods
-Typed collections have **exact** the same interface as their Foundation counterparts, but all occurences of `id` are **replaced with the class** of the elements. Also, all collection parameters (or return values) are **converted to typed** collections.
+Typed collections have **exact** the same interface as their Foundation counterparts, but all occurences of `id` are **replaced with the class** of the elements (or associative keys and values). Also, all collection parameters (or return values) are **converted to typed** collections.
 
 ```objc
 - (NSString *)objectAtIndex:(NSUInteger)index;
 - (BOOL)containsObject:(NSString *)object;
 - (TArray(NSString))arrayByAddingObjectsFromArray:(TArray(NSString))otherArray;
+```
+
+```objc
+- (NSURL *)objectForKey:(NSString *)key;
+@property (readonly, copy) TArray(NSURL) allValues;
+- (TArray(NSString))allKeysForObject:(NSURL *)object;
 ```
 
 **There is no implementation.** The method calls will be dispatched to their untyped variants at runtime.
@@ -149,6 +156,18 @@ TArray(NSString) sorted = [strings sortedArrayUsingDescriptors:descriptors];
 ```objc
 // Warning: Incompatible pointer types:
 TArray(NSNumber) sorted = [strings sortedArrayUsingDescriptors:descriptors];
+```
+
+**Lookup** in a typed dictionary:
+
+```objc
+NSInteger apples = fruitCounts[@"Apple"].integerValue;
+```
+
+```objc
+// Warning: Incompatible pointer types 2×:
+NSURL *website = fruitCounts[@"Apple"];
+NSNumber *answer = fruitCounts[@42];
 ```
 
 ---
