@@ -7,12 +7,13 @@
 //
 
 #import "TCollections.h"
+#import "TAssociativeCollections.h"
 
 #import "TMutableArray.h"
 #import "TMutableSet.h"
 #import "TCountedSet.h"
 #import "TMutableOrderedSet.h"
-//TODO: TDictionary
+#import "TDictionary.h"
 //TODO: TCache
 
 //TODO: TPointerArray (Strong or Weak)
@@ -27,5 +28,10 @@ TGenerate(NSSortDescriptor) // Used by TArrayGenerate itself.
 TGenerate(NSDate)
 TGenerate(NSNumber)
 TGenerate(NSURL)
+
+TAssociativeGenerate(NSObject, NSObject)
+TAssociativeGenerate(NSString, NSObject)
+TAssociativeGenerate(NSNumber, NSObject)
+TAssociativeGenerate(NSString, NSString)
 
 
