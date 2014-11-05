@@ -91,11 +91,15 @@ int main(int argc, const char * argv[]) {
 #pragma mark - TDictionary
         {
             //! Creating:
-            TDictionary(NSString, NSNumber) fruitCounts = [TDictionaryAlloc(NSString, NSNumber) initWithObjectsAndKeys:
-                                                      @5, @"Apple",
-                                                      @2, @"Orange",
-                                                      @3, @"Pear",
-                                                      nil];
+            TDictionary(NSString, NSNumber) fruitCounts = TDictionaryMake(NSString, NSNumber,
+                                                                          TPair(@"Apple", @5),
+                                                                          TPair(@"Orange", @2),
+                                                                          TPair(@"Pear", @4));
+//            fruitCounts = TDictionaryMake(NSString, NSNumber,
+//                                          TPair(@"Apple", @"5"),
+//                                          TPair(@0, @0),
+//                                          TPair(@"Pear", @4));
+            
             //! Casting to NSDictionary:
             NSDictionary *dictionary = fruitCounts;
 //            fruitCounts = [NSDictionary new];

@@ -67,6 +67,23 @@ TSet(NSString) strings = TSetMake(NSString, @"Apple", @"Orange", @"Pear");
 TArray(NSString) strings = TArrayMake(NSString, @"Apple", @42);
 ```
 
+For _TDictionary_, the constructor is a bit more complicated, since it needs two types. You specify the pairs using _TPair_ macro, which should be used **only in this case**:
+
+```objc
+TDictionaryMake(NSString, NSNumber,
+                TPair(@"Apple", @5),
+                TPair(@"Orange", @2),
+                TPair(@"Pear", @4));
+```
+
+```objc
+// Warning: Incompatible pointer types 3×:
+TDictionaryMake(NSString, NSNumber,
+                TPair(@"Apple", @"5"),
+                TPair(@2, @"Orange"),
+                TPair(@"Pear", [NSDate new]));
+```
+
 ### Methods
 Typed collections have **exact** the same interface as their Foundation counterparts, but all occurences of `id` are **replaced with the class** of the elements (or associative keys and values). Also, all collection parameters (or return values) are **converted to typed** collections.
 
