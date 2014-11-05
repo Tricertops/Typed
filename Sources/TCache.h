@@ -10,14 +10,19 @@
 
 
 
+_TArrayForward(NSString)
+
+
+
 #define _TCacheCreateProtocol(Key, Value) \
 /*! Types */ \
 @class Key, Value; \
+_TDictionaryForward(NSString, Value) \
 /*! NSCache Interface */ \
-@protocol TCache_##Key##_##Value <_TAssociativeProtocols> \
+@protocol TCache_##Key##_##Value <NSObject> \
 - (TCache(Key, Value))self; \
-/*! Initializing a Cache */ \
 - (TCache(Key, Value))init; \
+- (BOOL)isEqual:(TCache(Key, Value))other; \
 /*! Naming a Cache */ \
 @property(copy) NSString *name; \
 /*! Getting a Cached Value */ \
@@ -34,6 +39,13 @@
 @property BOOL evictsObjectsWithDiscardedContent; \
 /*! Delegate */ \
 @property(assign) id<NSCacheDelegate> delegate; \
+/*! Key-Value Coding */ \
+- (Value *)valueForKey:(NSString *)key; \
+- (void)setValue:(Value *)value forKey:(NSString *)key; \
+- (id)valueForKeyPath:(NSString *)keyPath; \
+- (void)setValue:(id)value forKeyPath:(NSString *)keyPath; \
+- (TDictionary(NSString, Value))dictionaryWithValuesForKeys:(TArray(NSString))keys; \
+- (void)setValuesForKeysWithDictionary:(TDictionary(NSString, Value))keyedValues; \
 @end
 
 
