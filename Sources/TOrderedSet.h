@@ -13,6 +13,9 @@
 #define _TOrderedSetCreateProtocol(Element) \
 /*! Types */ \
 @class Element; \
+typedef BOOL (^TIndexedPredicate_##Element)(Element *object, NSUInteger index, BOOL *stop); \
+typedef void (^TIndexedEnumerator_##Element)(Element *object, NSUInteger index, BOOL *stop); \
+typedef NSComparisonResult (^TComparator_##Element)(Element *object1, Element *object2); \
 _TArrayForward(Element) \
 _TSetForward(Element) \
 /*! NSOrderedSet Interface */ \
@@ -45,19 +48,19 @@ _TSetForward(Element) \
 @property(readonly, copy) TOrderedSet(Element) reversedOrderedSet; \
 /*! Finding Objects in an Ordered Set */ \
 - (NSUInteger)indexOfObject:(Element *)object; \
-- (NSUInteger)indexOfObject:(Element *)object inSortedRange:(NSRange)range options:(NSBinarySearchingOptions)options usingComparator:(TArrayComparator_##Element)cmp; \
-- (NSUInteger)indexOfObjectPassingTest:(TArrayPredicate_##Element)predicate; \
-- (NSUInteger)indexOfObjectWithOptions:(NSEnumerationOptions)options passingTest:(TArrayPredicate_##Element)predicate; \
-- (NSUInteger)indexOfObjectAtIndexes:(NSIndexSet *)indexes options:(NSEnumerationOptions)options passingTest:(TArrayPredicate_##Element)predicate; \
-- (NSIndexSet *)indexesOfObjectsPassingTest:(TArrayPredicate_##Element)predicate; \
-- (NSIndexSet *)indexesOfObjectsWithOptions:(NSEnumerationOptions)options passingTest:(TArrayPredicate_##Element)predicate; \
-- (NSIndexSet *)indexesOfObjectsAtIndexes:(NSIndexSet *)indexes options:(NSEnumerationOptions)options passingTest:(TArrayPredicate_##Element)predicate; \
+- (NSUInteger)indexOfObject:(Element *)object inSortedRange:(NSRange)range options:(NSBinarySearchingOptions)options usingComparator:(TComparator_##Element)cmp; \
+- (NSUInteger)indexOfObjectPassingTest:(TIndexedPredicate_##Element)predicate; \
+- (NSUInteger)indexOfObjectWithOptions:(NSEnumerationOptions)options passingTest:(TIndexedPredicate_##Element)predicate; \
+- (NSUInteger)indexOfObjectAtIndexes:(NSIndexSet *)indexes options:(NSEnumerationOptions)options passingTest:(TIndexedPredicate_##Element)predicate; \
+- (NSIndexSet *)indexesOfObjectsPassingTest:(TIndexedPredicate_##Element)predicate; \
+- (NSIndexSet *)indexesOfObjectsWithOptions:(NSEnumerationOptions)options passingTest:(TIndexedPredicate_##Element)predicate; \
+- (NSIndexSet *)indexesOfObjectsAtIndexes:(NSIndexSet *)indexes options:(NSEnumerationOptions)options passingTest:(TIndexedPredicate_##Element)predicate; \
 /*! Sending Messages to Elements */ \
 - (void)makeObjectsPerformSelector:(SEL)aSelector; \
 - (void)makeObjectsPerformSelector:(SEL)aSelector withObject:(id)argument; \
-- (void)enumerateObjectsUsingBlock:(TArrayEnumerator_##Element)block; \
-- (void)enumerateObjectsWithOptions:(NSEnumerationOptions)options usingBlock:(TArrayEnumerator_##Element)block; \
-- (void)enumerateObjectsAtIndexes:(NSIndexSet *)indexes options:(NSEnumerationOptions)options usingBlock:(TArrayEnumerator_##Element)block; \
+- (void)enumerateObjectsUsingBlock:(TIndexedEnumerator_##Element)block; \
+- (void)enumerateObjectsWithOptions:(NSEnumerationOptions)options usingBlock:(TIndexedEnumerator_##Element)block; \
+- (void)enumerateObjectsAtIndexes:(NSIndexSet *)indexes options:(NSEnumerationOptions)options usingBlock:(TIndexedEnumerator_##Element)block; \
 /*! Comparing Sets */ \
 - (BOOL)isEqual:(TOrderedSet(Element))other; \
 - (BOOL)isEqualToOrderedSet:(TOrderedSet(Element))other; \
@@ -73,8 +76,8 @@ _TSetForward(Element) \
 /*! Deriving New Collections */ \
 - (TOrderedSet(Element))filteredOrderedSetUsingPredicate:(NSPredicate *)predicate; \
 - (TArray(Element))sortedArrayUsingDescriptors:(TArray(NSSortDescriptor))sortDescriptors; \
-- (TArray(Element))sortedArrayUsingComparator:(TArrayComparator_##Element)comparator; \
-- (TArray(Element))sortedArrayWithOptions:(NSSortOptions)options usingComparator:(TArrayComparator_##Element)comparator; \
+- (TArray(Element))sortedArrayUsingComparator:(TComparator_##Element)comparator; \
+- (TArray(Element))sortedArrayWithOptions:(NSSortOptions)options usingComparator:(TComparator_##Element)comparator; \
 /*! Converting to Other Collections */ \
 - (TArray(Element))array; \
 - (TSet(Element))set; \

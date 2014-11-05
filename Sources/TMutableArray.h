@@ -51,9 +51,9 @@
 /*! Rearranging Content */ \
 - (void)exchangeObjectAtIndex:(NSUInteger)index1 withObjectAtIndex:(NSUInteger)index2; \
 - (void)sortUsingDescriptors:(TArray(NSSortDescriptor))sortDescriptors; \
-- (void)sortUsingComparator:(TArrayComparator_##Element)comparator; \
-- (void)sortWithOptions:(NSSortOptions)options usingComparator:(TArrayComparator_##Element)comparator; \
-- (void)sortUsingFunction:(TArraySortFunction_##Element)compare context:(void *)context; \
+- (void)sortUsingComparator:(TComparator_##Element)comparator; \
+- (void)sortWithOptions:(NSSortOptions)options usingComparator:(TComparator_##Element)comparator; \
+- (void)sortUsingFunction:(TSortFunction_##Element)compare context:(void *)context; \
 - (void)sortUsingSelector:(SEL)comparator; \
 @end
 

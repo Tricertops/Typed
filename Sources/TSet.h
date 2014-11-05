@@ -13,8 +13,8 @@
 #define _TSetCreateProtocol(Element) \
 /*! Types */ \
 @class Element; \
-typedef void (^TSetEnumerator_##Element)(Element *object, BOOL *stop); \
-typedef BOOL (^TSetPredicate_##Element)(Element *object, BOOL *stop); \
+typedef void (^TEnumerator_##Element)(Element *object, BOOL *stop); \
+typedef BOOL (^TPredicate_##Element)(Element *object, BOOL *stop); \
 _TArrayForward(Element) \
 _TMutableSetForward(Element) \
 /*! NSSet Interface */ \
@@ -37,8 +37,8 @@ _TMutableSetForward(Element) \
 /*! Sending Messages to Elements */ \
 - (void)makeObjectsPerformSelector:(SEL)aSelector; \
 - (void)makeObjectsPerformSelector:(SEL)aSelector withObject:(id)argument; \
-- (void)enumerateObjectsUsingBlock:(TSetEnumerator_##Element)block; \
-- (void)enumerateObjectsWithOptions:(NSEnumerationOptions)options usingBlock:(TSetEnumerator_##Element)block; \
+- (void)enumerateObjectsUsingBlock:(TEnumerator_##Element)block; \
+- (void)enumerateObjectsWithOptions:(NSEnumerationOptions)options usingBlock:(TEnumerator_##Element)block; \
 /*! Comparing Sets */ \
 - (BOOL)isEqual:(TSet(Element))otherSet; \
 - (BOOL)isEqualToSet:(TSet(Element))otherSet; \
@@ -55,7 +55,7 @@ _TMutableSetForward(Element) \
 - (TSet(Element))setByAddingObjectsFromArray:(TArray(Element))array; \
 - (TSet(Element))filteredSetUsingPredicate:(NSPredicate *)predicate; \
 - (TSet(Element))objectsPassingTest:(BOOL (^)(id obj, BOOL *stop))predicate; \
-- (TSet(Element))objectsWithOptions:(NSEnumerationOptions)options passingTest:(TSetPredicate_##Element)predicate; \
+- (TSet(Element))objectsWithOptions:(NSEnumerationOptions)options passingTest:(TPredicate_##Element)predicate; \
 /*! Creating a Sorted Array */ \
 - (TArray(Element))sortedArrayUsingDescriptors:(TArray(NSSortDescriptor))sortDescriptors; \
 /*! Creating a Description */ \

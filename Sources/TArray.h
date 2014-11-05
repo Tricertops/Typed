@@ -18,10 +18,10 @@ _TArrayForward(NSSortDescriptor)
 #define _TArrayCreateProtocol(Element) \
 /*! Types */ \
 @class Element; \
-typedef BOOL (^TArrayPredicate_##Element)(Element *object, NSUInteger index, BOOL *stop); \
-typedef NSComparisonResult (^TArrayComparator_##Element)(Element *object1, Element *object2); \
-typedef void (^TArrayEnumerator_##Element)(Element *object, NSUInteger index, BOOL *stop); \
-typedef NSInteger (*TArraySortFunction_##Element)(Element *, Element *, void *); \
+typedef BOOL (^TIndexedPredicate_##Element)(Element *object, NSUInteger index, BOOL *stop); \
+typedef NSComparisonResult (^TComparator_##Element)(Element *object1, Element *object2); \
+typedef void (^TIndexedEnumerator_##Element)(Element *object, NSUInteger index, BOOL *stop); \
+typedef NSInteger (*TSortFunction_##Element)(Element *, Element *, void *); \
 _TMutableArrayForward(Element) \
 /*! NSArray Interface */ \
 @protocol TArray_##Element <_TProtocols> \
@@ -48,21 +48,21 @@ _TMutableArrayForward(Element) \
 /*! Finding Objects in an Array */ \
 - (NSUInteger)indexOfObject:(Element *)object; \
 - (NSUInteger)indexOfObject:(Element *)object inRange:(NSRange)range; \
-- (NSUInteger)indexOfObject:(Element *)object inSortedRange:(NSRange)range options:(NSBinarySearchingOptions)options usingComparator:(TArrayComparator_##Element)cmp; \
+- (NSUInteger)indexOfObject:(Element *)object inSortedRange:(NSRange)range options:(NSBinarySearchingOptions)options usingComparator:(TComparator_##Element)cmp; \
 - (NSUInteger)indexOfObjectIdenticalTo:(Element *)object; \
 - (NSUInteger)indexOfObjectIdenticalTo:(Element *)object inRange:(NSRange)range; \
-- (NSUInteger)indexOfObjectPassingTest:(TArrayPredicate_##Element)predicate; \
-- (NSUInteger)indexOfObjectWithOptions:(NSEnumerationOptions)options passingTest:(TArrayPredicate_##Element)predicate; \
-- (NSUInteger)indexOfObjectAtIndexes:(NSIndexSet *)indexes options:(NSEnumerationOptions)options passingTest:(TArrayPredicate_##Element)predicate; \
-- (NSIndexSet *)indexesOfObjectsPassingTest:(TArrayPredicate_##Element)predicate; \
-- (NSIndexSet *)indexesOfObjectsWithOptions:(NSEnumerationOptions)options passingTest:(TArrayPredicate_##Element)predicate; \
-- (NSIndexSet *)indexesOfObjectsAtIndexes:(NSIndexSet *)indexes options:(NSEnumerationOptions)options passingTest:(TArrayPredicate_##Element)predicate; \
+- (NSUInteger)indexOfObjectPassingTest:(TIndexedPredicate_##Element)predicate; \
+- (NSUInteger)indexOfObjectWithOptions:(NSEnumerationOptions)options passingTest:(TIndexedPredicate_##Element)predicate; \
+- (NSUInteger)indexOfObjectAtIndexes:(NSIndexSet *)indexes options:(NSEnumerationOptions)options passingTest:(TIndexedPredicate_##Element)predicate; \
+- (NSIndexSet *)indexesOfObjectsPassingTest:(TIndexedPredicate_##Element)predicate; \
+- (NSIndexSet *)indexesOfObjectsWithOptions:(NSEnumerationOptions)options passingTest:(TIndexedPredicate_##Element)predicate; \
+- (NSIndexSet *)indexesOfObjectsAtIndexes:(NSIndexSet *)indexes options:(NSEnumerationOptions)options passingTest:(TIndexedPredicate_##Element)predicate; \
 /*! Sending Messages to Elements */ \
 - (void)makeObjectsPerformSelector:(SEL)aSelector; \
 - (void)makeObjectsPerformSelector:(SEL)aSelector withObject:(id)argument; \
-- (void)enumerateObjectsUsingBlock:(TArrayEnumerator_##Element)block; \
-- (void)enumerateObjectsWithOptions:(NSEnumerationOptions)options usingBlock:(TArrayEnumerator_##Element)block; \
-- (void)enumerateObjectsAtIndexes:(NSIndexSet *)indexes options:(NSEnumerationOptions)options usingBlock:(TArrayEnumerator_##Element)block; \
+- (void)enumerateObjectsUsingBlock:(TIndexedEnumerator_##Element)block; \
+- (void)enumerateObjectsWithOptions:(NSEnumerationOptions)options usingBlock:(TIndexedEnumerator_##Element)block; \
+- (void)enumerateObjectsAtIndexes:(NSIndexSet *)indexes options:(NSEnumerationOptions)options usingBlock:(TIndexedEnumerator_##Element)block; \
 /*! Comparing Arrays */ \
 - (Element *)firstObjectCommonWithArray:(TArray(Element))otherArray; \
 - (BOOL)isEqual:(TArray(Element))otherArray; \
@@ -80,12 +80,12 @@ _TMutableArrayForward(Element) \
 - (TArray(Element))subarrayWithRange:(NSRange)range; \
 /*! Sorting an Array */ \
 @property (readonly, copy) NSData *sortedArrayHint; \
-- (TArray(Element))sortedArrayUsingFunction:(TArraySortFunction_##Element)comparator context:(void *)context; \
-- (TArray(Element))sortedArrayUsingFunction:(TArraySortFunction_##Element)comparator context:(void *)context hint:(NSData *)hint; \
+- (TArray(Element))sortedArrayUsingFunction:(TSortFunction_##Element)comparator context:(void *)context; \
+- (TArray(Element))sortedArrayUsingFunction:(TSortFunction_##Element)comparator context:(void *)context hint:(NSData *)hint; \
 - (TArray(Element))sortedArrayUsingDescriptors:(TArray(NSSortDescriptor))sortDescriptors; \
 - (TArray(Element))sortedArrayUsingSelector:(SEL)comparator; \
-- (TArray(Element))sortedArrayUsingComparator:(TArrayComparator_##Element)comparator; \
-- (TArray(Element))sortedArrayWithOptions:(NSSortOptions)options usingComparator:(TArrayComparator_##Element)comparator; \
+- (TArray(Element))sortedArrayUsingComparator:(TComparator_##Element)comparator; \
+- (TArray(Element))sortedArrayWithOptions:(NSSortOptions)options usingComparator:(TComparator_##Element)comparator; \
 /*! Working With String Elements */ \
 - (NSString *)componentsJoinedByString:(NSString *)separator; \
 /*! Creating a Description */ \

@@ -60,9 +60,9 @@
 - (void)moveObjectsAtIndexes:(NSIndexSet *)indexes toIndex:(NSUInteger)index; \
 - (void)exchangeObjectAtIndex:(NSUInteger)index withObjectAtIndex:(NSUInteger)index; \
 - (void)sortUsingDescriptors:(TArray(NSSortDescriptor))sortDescriptors; \
-- (void)sortUsingComparator:(TArrayComparator_##Element)comparator; \
-- (void)sortWithOptions:(NSSortOptions)options usingComparator:(TArrayComparator_##Element)comparator; \
-- (void)sortRange:(NSRange)range options:(NSSortOptions)options usingComparator:(TArrayComparator_##Element)comparator; \
+- (void)sortUsingComparator:(TComparator_##Element)comparator; \
+- (void)sortWithOptions:(NSSortOptions)options usingComparator:(TComparator_##Element)comparator; \
+- (void)sortRange:(NSRange)range options:(NSSortOptions)options usingComparator:(TComparator_##Element)comparator; \
 @end
 
 
