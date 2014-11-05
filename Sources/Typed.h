@@ -33,7 +33,10 @@ TGenerate(NSNumber)
 TGenerate(NSURL)
 
 TAssociativeGenerate(NSObject, NSObject)
-TAssociativeGenerate(NSNumber, NSObject)
 TAssociativeGenerate(NSString, NSString)
+TAssociativeGenerate(NSString, NSNumber)
+TAssociativeGenerate(NSNumber, NSObject)
+TAssociativeGenerate(NSNumber, NSString)
+TAssociativeGenerate(NSNumber, NSNumber)
 
 

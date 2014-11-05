@@ -13,9 +13,9 @@
 #define _TDictionaryCreateProtocol(Key, Value) \
 /*! Types */ \
 @class Key, Value; \
-typedef void (^TAssociativeEnumerator_##Key##_##Value)(Key<NSCopying> *key, Vaue *object, BOOL *stop); \
+typedef void (^TAssociativeEnumerator_##Key##_##Value)(Key<NSCopying> *key, Value *object, BOOL *stop); \
 typedef NSComparisonResult (^TComparator_##Value)(Value *object1, Value *object2); \
-typedef BOOL (^TAssociativePredicate_##Key##_##Value)(Key<NSCopying> *key, Vaue *object, BOOL *stop); \
+typedef BOOL (^TAssociativePredicate_##Key##_##Value)(Key<NSCopying> *key, Value *object, BOOL *stop); \
 _TArrayForward(Key) \
 _TArrayForward(Value) \
 _TSetForward(Key) \
@@ -27,12 +27,12 @@ _TDictionaryForward(NSString, Value); \
 - (TDictionary(Key, Value))initWithDictionary:(TDictionary(Key, Value))other; \
 - (TDictionary(Key, Value))initWithDictionary:(TDictionary(Key, Value))other copyItems:(BOOL)flag; \
 - (TDictionary(Key, Value))initWithObjects:(TArray(Value))objects forKeys:(TArray(Key))keys; \
-- (TDictionary(Key, Value))initWithObjects:(const Value * __autoreleasing [])objects forKeys:(const Key<NSCopying> * _autoreleasing [])keys count:(NSUInteger)count; \
+- (TDictionary(Key, Value))initWithObjects:(const Value * __autoreleasing [])objects forKeys:(const Key<NSCopying> * __autoreleasing [])keys count:(NSUInteger)count; \
 - (TDictionary(Key, Value))initWithObjectsAndKeys:(Value *)firstObject, ... NS_REQUIRES_NIL_TERMINATION; \
 - (TDictionary(Key, Value))initWithContentsOfFile:(NSString *)path; \
 - (TDictionary(Key, Value))initWithContentsOfURL:(NSURL *)url; \
 - (TDictionary(Key, Value))init; \
-- (TDictionary(Key, Value))initWithCoder:(NSCodet *)decoder; \
+- (TDictionary(Key, Value))initWithCoder:(NSCoder *)decoder; \
 /*! Querying a Dictionary */ \
 @property(readonly) NSUInteger count; \
 @property(readonly, copy) TArray(Key) allKeys; \
@@ -44,8 +44,8 @@ _TDictionaryForward(NSString, Value); \
 - (NSEnumerator *)keyEnumerator; \
 - (NSEnumerator *)objectEnumerator; \
 - (void)getObjects:(Value * __unsafe_unretained [])objects andKeys:(Key<NSCopying> * __unsafe_unretained [])keys; \
-- (void)enumerateKeysAndObjectsUsingBlock:(TDictionaryEnumerator_##Key##_##Value)block; \
-- (void)enumerateKeysAndObjectsWithOptions:(NSEnumerationOptions)options usingBlock:(TDictionaryEnumerator_##Key##_##Value)block; \
+- (void)enumerateKeysAndObjectsUsingBlock:(TAssociativeEnumerator_##Key##_##Value)block; \
+- (void)enumerateKeysAndObjectsWithOptions:(NSEnumerationOptions)options usingBlock:(TAssociativeEnumerator_##Key##_##Value)block; \
 /*! Comparing Dictionaries */ \
 - (BOOL)isEqual:(TDictionary(Key, Value))other; \
 - (BOOL)isEqualToDictionary:(TDictionary(Key, Value))other; \
@@ -56,8 +56,8 @@ _TDictionaryForward(NSString, Value); \
 - (TDictionary(Key, Value))mutableCopyWithZone:(NSZone *)zone; \
 /*! Sorting a Dictionary */ \
 - (TArray(Key))keysSortedByValueUsingSelector:(SEL)comparator; \
-- (TArray(Key))keysSortedByValueUsingComparator:(TDictionaryComparator_##Value)comparator; \
-- (TArray(Key))keysSortedByValueWithOptions:(NSSortOptions)options usingComparator:(TDictionaryComparator_##Value)comparator; \
+- (TArray(Key))keysSortedByValueUsingComparator:(TComparator_##Value)comparator; \
+- (TArray(Key))keysSortedByValueWithOptions:(NSSortOptions)options usingComparator:(TComparator_##Value)comparator; \
 /*! Filtering a Dictionary */ \
 - (TSet(Key))keysOfEntriesPassingTest:(TAssociativePredicate_##Key##_##Value)predicate; \
 - (TSet(Key))keysOfEntriesWithOptions:(NSEnumerationOptions)options passingTest:(TAssociativePredicate_##Key##_##Value)predicate; \

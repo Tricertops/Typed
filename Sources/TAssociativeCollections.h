@@ -13,6 +13,7 @@
 #define _TAssociativeProtocols     NSObject, NSFastEnumeration, NSCopying, NSMutableCopying, NSSecureCoding
 
 #define TAssociativeGenerate(Key, Value) \
+_TDictionaryCreateProtocol(Key, Value) \
 
 
 
