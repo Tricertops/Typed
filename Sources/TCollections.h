@@ -19,10 +19,6 @@
     [Type##Alloc(Element) initWithObjects:objects count:count]; \
 })
 
-
-
-#pragma mark Generating
-
 #define TGenerate(Element) \
 _TArrayCreateProtocol(Element) \
 _TMutableArrayCreateProtocol(Element) \
