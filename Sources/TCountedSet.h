@@ -14,6 +14,7 @@
 @class Element; \
 /*! NSCountedSet Interface */ \
 @protocol TCountedSet_##Element <TMutableSet_##Element> \
+- (TCountedSet(Element))self; \
 /*! Initializing a Set */ \
 - (TCountedSet(Element))initWithArray:(TArray(Element))array; \
 - (TCountedSet(Element))initWithObjects:(Element *)firstObject, ... NS_REQUIRES_NIL_TERMINATION; \

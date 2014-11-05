@@ -14,6 +14,7 @@
 @class Element; \
 /*! NSMutableSet Interface */ \
 @protocol TMutableSet_##Element <TSet_##Element> \
+- (TMutableSet(Element))self; \
 /*! Initializing a Set */ \
 - (TMutableSet(Element))initWithArray:(TArray(Element))array; \
 - (TMutableSet(Element))initWithObjects:(Element *)firstObject, ... NS_REQUIRES_NIL_TERMINATION; \
@@ -26,15 +27,15 @@
 /*! Adding Objects */ \
 - (void)addObject:(Element *)object; \
 - (void)addObjectsFromArray:(TArray(Element))array; \
-- (void)unionSet:(TSet(Element))otherSet; \
+- (void)unionSet:(TSet(Element))other; \
 /*! Removing Objects */ \
 - (void)removeAllObjects; \
 - (void)removeObject:(Element *)object; \
 - (void)filterUsingPredicate:(NSPredicate *)predicate; \
-- (void)minusSet:(TSet(Element))otherSet; \
-- (void)intersectSet:(TSet(Element))otherSet; \
+- (void)minusSet:(TSet(Element))other; \
+- (void)intersectSet:(TSet(Element))other; \
 /*! Replacing Objects */ \
-- (void)setSet:(TSet(Element))otherSet; \
+- (void)setSet:(TSet(Element))other; \
 @end
 
 

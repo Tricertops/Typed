@@ -22,15 +22,17 @@
 
 
 
-TGenerate(NSObject) // Used by TArrayGenerate itself.
-TGenerate(NSString) // Used by TArrayGenerate itself.
-TGenerate(NSSortDescriptor) // Used by TArrayGenerate itself.
+TGenerate(NSString) // Useds for KVC methods.
+TGenerate(NSSortDescriptor) // Used by sorting methods.
+TAssociativeGenerate(NSString, NSObject) // Useds for KVC methods.
+
+
+TGenerate(NSObject)
 TGenerate(NSDate)
 TGenerate(NSNumber)
 TGenerate(NSURL)
 
 TAssociativeGenerate(NSObject, NSObject)
-TAssociativeGenerate(NSString, NSObject)
 TAssociativeGenerate(NSNumber, NSObject)
 TAssociativeGenerate(NSString, NSString)
 

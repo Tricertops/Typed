@@ -10,6 +10,12 @@
 
 
 
+_TArrayForward(NSString)
+_TArrayForward(NSSortDescriptor)
+_TDictionaryForward(NSString, NSObject)
+
+
+
 #define _TSetCreateProtocol(Element) \
 /*! Types */ \
 @class Element; \
@@ -19,6 +25,7 @@ _TArrayForward(Element) \
 _TMutableSetForward(Element) \
 /*! NSSet Interface */ \
 @protocol TSet_##Element <_TProtocols> \
+- (TSet(Element))self; \
 /*! Initializing a Set */ \
 - (TSet(Element))initWithArray:(TArray(Element))array; \
 - (TSet(Element))initWithObjects:(Element *)firstObject, ... NS_REQUIRES_NIL_TERMINATION; \
@@ -40,10 +47,10 @@ _TMutableSetForward(Element) \
 - (void)enumerateObjectsUsingBlock:(TEnumerator_##Element)block; \
 - (void)enumerateObjectsWithOptions:(NSEnumerationOptions)options usingBlock:(TEnumerator_##Element)block; \
 /*! Comparing Sets */ \
-- (BOOL)isEqual:(TSet(Element))otherSet; \
-- (BOOL)isEqualToSet:(TSet(Element))otherSet; \
-- (BOOL)isSubsetOfSet:(TSet(Element))otherSet; \
-- (BOOL)intersectsSet:(TSet(Element))otherSet; \
+- (BOOL)isEqual:(TSet(Element))other; \
+- (BOOL)isEqualToSet:(TSet(Element))other; \
+- (BOOL)isSubsetOfSet:(TSet(Element))other; \
+- (BOOL)intersectsSet:(TSet(Element))other; \
 /*! Copying a Set */ \
 - (TSet(Element))copy; \
 - (TSet(Element))copyWithZone:(NSZone *)zone; \
@@ -51,10 +58,10 @@ _TMutableSetForward(Element) \
 - (TMutableSet(Element))mutableCopyWithZone:(NSZone *)zone; \
 /*! Deriving New Sets */ \
 - (TSet(Element))setByAddingObject:(Element *)object; \
-- (TSet(Element))setByAddingObjectsFromSet:(TSet(Element))otherSet; \
+- (TSet(Element))setByAddingObjectsFromSet:(TSet(Element))other; \
 - (TSet(Element))setByAddingObjectsFromArray:(TArray(Element))array; \
 - (TSet(Element))filteredSetUsingPredicate:(NSPredicate *)predicate; \
-- (TSet(Element))objectsPassingTest:(BOOL (^)(id obj, BOOL *stop))predicate; \
+- (TSet(Element))objectsPassingTest:(TPredicate_##Element)predicate; \
 - (TSet(Element))objectsWithOptions:(NSEnumerationOptions)options passingTest:(TPredicate_##Element)predicate; \
 /*! Creating a Sorted Array */ \
 - (TArray(Element))sortedArrayUsingDescriptors:(TArray(NSSortDescriptor))sortDescriptors; \
@@ -66,8 +73,8 @@ _TMutableSetForward(Element) \
 - (void)setValue:(id)value forKey:(NSString *)key; \
 - (id)valueForKeyPath:(NSString *)keyPath; \
 - (void)setValue:(id)value forKeyPath:(NSString *)keyPath; \
-- (NSDictionary *)dictionaryWithValuesForKeys:(TArray(NSString) *)keys; \
-- (void)setValuesForKeysWithDictionary:(NSDictionary *)keyedValues; \
+- (TDictionary(NSString, NSObject))dictionaryWithValuesForKeys:(TArray(NSString))keys; \
+- (void)setValuesForKeysWithDictionary:(TDictionary(NSString, NSObject))keyedValues; \
 @end
 
 

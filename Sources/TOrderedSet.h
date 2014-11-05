@@ -10,6 +10,12 @@
 
 
 
+_TArrayForward(NSString)
+_TArrayForward(NSSortDescriptor)
+_TDictionaryForward(NSString, NSObject)
+
+
+
 #define _TOrderedSetCreateProtocol(Element) \
 /*! Types */ \
 @class Element; \
@@ -18,8 +24,10 @@ typedef void (^TIndexedEnumerator_##Element)(Element *object, NSUInteger index, 
 typedef NSComparisonResult (^TComparator_##Element)(Element *object1, Element *object2); \
 _TArrayForward(Element) \
 _TSetForward(Element) \
+_TMutableOrderedSetForward(Element) \
 /*! NSOrderedSet Interface */ \
 @protocol TOrderedSet_##Element <_TProtocols> \
+- (TOrderedSet(Element))self; \
 /*! Initializing an Ordered Set */ \
 - (TOrderedSet(Element))initWithArray:(TArray(Element))array; \
 - (TOrderedSet(Element))initWithArray:(TArray(Element))set copyItems:(BOOL)flag; \
@@ -71,8 +79,8 @@ _TSetForward(Element) \
 /*! Copying an Ordered Set */ \
 - (TOrderedSet(Element))copy; \
 - (TOrderedSet(Element))copyWithZone:(NSZone *)zone; \
-- (TOrderedSet(Element))mutableCopy; \
-- (TOrderedSet(Element))mutableCopyWithZone:(NSZone *)zone; \
+- (TMutableOrderedSet(Element))mutableCopy; \
+- (TMutableOrderedSet(Element))mutableCopyWithZone:(NSZone *)zone; \
 /*! Deriving New Collections */ \
 - (TOrderedSet(Element))filteredOrderedSetUsingPredicate:(NSPredicate *)predicate; \
 - (TArray(Element))sortedArrayUsingDescriptors:(TArray(NSSortDescriptor))sortDescriptors; \
@@ -90,8 +98,8 @@ _TSetForward(Element) \
 - (void)setValue:(id)value forKey:(NSString *)key; \
 - (id)valueForKeyPath:(NSString *)keyPath; \
 - (void)setValue:(id)value forKeyPath:(NSString *)keyPath; \
-- (NSDictionary *)dictionaryWithValuesForKeys:(TArray(NSString) *)keys; \
-- (void)setValuesForKeysWithDictionary:(NSDictionary *)keyedValues; \
+- (TDictionary(NSString, NSObject))dictionaryWithValuesForKeys:(TArray(NSString))keys; \
+- (void)setValuesForKeysWithDictionary:(TDictionary(NSString, NSObject))keyedValues; \
 @end
 
 

@@ -12,6 +12,7 @@
 
 _TArrayForward(NSString)
 _TArrayForward(NSSortDescriptor)
+_TDictionaryForward(NSString, NSObject)
 
 
 
@@ -25,6 +26,7 @@ typedef NSInteger (*TSortFunction_##Element)(Element *, Element *, void *); \
 _TMutableArrayForward(Element) \
 /*! NSArray Interface */ \
 @protocol TArray_##Element <_TProtocols> \
+- (TArray(Element))self; \
 /*! Initializing an Array */ \
 - (TArray(Element))init; \
 - (TArray(Element))initWithArray:(TArray(Element))array; \
@@ -64,18 +66,17 @@ _TMutableArrayForward(Element) \
 - (void)enumerateObjectsWithOptions:(NSEnumerationOptions)options usingBlock:(TIndexedEnumerator_##Element)block; \
 - (void)enumerateObjectsAtIndexes:(NSIndexSet *)indexes options:(NSEnumerationOptions)options usingBlock:(TIndexedEnumerator_##Element)block; \
 /*! Comparing Arrays */ \
-- (Element *)firstObjectCommonWithArray:(TArray(Element))otherArray; \
-- (BOOL)isEqual:(TArray(Element))otherArray; \
-- (BOOL)isEqualToArray:(TArray(Element))otherArray; \
+- (Element *)firstObjectCommonWithArray:(TArray(Element))other; \
+- (BOOL)isEqual:(TArray(Element))other; \
+- (BOOL)isEqualToArray:(TArray(Element))other; \
 /*! Copying an Array */ \
 - (TArray(Element))copy; \
 - (TArray(Element))copyWithZone:(NSZone *)zone; \
 - (TMutableArray(Element))mutableCopy; \
 - (TMutableArray(Element))mutableCopyWithZone:(NSZone *)zone; \
 /*! Deriving New Arrays */ \
-- (TArray(Element))self; \
 - (TArray(Element))arrayByAddingObject:(Element *)object; \
-- (TArray(Element))arrayByAddingObjectsFromArray:(TArray(Element))otherArray; \
+- (TArray(Element))arrayByAddingObjectsFromArray:(TArray(Element))other; \
 - (TArray(Element))filteredArrayUsingPredicate:(NSPredicate *)predicate; \
 - (TArray(Element))subarrayWithRange:(NSRange)range; \
 /*! Sorting an Array */ \
@@ -105,8 +106,8 @@ _TMutableArrayForward(Element) \
 - (void)setValue:(id)value forKey:(NSString *)key; \
 - (id)valueForKeyPath:(NSString *)keyPath; \
 - (void)setValue:(id)value forKeyPath:(NSString *)keyPath; \
-- (NSDictionary *)dictionaryWithValuesForKeys:(TArray(NSString) *)keys; \
-- (void)setValuesForKeysWithDictionary:(NSDictionary *)keyedValues; \
+- (TDictionary(NSString, NSObject))dictionaryWithValuesForKeys:(TArray(NSString))keys; \
+- (void)setValuesForKeysWithDictionary:(TDictionary(NSString, NSObject))keyedValues; \
 @end \
 
 

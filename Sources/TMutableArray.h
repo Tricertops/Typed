@@ -14,6 +14,7 @@
 @class Element; \
 /*! NSMutableArray Interface */ \
 @protocol TMutableArray_##Element <TArray_##Element> \
+- (TMutableArray(Element))self; \
 /*! Initializing an Array */ \
 - (TMutableArray(Element))init; \
 - (TMutableArray(Element))initWithArray:(TArray(Element))array; \
@@ -25,7 +26,7 @@
 - (TMutableArray(Element))initWithCoder:(NSCoder *)decoder; \
 /*! Adding Objects */ \
 - (void)addObject:(Element *)object; \
-- (void)addObjectsFromArray:(TArray(Element))otherArray; \
+- (void)addObjectsFromArray:(TArray(Element))other; \
 - (void)insertObject:(Element *)object atIndex:(NSUInteger)index; \
 - (void)insertObjects:(TArray(Element))objects atIndexes:(NSIndexSet *)indexes; \
 /*! Removing Objects */ \
@@ -37,15 +38,15 @@
 - (void)removeObjectsAtIndexes:(NSIndexSet *)indexes; \
 - (void)removeObjectIdenticalTo:(Element *)object; \
 - (void)removeObjectIdenticalTo:(Element *)object inRange:(NSRange)range; \
-- (void)removeObjectsInArray:(TArray(Element))otherArray; \
+- (void)removeObjectsInArray:(TArray(Element))other; \
 - (void)removeObjectsInRange:(NSRange)range; \
 /*! Replacing Objects */ \
 - (void)replaceObjectAtIndex:(NSUInteger)index withObject:(Element *)object; \
 - (void)setObject:(Element *)object atIndexedSubscript:(NSUInteger)index; \
 - (void)replaceObjectsAtIndexes:(NSIndexSet *)indexes withObjects:(TArray(Element))objects; \
-- (void)replaceObjectsInRange:(NSRange)range withObjectsFromArray:(TArray(Element))otherArray range:(NSRange)otherRange; \
-- (void)replaceObjectsInRange:(NSRange)range withObjectsFromArray:(TArray(Element))otherArray; \
-- (void)setArray:(TArray(Element))otherArray; \
+- (void)replaceObjectsInRange:(NSRange)range withObjectsFromArray:(TArray(Element))other range:(NSRange)otherRange; \
+- (void)replaceObjectsInRange:(NSRange)range withObjectsFromArray:(TArray(Element))other; \
+- (void)setArray:(TArray(Element))other; \
 /*! Filtering Array */ \
 - (void)filterUsingPredicate:(NSPredicate *)predicate; \
 /*! Rearranging Content */ \
