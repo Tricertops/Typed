@@ -4,12 +4,16 @@ Do you like typed arrays in Swift (or other languages)? Would you like to have t
 
 ![Image](Image.png)
 
-**Project Status: In development.** _TArray_, _TSet_, _TOrderedSet_, and _TDictionary_ are implemented, _TCache_ and more are on the roadmap. Stay tuned.
-
 
 Typed Collections
 -----------------
-_TArray_, _TSet_, _TOrderedSet_, and _TDictionary_ (with their mutable counterparts) are **parametrized drop-in replacements** for Foundation classes: `NSArray`, `NSSet`, `NSOrderedSet`, and `NSDictionary` respectively. Their parameter is the element class you wish to store, for example `TArray(NSString)`. Associative collections take two parameters, one for keys and one for values, for example `TDictionary(NSString, NSURL)`.
+  - **_TArray_**, _TMutableArray_
+  - **_TSet_**, _TMutableSet_, _TCountedSet_
+  - _TOrderedSet_, _TMutableOrderedSet_
+  - **_TDictionary_**, _TMutableDictionary_
+  - _TCache_
+ 
+These typed collection (above) are **parametrized drop-in replacements** for Foundation classes: `NSArray`, `NSSet`, `NSDictionary` and more. Their parameters are the element class you wish to store, for example `TArray(NSString)`. Associative collections take two parameters, one for keys and one for values, for example `TDictionary(NSString, NSURL)`.
 
 However, for **every element class** or association class pair you plan to use, you’ll need to generate the appropriate interfaces using a macro:
 
