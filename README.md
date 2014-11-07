@@ -25,6 +25,8 @@ TAssociativeGenerate(NSString, NSURL)
 
 Typed version fo the basic foundation classes are already provided.
 
+Alternatively, you can use `typedef`’d variants in a form of `NSStringArray`, `NSNumberMutableSet` or `NSStringToNSNumberDictionary`. All these types are written without the pointer star `*`.
+
 ### Casting
 Objects stored as typed collections type are in fact Foundation collections (`NSArray`, `NSSet`, `NSDictionary`, …). The type-checking trick is made at **compile-time** using customized protocol interface.
 
