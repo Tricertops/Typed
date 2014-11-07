@@ -9,13 +9,14 @@
 #pragma mark -
 #pragma mark TCollection
 
+#define _TConcat(A, B)    A##B
 #define _TProtocols     NSObject, NSFastEnumeration, NSCopying, NSMutableCopying, NSSecureCoding
 
 #define _TCollectionMake(Type, Element, ...) \
 (Type(Element))({ \
     Element * __autoreleasing objects[] = { __VA_ARGS__ }; \
     NSUInteger count = sizeof(objects) / sizeof(Element *); \
-    [Type##Alloc(Element) initWithObjects:objects count:count]; \
+    [_TConcat(Type, Alloc)(Element) initWithObjects:objects count:count]; \
 })
 
 #define TGenerate(Element) \
@@ -32,79 +33,79 @@ _TMutableOrderedSetCreateProtocol(Element) \
 #pragma mark -
 #pragma mark TArray
 
-#define TArray(Element)                 Element##Array
+#define TArray(Element)                 _TConcat(Element, Array)
 #define TArrayAlloc(Element)            ( (TArray(Element)) [NSArray alloc] )
 #define TArrayMake(Element, ...)        _TCollectionMake(TArray, Element, __VA_ARGS__)
 #define _TArrayForward(Element) \
-    @protocol TArray_##Element; \
-    typedef id<TArray_##Element> Element##Array; \
+    @protocol _TConcat(TArray_, Element); \
+    typedef id<_TConcat(TArray_, Element)> _TConcat(Element, Array); \
 
 
 
 #pragma mark TMutableArray
 
-#define TMutableArray(Element)          Element##MutableArray
+#define TMutableArray(Element)          _TConcat(Element, MutableArray)
 #define TMutableArrayAlloc(Element)     ( (TMutableArray(Element)) [NSMutableArray alloc] )
 #define TMutableArrayMake(Element, ...) _TCollectionMake(TMutableArray, Element, __VA_ARGS__)
 #define _TMutableArrayForward(Element) \
-    @protocol TMutableArray_##Element; \
-    typedef id<TMutableArray_##Element> Element##MutableArray; \
+    @protocol _TConcat(TMutableArray_, Element); \
+    typedef id<_TConcat(TMutableArray_, Element)> _TConcat(Element, MutableArray); \
 
 
 
 #pragma mark -
 #pragma mark TSet
 
-#define TSet(Element)                   Element##Set
+#define TSet(Element)                   _TConcat(Element, Set)
 #define TSetAlloc(Element)              ( (TSet(Element)) [NSSet alloc] )
 #define TSetMake(Element, ...)          _TCollectionMake(TSet, Element, __VA_ARGS__)
 #define _TSetForward(Element) \
-    @protocol TSet_##Element; \
-    typedef id<TSet_##Element> Element##Set; \
+    @protocol _TConcat(TSet_, Element); \
+    typedef id<_TConcat(TSet_, Element)> _TConcat(Element, Set); \
 
 
 
 #pragma mark TMutableSet
 
-#define TMutableSet(Element)            Element##MutableSet
+#define TMutableSet(Element)            _TConcat(Element, MutableSet)
 #define TMutableSetAlloc(Element)       ( (TMutableSet(Element)) [NSMutableSet alloc] )
 #define TMutableSetMake(Element, ...)   _TCollectionMake(TMutableSet, Element, __VA_ARGS__)
 #define _TMutableSetForward(Element) \
-    @protocol TMutableSet_##Element; \
-    typedef id<TMutableSet_##Element> Element##MutableSet; \
+    @protocol _TConcat(TMutableSet_, Element); \
+    typedef id<_TConcat(TMutableSet_, Element)> _TConcat(Element, MutableSet); \
 
 
 
 #pragma mark TCountedSet
 
-#define TCountedSet(Element)            Element##CountedSet
+#define TCountedSet(Element)            _TConcat(Element, CountedSet)
 #define TCountedSetAlloc(Element)       ( (TCountedSet(Element)) [NSCountedSet alloc] )
 #define TCountedSetMake(Element, ...)   _TCollectionMake(TCountedSet, Element, __VA_ARGS__)
 #define _TCountedSetForward(Element) \
-    @protocol TCountedSet_##Element; \
-    typedef id<TCountedSet_##Element> Element##CountedSet; \
+    @protocol _TConcat(TCountedSet_, Element); \
+    typedef id<_TConcat(TCountedSet_, Element)> _TConcat(Element, CountedSet); \
 
 
 
 #pragma mark -
 #pragma mark TOrderedSet
 
-#define TOrderedSet(Element)            Element##OrderedSet
+#define TOrderedSet(Element)            _TConcat(Element, OrderedSet)
 #define TOrderedSetAlloc(Element)       ( (TOrderedSet(Element)) [NSOrderedSet alloc] )
 #define TOrderedSetMake(Element, ...)   _TCollectionMake(TOrderedSet, Element, __VA_ARGS__)
 #define _TOrderedSetForward(Element) \
-    @protocol TOrderedSet_##Element; \
-    typedef id<TOrderedSet_##Element> Element##OrderedSet; \
+    @protocol _TConcat(TOrderedSet_, Element); \
+    typedef id<_TConcat(TOrderedSet_, Element)> _TConcat(Element, OrderedSet); \
 
 
 
 #pragma mark TMutableOrderedSet
 
-#define TMutableOrderedSet(Element)             Element##MutableOrderedSet
+#define TMutableOrderedSet(Element)             _TConcat(Element, MutableOrderedSet)
 #define TMutableOrderedSetAlloc(Element)        ( (TMutableOrderedSet(Element)) [NSMutableOrderedSet alloc] )
 #define TMutableOrderedSetMake(Element, ...)    _TCollectionMake(TMutableOrderedSet, Element, __VA_ARGS__)
 #define _TMutableOrderedSetForward(Element) \
-    @protocol TMutableOrderedSet_##Element; \
-    typedef id<TMutableOrderedSet_##Element> Element##MutableOrderedSet; \
+    @protocol _TConcat(TMutableOrderedSet_, Element); \
+    typedef id<_TConcat(TMutableOrderedSet_, Element)> _TConcat(Element, MutableOrderedSet); \
 
 
