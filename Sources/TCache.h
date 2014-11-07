@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Triceratops. All rights reserved.
 //
 
-#import "TAssociativeCollections.h"
+#import "TCollections.h"
 
 
 

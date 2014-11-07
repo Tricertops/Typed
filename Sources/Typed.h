@@ -7,7 +7,6 @@
 //
 
 #import "TCollections.h"
-#import "TAssociativeCollections.h"
 
 #import "TMutableArray.h"
 #import "TMutableSet.h"
@@ -26,7 +25,7 @@
 //TODO: -valueType
 //TODO: TForIn(string, strings) { ... }
 
-//TODO: TGenerate with a pointer star as a second argument: TGenerate(NSString,*), TGenerate(TArray(NSString),)
+//TODO: TAssociativeGenerate with a pointer stars.
 
 
 

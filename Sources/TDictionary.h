@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Triceratops. All rights reserved.
 //
 
-#import "TAssociativeCollections.h"
+#import "TCollections.h"
 
 
 
@@ -23,7 +23,7 @@ _TDictionaryForward(NSString, Value); \
 _TMutableDictionaryForward(Key, Value); \
 /*! NSDictionary Interface */ \
 _TDictionaryForward(Key, Value); \
-@protocol TDictionary_##Key##_##Value <_TAssociativeProtocols> \
+@protocol TDictionary_##Key##_##Value <_TProtocols> \
 - (TDictionary(Key, Value))self; \
 /*! Initializing a Dictionary */ \
 - (TDictionary(Key, Value))initWithDictionary:(TDictionary(Key, Value))other; \

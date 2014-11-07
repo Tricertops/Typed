@@ -32,7 +32,6 @@
 		5B8F5BAE1A06999400253734 /* TOrderedSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOrderedSet.h; sourceTree = "<group>"; };
 		5B8F5BC11A08C69A00253734 /* TMutableOrderedSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMutableOrderedSet.h; sourceTree = "<group>"; };
 		5B8F5BC21A08CB3800253734 /* TCountedSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCountedSet.h; sourceTree = "<group>"; };
-		5B8F5BC31A08D07900253734 /* TAssociativeCollections.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TAssociativeCollections.h; sourceTree = "<group>"; };
 		5BDA3FD21A023EEB00B3F9E0 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BDA3FD41A023EEB00B3F9E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5BFA59181A0A1865003027A8 /* TDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDictionary.h; sourceTree = "<group>"; };
@@ -63,7 +62,6 @@
 				5B8F5BC21A08CB3800253734 /* TCountedSet.h */,
 				5B8F5BAE1A06999400253734 /* TOrderedSet.h */,
 				5B8F5BC11A08C69A00253734 /* TMutableOrderedSet.h */,
-				5B8F5BC31A08D07900253734 /* TAssociativeCollections.h */,
 				5BFA59181A0A1865003027A8 /* TDictionary.h */,
 				5BFA59191A0A3978003027A8 /* TMutableDictionary.h */,
 				5BFA591A1A0A3ECA003027A8 /* TCache.h */,

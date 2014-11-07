@@ -7,7 +7,7 @@
 //
 
 #pragma mark -
-#pragma mark TCollection
+#pragma mark Private
 
 #define _TConcat(A, B)    A##B
 #define _TProtocols     NSObject, NSFastEnumeration, NSCopying, NSMutableCopying, NSSecureCoding
@@ -19,6 +19,18 @@
     [_TConcat(Type, Alloc)(Element) initWithObjects:objects count:count]; \
 })
 
+#define _TAssociativeCollectionMake(MutableType, Key, Value, Pairs...) \
+(MutableType(Key, Value))({ \
+    MutableType(Key, Value) _associative = [MutableType##Alloc(Key, Value) init];\
+    Pairs; \
+    _associative; \
+})
+
+
+
+#pragma mark -
+#pragma mark Generating
+
 #define TGenerate(Element, Ptr) \
 _TArrayCreateProtocol(Element, Ptr) \
 _TMutableArrayCreateProtocol(Element, Ptr) \
@@ -27,6 +39,18 @@ _TMutableSetCreateProtocol(Element, Ptr) \
 _TCountedSetCreateProtocol(Element, Ptr) \
 _TOrderedSetCreateProtocol(Element, Ptr) \
 _TMutableOrderedSetCreateProtocol(Element, Ptr) \
+
+#define TAssociativeGenerate(Key, Value) \
+_TDictionaryCreateProtocol(Key, Value) \
+_TMutableDictionaryCreateProtocol(Key, Value) \
+_TCacheCreateProtocol(Key, Value) \
+
+
+
+#pragma mark - 
+#pragma mark Helpers
+
+#define TPair(Key, Value)               [_associative setObject:(Value) forKey:(Key)]
 
 
 
@@ -107,5 +131,39 @@ _TMutableOrderedSetCreateProtocol(Element, Ptr) \
 #define _TMutableOrderedSetForward(Element) \
     @protocol _TConcat(TMutableOrderedSet_, Element); \
     typedef id<_TConcat(TMutableOrderedSet_, Element)> _TConcat(Element, MutableOrderedSet); \
+
+
+
+#pragma mark -
+#pragma mark TDictionary
+
+#define TDictionary(Key, Value)                 Key##To##Value##Dictionary
+#define TDictionaryAlloc(Key, Value)            ( (TDictionary(Key, Value)) [NSDictionary alloc] )
+#define TDictionaryMake(Key, Value, TPairs...)  ( (TDictionary(Key, Value)) _TAssociativeCollectionMake(TMutableDictionary, Key, Value, TPairs) )
+#define _TDictionaryForward(Key, Value) \
+@protocol TDictionary_##Key##_##Value; \
+typedef id<TDictionary_##Key##_##Value> Key##To##Value##Dictionary; \
+
+
+
+#pragma mark TMutableDictionary
+
+#define TMutableDictionary(Key, Value)                  Key##To##Value##MutableDictionary
+#define TMutableDictionaryAlloc(Key, Value)             ( (TMutableDictionary(Key, Value)) [NSMutableDictionary alloc] )
+#define TMutableDictionaryMake(Key, Value, TPairs...)   _TAssociativeCollectionMake(TMutableDictionary, Key, Value, TPairs)
+#define _TMutableDictionaryForward(Key, Value) \
+@protocol TMutableDictionary_##Key##_##Value; \
+typedef id<TMutableDictionary_##Key##_##Value> Key##To##Value##MutableDictionary; \
+
+
+
+#pragma mark - TCache
+
+#define TCache(Key, Value)                  Key##To##Value##Cache
+#define TCacheAlloc(Key, Value)             ( (TCache(Key, Value)) [NSCache alloc] )
+#define TCacheMake(Key, Value, TPairs...)   _TAssociativeCollectionMake(TCache, Key, Value, TPairs)
+#define _TCacheForward(Key, Value) \
+@protocol TCache_##Key##_##Value; \
+typedef id<TCache_##Key##_##Value> Key##To##Value##Cache; \
 
 

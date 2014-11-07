@@ -11,6 +11,10 @@
 
 
 
+TGenerate(TArray(NSString),)
+
+
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
@@ -114,6 +118,17 @@ int main(int argc, const char * argv[]) {
             TArray(NSNumber) counts = fruitCounts.allValues;
 //            TArray(NSURL) websites = fruitCounts.allKeys;
 //            TArray(NSString) titles = fruitCounts.allValues;
+        }
+        
+#pragma mark - Nested TArray
+        {
+            TArray(TArray(NSString)) stringTable = (NSStringArrayArray)@[
+                                                             @[ @"AA", @"BA", @"CA", ],
+                                                             @[ @"AB", @"BB", @"CB", ],
+                                                             @[ @"AC", @"BC", @"CC", ],
+                                                             ];
+            
+            NSUInteger length = stringTable[2][1].length;
             
         }
     }
