@@ -16,13 +16,12 @@ _TDictionaryForward(NSString, NSObject)
 
 
 
-#define _TArrayCreateProtocol(Element) \
+#define _TArrayCreateProtocol(Element, Ptr) \
 /*! Types */ \
-@class Element; \
-typedef BOOL (^TIndexedPredicate_##Element)(Element *object, NSUInteger index, BOOL *stop); \
-typedef NSComparisonResult (^TComparator_##Element)(Element *object1, Element *object2); \
-typedef void (^TIndexedEnumerator_##Element)(Element *object, NSUInteger index, BOOL *stop); \
-typedef NSInteger (*TSortFunction_##Element)(Element *, Element *, void *); \
+typedef BOOL (^TIndexedPredicate_##Element)(Element Ptr object, NSUInteger index, BOOL *stop); \
+typedef NSComparisonResult (^TComparator_##Element)(Element Ptr object1, Element Ptr object2); \
+typedef void (^TIndexedEnumerator_##Element)(Element Ptr object, NSUInteger index, BOOL *stop); \
+typedef NSInteger (*TSortFunction_##Element)(Element Ptr , Element Ptr , void *); \
 _TMutableArrayForward(Element) \
 /*! NSArray Interface */ \
 _TArrayForward(Element) \
@@ -34,26 +33,26 @@ _TArrayForward(Element) \
 - (TArray(Element))initWithArray:(TArray(Element))array copyItems:(BOOL)flag; \
 - (TArray(Element))initWithContentsOfFile:(NSString *)path; \
 - (TArray(Element))initWithContentsOfURL:(NSURL *)URL; \
-- (TArray(Element))initWithObjects:(Element *)firstObject, ... NS_REQUIRES_NIL_TERMINATION; \
-- (TArray(Element))initWithObjects:(const Element * __autoreleasing [])objects count:(NSUInteger)count; \
+- (TArray(Element))initWithObjects:(Element Ptr )firstObject, ... NS_REQUIRES_NIL_TERMINATION; \
+- (TArray(Element))initWithObjects:(const Element Ptr  __autoreleasing [])objects count:(NSUInteger)count; \
 - (TArray(Element))initWithCoder:(NSCoder *)decoder; \
 /*! Querying an Array */ \
-- (BOOL)containsObject:(Element *)object; \
+- (BOOL)containsObject:(Element Ptr )object; \
 @property (readonly) NSUInteger count; \
-- (void)getObjects:(Element * __unsafe_unretained [])objects range:(NSRange)range; \
-@property (nonatomic, readonly) Element *firstObject; \
-@property (nonatomic, readonly) Element *lastObject; \
-- (Element *)objectAtIndex:(NSUInteger)index; \
-- (Element *)objectAtIndexedSubscript:(NSUInteger)index; \
+- (void)getObjects:(Element Ptr  __unsafe_unretained [])objects range:(NSRange)range; \
+@property (nonatomic, readonly) Element Ptr firstObject; \
+@property (nonatomic, readonly) Element Ptr lastObject; \
+- (Element Ptr )objectAtIndex:(NSUInteger)index; \
+- (Element Ptr )objectAtIndexedSubscript:(NSUInteger)index; \
 - (TArray(Element))objectsAtIndexes:(NSIndexSet *)indexes; \
 - (NSEnumerator *)objectEnumerator; \
 - (NSEnumerator *)reverseObjectEnumerator; \
 /*! Finding Objects in an Array */ \
-- (NSUInteger)indexOfObject:(Element *)object; \
-- (NSUInteger)indexOfObject:(Element *)object inRange:(NSRange)range; \
-- (NSUInteger)indexOfObject:(Element *)object inSortedRange:(NSRange)range options:(NSBinarySearchingOptions)options usingComparator:(TComparator_##Element)cmp; \
-- (NSUInteger)indexOfObjectIdenticalTo:(Element *)object; \
-- (NSUInteger)indexOfObjectIdenticalTo:(Element *)object inRange:(NSRange)range; \
+- (NSUInteger)indexOfObject:(Element Ptr )object; \
+- (NSUInteger)indexOfObject:(Element Ptr )object inRange:(NSRange)range; \
+- (NSUInteger)indexOfObject:(Element Ptr )object inSortedRange:(NSRange)range options:(NSBinarySearchingOptions)options usingComparator:(TComparator_##Element)cmp; \
+- (NSUInteger)indexOfObjectIdenticalTo:(Element Ptr )object; \
+- (NSUInteger)indexOfObjectIdenticalTo:(Element Ptr )object inRange:(NSRange)range; \
 - (NSUInteger)indexOfObjectPassingTest:(TIndexedPredicate_##Element)predicate; \
 - (NSUInteger)indexOfObjectWithOptions:(NSEnumerationOptions)options passingTest:(TIndexedPredicate_##Element)predicate; \
 - (NSUInteger)indexOfObjectAtIndexes:(NSIndexSet *)indexes options:(NSEnumerationOptions)options passingTest:(TIndexedPredicate_##Element)predicate; \
@@ -67,7 +66,7 @@ _TArrayForward(Element) \
 - (void)enumerateObjectsWithOptions:(NSEnumerationOptions)options usingBlock:(TIndexedEnumerator_##Element)block; \
 - (void)enumerateObjectsAtIndexes:(NSIndexSet *)indexes options:(NSEnumerationOptions)options usingBlock:(TIndexedEnumerator_##Element)block; \
 /*! Comparing Arrays */ \
-- (Element *)firstObjectCommonWithArray:(TArray(Element))other; \
+- (Element Ptr )firstObjectCommonWithArray:(TArray(Element))other; \
 - (BOOL)isEqual:(TArray(Element))other; \
 - (BOOL)isEqualToArray:(TArray(Element))other; \
 /*! Copying an Array */ \
@@ -76,7 +75,7 @@ _TArrayForward(Element) \
 - (TMutableArray(Element))mutableCopy; \
 - (TMutableArray(Element))mutableCopyWithZone:(NSZone *)zone; \
 /*! Deriving New Arrays */ \
-- (TArray(Element))arrayByAddingObject:(Element *)object; \
+- (TArray(Element))arrayByAddingObject:(Element Ptr )object; \
 - (TArray(Element))arrayByAddingObjectsFromArray:(TArray(Element))other; \
 - (TArray(Element))filteredArrayUsingPredicate:(NSPredicate *)predicate; \
 - (TArray(Element))subarrayWithRange:(NSRange)range; \

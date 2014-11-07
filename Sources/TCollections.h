@@ -19,14 +19,14 @@
     [_TConcat(Type, Alloc)(Element) initWithObjects:objects count:count]; \
 })
 
-#define TGenerate(Element) \
-_TArrayCreateProtocol(Element) \
-_TMutableArrayCreateProtocol(Element) \
-_TSetCreateProtocol(Element) \
-_TMutableSetCreateProtocol(Element) \
-_TCountedSetCreateProtocol(Element) \
-_TOrderedSetCreateProtocol(Element) \
-_TMutableOrderedSetCreateProtocol(Element) \
+#define TGenerate(Element, Ptr) \
+_TArrayCreateProtocol(Element, Ptr) \
+_TMutableArrayCreateProtocol(Element, Ptr) \
+_TSetCreateProtocol(Element, Ptr) \
+_TMutableSetCreateProtocol(Element, Ptr) \
+_TCountedSetCreateProtocol(Element, Ptr) \
+_TOrderedSetCreateProtocol(Element, Ptr) \
+_TMutableOrderedSetCreateProtocol(Element, Ptr) \
 
 
 

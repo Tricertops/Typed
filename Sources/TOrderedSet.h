@@ -16,12 +16,11 @@ _TDictionaryForward(NSString, NSObject)
 
 
 
-#define _TOrderedSetCreateProtocol(Element) \
+#define _TOrderedSetCreateProtocol(Element, Ptr) \
 /*! Types */ \
-@class Element; \
-typedef BOOL (^TIndexedPredicate_##Element)(Element *object, NSUInteger index, BOOL *stop); \
-typedef void (^TIndexedEnumerator_##Element)(Element *object, NSUInteger index, BOOL *stop); \
-typedef NSComparisonResult (^TComparator_##Element)(Element *object1, Element *object2); \
+typedef BOOL (^TIndexedPredicate_##Element)(Element Ptr object, NSUInteger index, BOOL *stop); \
+typedef void (^TIndexedEnumerator_##Element)(Element Ptr object, NSUInteger index, BOOL *stop); \
+typedef NSComparisonResult (^TComparator_##Element)(Element Ptr object1, Element Ptr object2); \
 _TArrayForward(Element) \
 _TSetForward(Element) \
 _TMutableOrderedSetForward(Element) \
@@ -33,9 +32,9 @@ _TOrderedSetForward(Element) \
 - (TOrderedSet(Element))initWithArray:(TArray(Element))array; \
 - (TOrderedSet(Element))initWithArray:(TArray(Element))set copyItems:(BOOL)flag; \
 - (TOrderedSet(Element))initWithArray:(TArray(Element))set range:(NSRange)range copyItems:(BOOL)flag; \
-- (TOrderedSet(Element))initWithObject:(Element *)object; \
-- (TOrderedSet(Element))initWithObjects:(Element *)firstObject, ... NS_REQUIRES_NIL_TERMINATION; \
-- (TOrderedSet(Element))initWithObjects:(const Element * __autoreleasing [])objects count:(NSUInteger)count; \
+- (TOrderedSet(Element))initWithObject:(Element Ptr )object; \
+- (TOrderedSet(Element))initWithObjects:(Element Ptr )firstObject, ... NS_REQUIRES_NIL_TERMINATION; \
+- (TOrderedSet(Element))initWithObjects:(const Element Ptr  __autoreleasing [])objects count:(NSUInteger)count; \
 - (TOrderedSet(Element))initWithOrderedSet:(TOrderedSet(Element))set; \
 - (TOrderedSet(Element))initWithOrderedSet:(TOrderedSet(Element))set copyItems:(BOOL)flag; \
 - (TOrderedSet(Element))initWithOrderedSet:(TOrderedSet(Element))set range:(NSRange)range copyItems:(BOOL)flag; \
@@ -45,19 +44,19 @@ _TOrderedSetForward(Element) \
 - (TOrderedSet(Element))initWithCoder:(NSCoder *)aDecoder; \
 /*! Querying an Ordered Set */ \
 @property (readonly) NSUInteger count; \
-- (Element *)objectAtIndex:(NSUInteger)index; \
-- (BOOL)containsObject:(Element *)object; \
-@property (nonatomic, readonly) Element *firstObject; \
-@property (nonatomic, readonly) Element *lastObject; \
-- (void)getObjects:(Element * __unsafe_unretained [])objects range:(NSRange)range; \
-- (Element *)objectAtIndexedSubscript:(NSUInteger)index; \
+- (Element Ptr )objectAtIndex:(NSUInteger)index; \
+- (BOOL)containsObject:(Element Ptr )object; \
+@property (nonatomic, readonly) Element Ptr firstObject; \
+@property (nonatomic, readonly) Element Ptr lastObject; \
+- (void)getObjects:(Element Ptr  __unsafe_unretained [])objects range:(NSRange)range; \
+- (Element Ptr )objectAtIndexedSubscript:(NSUInteger)index; \
 - (TArray(Element))objectsAtIndexes:(NSIndexSet *)indexes; \
 - (NSEnumerator *)objectEnumerator; \
 - (NSEnumerator *)reverseObjectEnumerator; \
 @property(readonly, copy) TOrderedSet(Element) reversedOrderedSet; \
 /*! Finding Objects in an Ordered Set */ \
-- (NSUInteger)indexOfObject:(Element *)object; \
-- (NSUInteger)indexOfObject:(Element *)object inSortedRange:(NSRange)range options:(NSBinarySearchingOptions)options usingComparator:(TComparator_##Element)cmp; \
+- (NSUInteger)indexOfObject:(Element Ptr )object; \
+- (NSUInteger)indexOfObject:(Element Ptr )object inSortedRange:(NSRange)range options:(NSBinarySearchingOptions)options usingComparator:(TComparator_##Element)cmp; \
 - (NSUInteger)indexOfObjectPassingTest:(TIndexedPredicate_##Element)predicate; \
 - (NSUInteger)indexOfObjectWithOptions:(NSEnumerationOptions)options passingTest:(TIndexedPredicate_##Element)predicate; \
 - (NSUInteger)indexOfObjectAtIndexes:(NSIndexSet *)indexes options:(NSEnumerationOptions)options passingTest:(TIndexedPredicate_##Element)predicate; \

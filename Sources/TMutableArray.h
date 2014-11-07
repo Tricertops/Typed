@@ -10,8 +10,7 @@
 
 
 
-#define _TMutableArrayCreateProtocol(Element) \
-@class Element; \
+#define _TMutableArrayCreateProtocol(Element, Ptr) \
 /*! NSMutableArray Interface */ \
 _TMutableArrayForward(Element) \
 @protocol TMutableArray_##Element <TArray_##Element> \
@@ -22,28 +21,28 @@ _TMutableArrayForward(Element) \
 - (TMutableArray(Element))initWithArray:(TArray(Element))array copyItems:(BOOL)flag; \
 - (TMutableArray(Element))initWithContentsOfFile:(NSString *)path; \
 - (TMutableArray(Element))initWithContentsOfURL:(NSURL *)URL; \
-- (TMutableArray(Element))initWithObjects:(Element *)firstObject, ... NS_REQUIRES_NIL_TERMINATION; \
-- (TMutableArray(Element))initWithObjects:(const Element * __autoreleasing [])objects count:(NSUInteger)count; \
+- (TMutableArray(Element))initWithObjects:(Element Ptr )firstObject, ... NS_REQUIRES_NIL_TERMINATION; \
+- (TMutableArray(Element))initWithObjects:(const Element Ptr  __autoreleasing [])objects count:(NSUInteger)count; \
 - (TMutableArray(Element))initWithCoder:(NSCoder *)decoder; \
 /*! Adding Objects */ \
-- (void)addObject:(Element *)object; \
+- (void)addObject:(Element Ptr )object; \
 - (void)addObjectsFromArray:(TArray(Element))other; \
-- (void)insertObject:(Element *)object atIndex:(NSUInteger)index; \
+- (void)insertObject:(Element Ptr )object atIndex:(NSUInteger)index; \
 - (void)insertObjects:(TArray(Element))objects atIndexes:(NSIndexSet *)indexes; \
 /*! Removing Objects */ \
 - (void)removeAllObjects; \
 - (void)removeLastObject; \
-- (void)removeObject:(Element *)object; \
-- (void)removeObject:(Element *)object inRange:(NSRange)range; \
+- (void)removeObject:(Element Ptr )object; \
+- (void)removeObject:(Element Ptr )object inRange:(NSRange)range; \
 - (void)removeObjectAtIndex:(NSUInteger)index; \
 - (void)removeObjectsAtIndexes:(NSIndexSet *)indexes; \
-- (void)removeObjectIdenticalTo:(Element *)object; \
-- (void)removeObjectIdenticalTo:(Element *)object inRange:(NSRange)range; \
+- (void)removeObjectIdenticalTo:(Element Ptr )object; \
+- (void)removeObjectIdenticalTo:(Element Ptr )object inRange:(NSRange)range; \
 - (void)removeObjectsInArray:(TArray(Element))other; \
 - (void)removeObjectsInRange:(NSRange)range; \
 /*! Replacing Objects */ \
-- (void)replaceObjectAtIndex:(NSUInteger)index withObject:(Element *)object; \
-- (void)setObject:(Element *)object atIndexedSubscript:(NSUInteger)index; \
+- (void)replaceObjectAtIndex:(NSUInteger)index withObject:(Element Ptr )object; \
+- (void)setObject:(Element Ptr )object atIndexedSubscript:(NSUInteger)index; \
 - (void)replaceObjectsAtIndexes:(NSIndexSet *)indexes withObjects:(TArray(Element))objects; \
 - (void)replaceObjectsInRange:(NSRange)range withObjectsFromArray:(TArray(Element))other range:(NSRange)otherRange; \
 - (void)replaceObjectsInRange:(NSRange)range withObjectsFromArray:(TArray(Element))other; \

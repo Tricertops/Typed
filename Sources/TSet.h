@@ -16,11 +16,10 @@ _TDictionaryForward(NSString, NSObject)
 
 
 
-#define _TSetCreateProtocol(Element) \
+#define _TSetCreateProtocol(Element, Ptr) \
 /*! Types */ \
-@class Element; \
-typedef void (^TEnumerator_##Element)(Element *object, BOOL *stop); \
-typedef BOOL (^TPredicate_##Element)(Element *object, BOOL *stop); \
+typedef void (^TEnumerator_##Element)(Element Ptr object, BOOL *stop); \
+typedef BOOL (^TPredicate_##Element)(Element Ptr object, BOOL *stop); \
 _TArrayForward(Element) \
 _TMutableSetForward(Element) \
 /*! NSSet Interface */ \
@@ -29,8 +28,8 @@ _TSetForward(Element) \
 - (TSet(Element))self; \
 /*! Initializing a Set */ \
 - (TSet(Element))initWithArray:(TArray(Element))array; \
-- (TSet(Element))initWithObjects:(Element *)firstObject, ... NS_REQUIRES_NIL_TERMINATION; \
-- (TSet(Element))initWithObjects:(const Element * __autoreleasing [])objects count:(NSUInteger)count; \
+- (TSet(Element))initWithObjects:(Element Ptr )firstObject, ... NS_REQUIRES_NIL_TERMINATION; \
+- (TSet(Element))initWithObjects:(const Element Ptr  __autoreleasing [])objects count:(NSUInteger)count; \
 - (TSet(Element))initWithSet:(TSet(Element))set; \
 - (TSet(Element))initWithSet:(TSet(Element))set copyItems:(BOOL)flag; \
 - (TSet(Element))init; \
@@ -38,9 +37,9 @@ _TSetForward(Element) \
 /*! Querying a Set */ \
 @property (readonly) NSUInteger count; \
 @property (readonly, copy) TArray(Element) allObjects; \
-- (Element *)anyObject; \
-- (BOOL)containsObject:(Element *)object; \
-- (Element *)member:(Element *)object; \
+- (Element Ptr )anyObject; \
+- (BOOL)containsObject:(Element Ptr )object; \
+- (Element Ptr )member:(Element Ptr )object; \
 - (NSEnumerator *)objectEnumerator; \
 /*! Sending Messages to Elements */ \
 - (void)makeObjectsPerformSelector:(SEL)aSelector; \
@@ -58,7 +57,7 @@ _TSetForward(Element) \
 - (TMutableSet(Element))mutableCopy; \
 - (TMutableSet(Element))mutableCopyWithZone:(NSZone *)zone; \
 /*! Deriving New Sets */ \
-- (TSet(Element))setByAddingObject:(Element *)object; \
+- (TSet(Element))setByAddingObject:(Element Ptr )object; \
 - (TSet(Element))setByAddingObjectsFromSet:(TSet(Element))other; \
 - (TSet(Element))setByAddingObjectsFromArray:(TArray(Element))array; \
 - (TSet(Element))filteredSetUsingPredicate:(NSPredicate *)predicate; \
