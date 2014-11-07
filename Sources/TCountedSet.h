@@ -13,6 +13,7 @@
 #define _TCountedSetCreateProtocol(Element) \
 @class Element; \
 /*! NSCountedSet Interface */ \
+_TCountedSetForward(Element) \
 @protocol TCountedSet_##Element <TMutableSet_##Element> \
 - (TCountedSet(Element))self; \
 /*! Initializing a Set */ \

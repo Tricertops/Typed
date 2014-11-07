@@ -14,6 +14,7 @@
 /*! Types */ \
 @class Element; \
 /*! NSMutableOrderedSet Interface */ \
+_TMutableOrderedSetForward(Element) \
 @protocol TMutableOrderedSet_##Element <TOrderedSet_##Element> \
 - (TMutableOrderedSet(Element))self; \
 /*! Initializing an Ordered Set */ \

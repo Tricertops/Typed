@@ -13,6 +13,7 @@
 #define _TMutableSetCreateProtocol(Element) \
 @class Element; \
 /*! NSMutableSet Interface */ \
+_TMutableSetForward(Element) \
 @protocol TMutableSet_##Element <TSet_##Element> \
 - (TMutableSet(Element))self; \
 /*! Initializing a Set */ \

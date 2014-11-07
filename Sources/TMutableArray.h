@@ -13,6 +13,7 @@
 #define _TMutableArrayCreateProtocol(Element) \
 @class Element; \
 /*! NSMutableArray Interface */ \
+_TMutableArrayForward(Element) \
 @protocol TMutableArray_##Element <TArray_##Element> \
 - (TMutableArray(Element))self; \
 /*! Initializing an Array */ \

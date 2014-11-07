@@ -14,6 +14,7 @@
 @class Key, Value; \
 _TArrayForward(Key) \
 /*! NSMutableDictionary Interface */ \
+_TMutableDictionaryForward(Key, Value); \
 @protocol TMutableDictionary_##Key##_##Value <TDictionary_##Key##_##Value> \
 - (TMutableDictionary(Key, Value))self; \
 /*! Initializing a Dictionary */ \

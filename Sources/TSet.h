@@ -24,6 +24,7 @@ typedef BOOL (^TPredicate_##Element)(Element *object, BOOL *stop); \
 _TArrayForward(Element) \
 _TMutableSetForward(Element) \
 /*! NSSet Interface */ \
+_TSetForward(Element) \
 @protocol TSet_##Element <_TProtocols> \
 - (TSet(Element))self; \
 /*! Initializing a Set */ \

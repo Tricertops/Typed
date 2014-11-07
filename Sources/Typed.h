@@ -20,6 +20,14 @@
 //TODO: THashTable (Strong or Weak)
 //TODO: TMapTable (Strong or Weak Keys, Strong or Weak Values)
 
+//TODO: -enumerationType
+//TODO: -elementType
+//TODO: -keyType
+//TODO: -valueType
+//TODO: TForIn(string, strings) { ... }
+
+//TODO: TGenerate with a pointer star as a second argument: TGenerate(NSString,*), TGenerate(TArray(NSString),)
+
 
 
 TGenerate(NSString) // Useds for KVC methods.

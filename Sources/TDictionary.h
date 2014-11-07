@@ -22,6 +22,7 @@ _TSetForward(Key) \
 _TDictionaryForward(NSString, Value); \
 _TMutableDictionaryForward(Key, Value); \
 /*! NSDictionary Interface */ \
+_TDictionaryForward(Key, Value); \
 @protocol TDictionary_##Key##_##Value <_TAssociativeProtocols> \
 - (TDictionary(Key, Value))self; \
 /*! Initializing a Dictionary */ \

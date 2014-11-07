@@ -26,6 +26,7 @@ _TArrayForward(Element) \
 _TSetForward(Element) \
 _TMutableOrderedSetForward(Element) \
 /*! NSOrderedSet Interface */ \
+_TOrderedSetForward(Element) \
 @protocol TOrderedSet_##Element <_TProtocols> \
 - (TOrderedSet(Element))self; \
 /*! Initializing an Ordered Set */ \

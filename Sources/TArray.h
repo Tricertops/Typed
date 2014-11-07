@@ -25,6 +25,7 @@ typedef void (^TIndexedEnumerator_##Element)(Element *object, NSUInteger index, 
 typedef NSInteger (*TSortFunction_##Element)(Element *, Element *, void *); \
 _TMutableArrayForward(Element) \
 /*! NSArray Interface */ \
+_TArrayForward(Element) \
 @protocol TArray_##Element <_TProtocols> \
 - (TArray(Element))self; \
 /*! Initializing an Array */ \

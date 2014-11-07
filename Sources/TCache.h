@@ -19,6 +19,7 @@ _TArrayForward(NSString)
 @class Key, Value; \
 _TDictionaryForward(NSString, Value) \
 /*! NSCache Interface */ \
+_TCacheForward(Key, Value); \
 @protocol TCache_##Key##_##Value <NSObject> \
 - (TCache(Key, Value))self; \
 - (TCache(Key, Value))init; \
