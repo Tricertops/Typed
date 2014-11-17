@@ -14,9 +14,8 @@ _TArrayForward(NSString)
 
 
 
-#define _TCacheCreateProtocol(Key, Value) \
+#define _TCacheCreateProtocol(Key,KPtr, Value,VPtr) \
 /*! Types */ \
-@class Key, Value; \
 _TDictionaryForward(NSString, Value) \
 /*! NSCache Interface */ \
 _TCacheForward(Key, Value); \
@@ -27,11 +26,11 @@ _TCacheForward(Key, Value); \
 /*! Naming a Cache */ \
 @property(copy) NSString *name; \
 /*! Getting a Cached Value */ \
-- (Value *)objectForKey:(Key *)key; \
+- (Value VPtr)objectForKey:(Key KPtr)key; \
 /*! Adding and Removing Cached Values */ \
-- (void)setObject:(Value *)object forKey:(Key *)key; \
-- (void)setObject:(Value *)object forKey:(Key *)key cost:(NSUInteger)cost; \
-- (void)removeObjectForKey:(Key *)key; \
+- (void)setObject:(Value VPtr)object forKey:(Key KPtr)key; \
+- (void)setObject:(Value VPtr)object forKey:(Key KPtr)key cost:(NSUInteger)cost; \
+- (void)removeObjectForKey:(Key KPtr)key; \
 - (void)removeAllObjects; \
 /*! Managing Cache Size */ \
 @property NSUInteger countLimit; \
@@ -41,8 +40,8 @@ _TCacheForward(Key, Value); \
 /*! Delegate */ \
 @property(assign) id<NSCacheDelegate> delegate; \
 /*! Key-Value Coding */ \
-- (Value *)valueForKey:(NSString *)key; \
-- (void)setValue:(Value *)value forKey:(NSString *)key; \
+- (Value VPtr)valueForKey:(NSString *)key; \
+- (void)setValue:(Value VPtr)value forKey:(NSString *)key; \
 - (id)valueForKeyPath:(NSString *)keyPath; \
 - (void)setValue:(id)value forKeyPath:(NSString *)keyPath; \
 - (TDictionary(NSString, Value))dictionaryWithValuesForKeys:(TArray(NSString))keys; \

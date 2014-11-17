@@ -28,10 +28,12 @@
 //TODO: TAssociativeGenerate with a pointer stars.
 
 
+TGenerate(id,)
+TAssociativeGenerate(id, , id,)
 
 TGenerate(NSString,*) // Useds for KVC methods.
 TGenerate(NSSortDescriptor,*) // Used by sorting methods.
-TAssociativeGenerate(NSString, NSObject) // Useds for KVC methods.
+TAssociativeGenerate(NSString,*, NSObject,*) // Useds for KVC methods.
 
 
 TGenerate(NSObject,*)
@@ -39,11 +41,11 @@ TGenerate(NSDate,*)
 TGenerate(NSNumber,*)
 TGenerate(NSURL,*)
 
-TAssociativeGenerate(NSObject, NSObject)
-TAssociativeGenerate(NSString, NSString)
-TAssociativeGenerate(NSString, NSNumber)
-TAssociativeGenerate(NSNumber, NSObject)
-TAssociativeGenerate(NSNumber, NSString)
-TAssociativeGenerate(NSNumber, NSNumber)
+TAssociativeGenerate(NSObject,*, NSObject,*)
+TAssociativeGenerate(NSString,*, NSString,*)
+TAssociativeGenerate(NSString,*, NSNumber,*)
+TAssociativeGenerate(NSNumber,*, NSObject,*)
+TAssociativeGenerate(NSNumber,*, NSString,*)
+TAssociativeGenerate(NSNumber,*, NSNumber,*)
 
 

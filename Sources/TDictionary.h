@@ -10,12 +10,11 @@
 
 
 
-#define _TDictionaryCreateProtocol(Key, Value) \
+#define _TDictionaryCreateProtocol(Key, KPtr, Value, VPtr) \
 /*! Types */ \
-@class Key, Value; \
-typedef void (^TAssociativeEnumerator_##Key##_##Value)(Key<NSCopying> *key, Value *object, BOOL *stop); \
-typedef NSComparisonResult (^TComparator_##Value)(Value *object1, Value *object2); \
-typedef BOOL (^TAssociativePredicate_##Key##_##Value)(Key<NSCopying> *key, Value *object, BOOL *stop); \
+typedef void (^TAssociativeEnumerator_##Key##_##Value)(Key<NSCopying> KPtr key, Value VPtr object, BOOL *stop); \
+typedef NSComparisonResult (^TComparator_##Value)(Value VPtr object1, Value VPtr object2); \
+typedef BOOL (^TAssociativePredicate_##Key##_##Value)(Key<NSCopying> KPtr key, Value VPtr object, BOOL *stop); \
 _TArrayForward(Key) \
 _TArrayForward(Value) \
 _TSetForward(Key) \
@@ -29,8 +28,8 @@ _TDictionaryForward(Key, Value); \
 - (TDictionary(Key, Value))initWithDictionary:(TDictionary(Key, Value))other; \
 - (TDictionary(Key, Value))initWithDictionary:(TDictionary(Key, Value))other copyItems:(BOOL)flag; \
 - (TDictionary(Key, Value))initWithObjects:(TArray(Value))objects forKeys:(TArray(Key))keys; \
-- (TDictionary(Key, Value))initWithObjects:(const Value * __autoreleasing [])objects forKeys:(const Key<NSCopying> * __autoreleasing [])keys count:(NSUInteger)count; \
-- (TDictionary(Key, Value))initWithObjectsAndKeys:(Value *)firstObject, ... NS_REQUIRES_NIL_TERMINATION; \
+- (TDictionary(Key, Value))initWithObjects:(const Value VPtr __autoreleasing [])objects forKeys:(const Key<NSCopying> KPtr __autoreleasing [])keys count:(NSUInteger)count; \
+- (TDictionary(Key, Value))initWithObjectsAndKeys:(Value VPtr)firstObject, ... NS_REQUIRES_NIL_TERMINATION; \
 - (TDictionary(Key, Value))initWithContentsOfFile:(NSString *)path; \
 - (TDictionary(Key, Value))initWithContentsOfURL:(NSURL *)url; \
 - (TDictionary(Key, Value))init; \
@@ -39,13 +38,13 @@ _TDictionaryForward(Key, Value); \
 @property(readonly) NSUInteger count; \
 @property(readonly, copy) TArray(Key) allKeys; \
 @property(readonly, copy) TArray(Value) allValues; \
-- (TArray(Key))allKeysForObject:(Value *)object; \
-- (Value *)objectForKey:(Key<NSCopying> *)key; \
-- (Value *)objectForKeyedSubscript:(Key<NSCopying> *)key; \
+- (TArray(Key))allKeysForObject:(Value VPtr)object; \
+- (Value VPtr)objectForKey:(Key<NSCopying> KPtr)key; \
+- (Value VPtr)objectForKeyedSubscript:(Key<NSCopying> KPtr)key; \
 - (TArray(Value))objectsForKeys:(TArray(Key))keys notFoundMarker:(NSObject *)object; \
 - (NSEnumerator *)keyEnumerator; \
 - (NSEnumerator *)objectEnumerator; \
-- (void)getObjects:(Value * __unsafe_unretained [])objects andKeys:(Key<NSCopying> * __unsafe_unretained [])keys; \
+- (void)getObjects:(Value VPtr __unsafe_unretained [])objects andKeys:(Key<NSCopying> KPtr __unsafe_unretained [])keys; \
 - (void)enumerateKeysAndObjectsUsingBlock:(TAssociativeEnumerator_##Key##_##Value)block; \
 - (void)enumerateKeysAndObjectsWithOptions:(NSEnumerationOptions)options usingBlock:(TAssociativeEnumerator_##Key##_##Value)block; \
 /*! Comparing Dictionaries */ \
@@ -71,8 +70,8 @@ _TDictionaryForward(Key, Value); \
 - (BOOL)writeToFile:(NSString *)path atomically:(BOOL)flag; \
 - (BOOL)writeToURL:(NSURL *)aURL atomically:(BOOL)flag; \
 /*! Key-Value Coding */ \
-- (Value *)valueForKey:(NSString *)key; \
-- (void)setValue:(Value *)value forKey:(NSString *)key; \
+- (Value VPtr)valueForKey:(NSString *)key; \
+- (void)setValue:(Value VPtr)value forKey:(NSString *)key; \
 - (id)valueForKeyPath:(NSString *)keyPath; \
 - (void)setValue:(id)value forKeyPath:(NSString *)keyPath; \
 - (TDictionary(NSString, Value))dictionaryWithValuesForKeys:(TArray(NSString))keys; \
