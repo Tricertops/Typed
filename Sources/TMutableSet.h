@@ -15,6 +15,7 @@
 _TMutableSetForward(Element) \
 @protocol TMutableSet_##Element <TSet_##Element> \
 - (TMutableSet(Element))self; \
+- (NSMutableSet *)untyped; \
 /*! Initializing a Set */ \
 - (TMutableSet(Element))initWithArray:(TArray(Element))array; \
 - (TMutableSet(Element))initWithObjects:(Element Ptr )firstObject, ... NS_REQUIRES_NIL_TERMINATION; \

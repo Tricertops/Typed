@@ -24,6 +24,7 @@ _TMutableDictionaryForward(Key, Value); \
 _TDictionaryForward(Key, Value); \
 @protocol TDictionary_##Key##_##Value <_TProtocols> \
 - (TDictionary(Key, Value))self; \
+- (NSDictionary *)untyped; \
 - (Key KPtr)T_Key; \
 - (Value VPtr)T_Value; \
 - (Key KPtr)T_Enumeration; \

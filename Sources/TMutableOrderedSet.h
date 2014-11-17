@@ -15,6 +15,7 @@
 _TMutableOrderedSetForward(Element) \
 @protocol TMutableOrderedSet_##Element <TOrderedSet_##Element> \
 - (TMutableOrderedSet(Element))self; \
+- (NSMutableOrderedSet *)untyped; \
 /*! Initializing an Ordered Set */ \
 - (TMutableOrderedSet(Element))initWithArray:(TArray(Element))array; \
 - (TMutableOrderedSet(Element))initWithArray:(TArray(Element))set copyItems:(BOOL)flag; \

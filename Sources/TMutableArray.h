@@ -15,6 +15,7 @@
 _TMutableArrayForward(Element) \
 @protocol TMutableArray_##Element <TArray_##Element> \
 - (TMutableArray(Element))self; \
+- (NSMutableArray *)untyped; \
 /*! Initializing an Array */ \
 - (TMutableArray(Element))init; \
 - (TMutableArray(Element))initWithArray:(TArray(Element))array; \

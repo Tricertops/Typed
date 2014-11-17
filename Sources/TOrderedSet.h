@@ -28,6 +28,7 @@ _TMutableOrderedSetForward(Element) \
 _TOrderedSetForward(Element) \
 @protocol TOrderedSet_##Element <_TProtocols> \
 - (TOrderedSet(Element))self; \
+- (NSOrderedSet *)untyped; \
 - (Element Ptr)T_Element; \
 - (Element Ptr)T_Enumeration; \
 /*! Initializing an Ordered Set */ \

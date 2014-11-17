@@ -16,6 +16,7 @@ _TArrayForward(Key) \
 _TMutableDictionaryForward(Key, Value); \
 @protocol TMutableDictionary_##Key##_##Value <TDictionary_##Key##_##Value> \
 - (TMutableDictionary(Key, Value))self; \
+- (NSMutableDictionary *)untyped; \
 /*! Initializing a Dictionary */ \
 - (TMutableDictionary(Key, Value))initWithDictionary:(TDictionary(Key, Value))other; \
 - (TMutableDictionary(Key, Value))initWithDictionary:(TDictionary(Key, Value))other copyItems:(BOOL)flag; \

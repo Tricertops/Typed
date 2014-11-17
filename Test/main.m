@@ -27,7 +27,8 @@ int main(int argc, const char * argv[]) {
 //          TArray(NSString) strings = TArrayMake(NSString, @"Apple", @42);
             
             //! Casting to NSArray:
-            NSArray *objects = (NSArray *)strings;
+            NSArray *objects = strings;
+            NSArray *untyped = strings.untyped;
 //          TArray(NSString) strings = [NSArray new];
             
             //! Accessing objects:
@@ -74,6 +75,7 @@ int main(int argc, const char * argv[]) {
 
             //! Casting to NSSet:
             NSSet *objects = strings;
+            NSSet *untyped = strings.untyped;
 //          strings = [NSSet new];
             
             //! Accessing objects:
@@ -113,6 +115,7 @@ int main(int argc, const char * argv[]) {
             
             //! Casting to NSDictionary:
             NSDictionary *dictionary = fruitCounts;
+            NSDictionary *untyped = fruitCounts.untyped;
 //            fruitCounts = [NSDictionary new];
             
             //! Lookup:

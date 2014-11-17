@@ -26,6 +26,7 @@ _TMutableSetForward(Element) \
 _TSetForward(Element) \
 @protocol TSet_##Element <_TProtocols> \
 - (TSet(Element))self; \
+- (NSSet *)untyped; \
 - (Element Ptr)T_Element; \
 - (Element Ptr)T_Enumeration; \
 /*! Initializing a Set */ \

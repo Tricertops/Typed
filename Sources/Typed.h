@@ -21,8 +21,7 @@
 
 //TODO: Create from variadic arguments (Array, Set, OrderedSet).
 
-//TODO: Runtime support
-//TODO: -untyped method
+#import "TUntyped.h"
 
 //TODO: Extensibility, since categories doesn’t work.
 //TODO: Create prepopulated with copies of single object (Array).

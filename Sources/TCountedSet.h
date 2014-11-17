@@ -15,6 +15,7 @@
 _TCountedSetForward(Element) \
 @protocol TCountedSet_##Element <TMutableSet_##Element> \
 - (TCountedSet(Element))self; \
+- (NSCountedSet *)untyped; \
 /*! Initializing a Set */ \
 - (TCountedSet(Element))initWithArray:(TArray(Element))array; \
 - (TCountedSet(Element))initWithObjects:(Element Ptr )firstObject, ... NS_REQUIRES_NIL_TERMINATION; \
