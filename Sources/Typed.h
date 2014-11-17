@@ -25,8 +25,8 @@
 //TODO: -valueType
 //TODO: TForIn(string, strings) { ... }
 
-//TODO: TAssociativeGenerate with a pointer stars.
 
+#pragma mark -
 
 TGenerate(id,)
 TAssociativeGenerate(id, , id,)
