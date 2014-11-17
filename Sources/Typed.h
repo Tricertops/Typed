@@ -19,6 +19,20 @@
 //TODO: THashTable (Strong or Weak)
 //TODO: TMapTable (Strong or Weak Keys, Strong or Weak Values)
 
+//TODO: Create from variadic arguments (Array, Set, OrderedSet).
+
+//TODO: Runtime support
+//TODO: -untyped method
+
+//TODO: Extensibility, since categories doesn’t work.
+//TODO: Create prepopulated with copies of single object (Array).
+//TODO: Map to collection of different type (Array, Set, OrderedSet)
+//TODO: Subcollection from/to index (Array, OrderedSet)
+//TODO: Add object if non-nil (Array, Set, OrderedSet, Dictionary).
+
+//TODO: Flattened array?
+//TODO: Create mapped dictionary?
+
 
 #pragma mark -
 
