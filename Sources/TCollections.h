@@ -46,12 +46,11 @@ _TDictionaryCreateProtocol(Key,KeyPtr, Value,ValuePtr) \
 _TMutableDictionaryCreateProtocol(Key,KeyPtr, Value,ValuePtr) \
 _TCacheCreateProtocol(Key,KeyPtr, Value,ValuePtr) \
 
-
-
-#pragma mark - 
 #pragma mark Helpers
 
 #define TPair(Key, Value)               [_associative setObject:(Value) forKey:(Key)]
+#define TForIn(variable, TCollection)   for (typeof(TCollection.T_Enumeration) variable in TCollection)
+
 
 
 

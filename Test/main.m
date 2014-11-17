@@ -36,6 +36,12 @@ int main(int argc, const char * argv[]) {
 //          NSURL *websiteURL = strings.firstObject;
 //          NSNumber *ultimateAnswer = strings[1];
             
+            //! Enumerating objects:
+            TForIn(fruit, strings) {
+                NSString *lowercase = fruit.lowercaseString;
+//                NSURL *host = fruit.host;
+            }
+            
             //! Finding objects:
             BOOL containsApple = [strings containsObject:@"Apple"];
             NSUInteger orangeIndex = [strings indexOfObject:@"Orange"];

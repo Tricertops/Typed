@@ -145,6 +145,21 @@ NSURL *websiteURL = strings.firstObject;
 NSNumber *ultimateAnswer = strings[1];
 ```
 
+**Enumerating** using for-in macro that infers the type:
+
+```objc
+TForIn(fruit, strings) {
+    NSString *lowercase = fruit.lowercaseString;
+}
+```
+
+```objc
+TForIn(fruit, strings) {
+    // Warning: Incompatible pointer types:
+    NSURL *host = fruit.host;
+}
+```
+
 **Finding** objects in a typed array:
 
 ```objc
@@ -219,7 +234,7 @@ NSNumber *answer = fruitCounts[@42];
 NSString *keyword = keywords[@"Apple"][2].lowercaseString
 ```
 
-```
+```objc
 // Warning: Incompatible pointer types:
 NSString *host = keywords[@"Website"][2].host;
 ```
