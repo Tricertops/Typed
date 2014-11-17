@@ -19,11 +19,13 @@ However, for **every element class** or association class pair you plan to use, 
 
 ```objc
 // Typically in .h file
-TGenerate(NSString)
-TAssociativeGenerate(NSString, NSURL)
+TGenerate(NSString,*)
+TAssociativeGenerate(NSString,*, NSURL,*)
 ```
 
-Typed version fo the basic foundation classes are already provided.
+> **Note:** The pointer star have to be included for pointer types after a comma.
+
+Typed version of the basic foundation classes are already provided.
 
 Alternatively, you can use `typedef`’d variants in a form of `NSStringArray`, `NSNumberMutableSet` or `NSStringToNSNumberDictionary`. All these types are written without the pointer star `*`.
 
@@ -106,6 +108,24 @@ Typed collections have **exact** the same interface as their Foundation counterp
 ```
 
 **There is no implementation.** The method calls will be dispatched to their untyped variants at runtime.
+
+### Nesting
+All typed collection support nesting, which means, you can have an _array of arrays of strings_ or a _dictionary with string keys and array of string values_ and all methods are typed to an arbitrary level of depth (see examples).
+
+```objc
+TArray(TArray(NSString)) table = ...
+TDictionary(NSString, TArray(NSString)) keywords = ...
+```
+
+These nested types also have to be generated before being used:
+
+```objc
+TGenerate(TArray(NSString),)
+TAssociativeGenerate(NSString,*, TArray(NSString),)
+```
+
+> **Note 1:** There must already be `TGenerate(NSString)` before this.  
+> **Note 2:** Typed collections have no pointer star, since they are derived from `id`.
 
 
 Typed Examples
@@ -191,6 +211,17 @@ NSInteger apples = fruitCounts[@"Apple"].integerValue;
 // Warning: Incompatible pointer types 2×:
 NSURL *website = fruitCounts[@"Apple"];
 NSNumber *answer = fruitCounts[@42];
+```
+
+**Nested** collection access (dictionary from strings to an array of strings):
+
+```objc
+NSString *keyword = keywords[@"Apple"][2].lowercaseString
+```
+
+```
+// Warning: Incompatible pointer types:
+NSString *host = keywords[@"Website"][2].host;
 ```
 
 ---

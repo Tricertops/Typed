@@ -12,6 +12,7 @@
 
 
 TGenerate(TArray(NSString),)
+TAssociativeGenerate(NSString,*, TArray(NSString),)
 
 
 
@@ -120,15 +121,21 @@ int main(int argc, const char * argv[]) {
 //            TArray(NSString) titles = fruitCounts.allValues;
         }
         
-#pragma mark - Nested TArray
+#pragma mark - Nested
         {
-            TArray(TArray(NSString)) stringTable = (NSStringArrayArray)@[
-                                                             @[ @"AA", @"BA", @"CA", ],
-                                                             @[ @"AB", @"BB", @"CB", ],
-                                                             @[ @"AC", @"BC", @"CC", ],
-                                                             ];
+            TDictionary(NSString, TArray(NSString)) keywords = (NSStringToNSStringArrayDictionary)
+            @{
+              @"Apple": @[@"Mac",@"iPhone",@"iPad"],
+              @"Orange": @[@"Carrier",@"Cellular",@"Phone"],
+              @"Pear": @[@"Fruit",@"Sweet",@"Food"],
+              };
             
-            NSUInteger length = stringTable[2][1].length;
+            TArray(NSString) appleKeywords = keywords[@"Apple"];
+            NSUInteger orangeCount = keywords[@"Orange"].count;
+            NSString *pearKeyword = keywords[@"Pear"][2].lowercaseString;
+            
+//            TArray(NSNumber) answerKeywords = keywords[@42];
+//            NSString *websiteHost = keywords[@"Website"].host;
             
         }
     }
