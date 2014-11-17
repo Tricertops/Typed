@@ -28,6 +28,8 @@ _TMutableOrderedSetForward(Element) \
 _TOrderedSetForward(Element) \
 @protocol TOrderedSet_##Element <_TProtocols> \
 - (TOrderedSet(Element))self; \
+- (Element Ptr)T_Element; \
+- (Element Ptr)T_Enumeration; \
 /*! Initializing an Ordered Set */ \
 - (TOrderedSet(Element))initWithArray:(TArray(Element))array; \
 - (TOrderedSet(Element))initWithArray:(TArray(Element))set copyItems:(BOOL)flag; \

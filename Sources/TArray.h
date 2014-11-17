@@ -27,6 +27,8 @@ _TMutableArrayForward(Element) \
 _TArrayForward(Element) \
 @protocol TArray_##Element <_TProtocols> \
 - (TArray(Element))self; \
+- (Element Ptr)T_Element; \
+- (Element Ptr)T_Enumeration; \
 /*! Initializing an Array */ \
 - (TArray(Element))init; \
 - (TArray(Element))initWithArray:(TArray(Element))array; \

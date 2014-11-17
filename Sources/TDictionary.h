@@ -24,6 +24,9 @@ _TMutableDictionaryForward(Key, Value); \
 _TDictionaryForward(Key, Value); \
 @protocol TDictionary_##Key##_##Value <_TProtocols> \
 - (TDictionary(Key, Value))self; \
+- (Key KPtr)T_Key; \
+- (Value VPtr)T_Value; \
+- (Key KPtr)T_Enumeration; \
 /*! Initializing a Dictionary */ \
 - (TDictionary(Key, Value))initWithDictionary:(TDictionary(Key, Value))other; \
 - (TDictionary(Key, Value))initWithDictionary:(TDictionary(Key, Value))other copyItems:(BOOL)flag; \

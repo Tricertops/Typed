@@ -21,6 +21,8 @@ _TDictionaryForward(NSString, Value) \
 _TCacheForward(Key, Value); \
 @protocol TCache_##Key##_##Value <NSObject> \
 - (TCache(Key, Value))self; \
+- (Key KPtr)T_Key; \
+- (Value VPtr)T_Value; \
 - (TCache(Key, Value))init; \
 - (BOOL)isEqual:(TCache(Key, Value))other; \
 /*! Naming a Cache */ \

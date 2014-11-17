@@ -26,6 +26,8 @@ _TMutableSetForward(Element) \
 _TSetForward(Element) \
 @protocol TSet_##Element <_TProtocols> \
 - (TSet(Element))self; \
+- (Element Ptr)T_Element; \
+- (Element Ptr)T_Enumeration; \
 /*! Initializing a Set */ \
 - (TSet(Element))initWithArray:(TArray(Element))array; \
 - (TSet(Element))initWithObjects:(Element Ptr )firstObject, ... NS_REQUIRES_NIL_TERMINATION; \

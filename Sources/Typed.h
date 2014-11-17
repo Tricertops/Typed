@@ -19,12 +19,6 @@
 //TODO: THashTable (Strong or Weak)
 //TODO: TMapTable (Strong or Weak Keys, Strong or Weak Values)
 
-//TODO: -enumerationType
-//TODO: -elementType
-//TODO: -keyType
-//TODO: -valueType
-//TODO: TForIn(string, strings) { ... }
-
 
 #pragma mark -
 
