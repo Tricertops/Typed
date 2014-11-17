@@ -15,6 +15,8 @@ TGenerate(TArray(NSString),)
 TAssociativeGenerate(NSString,*, TArray(NSString),)
 
 
+static TArray(NSString) collect(NSString *string, ...) NS_REQUIRES_NIL_TERMINATION;
+
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -64,6 +66,9 @@ int main(int argc, const char * argv[]) {
             [mutableStrings replaceObjectAtIndex:2 withObject:@"Lemon"];
 //          [mutableStrings addObject:@42];
 //          [mutableStrings replaceObjectAtIndex:2 withObject:@[]];
+            
+            //! Creating from variadic:
+            TArray(NSString) collected = collect(@"Apple", @"Orange", @"Pear", nil);
         }
         
 #pragma mark - TSet
@@ -149,6 +154,12 @@ int main(int argc, const char * argv[]) {
         }
     }
     return EXIT_SUCCESS;
+}
+
+
+
+static TArray(NSString) collect(NSString *string, ...) {
+    return TArrayFromVariadic(NSString, string);
 }
 
 
