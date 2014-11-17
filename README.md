@@ -13,7 +13,9 @@ Typed Collections
   - **_TDictionary_**, _TMutableDictionary_
   - _TCache_
  
-These typed collection (above) are **parametrized drop-in replacements** for Foundation classes: `NSArray`, `NSSet`, `NSDictionary` and more. Their parameters are the element class you wish to store, for example `TArray(NSString)`. Associative collections take two parameters, one for keys and one for values, for example `TDictionary(NSString, NSURL)`.
+These typed collection are **parametrized drop-in replacements** for Foundation classes: `NSArray`, `NSSet`, `NSDictionary` and more. Their parameters are the element class you wish to store, for example `TArray(NSString)`. Associative collections take two parameters, one for keys and one for values, for example `TDictionary(NSString, NSURL)`.
+
+> These collections, in fact, only exists at compiler level since they are just alternative interfaces for the underlying Foundation collections.
 
 However, for **every element class** or association class pair you plan to use, you’ll need to generate the appropriate interfaces using a macro:
 
@@ -23,7 +25,7 @@ TGenerate(NSString,*)
 TAssociativeGenerate(NSString,*, NSURL,*)
 ```
 
-> **Note:** The pointer star have to be included for pointer types after a comma.
+> **Note:** The pointer star have to be included for pointer types **after a comma**. This ugly requirement is needed for supporting for non-pointer types.
 
 Typed version of the basic foundation classes are already provided.
 
