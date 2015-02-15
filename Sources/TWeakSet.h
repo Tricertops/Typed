@@ -20,7 +20,7 @@ _TWeakSetForward(Element) \
 - (NSHashTable *)untyped; \
 - (Element Ptr)T_Element; \
 - (Element Ptr)T_Enumeration; \
-/*! Accessing Content */ \
+/*! Querying a Set */ \
 @property (readonly) NSUInteger count; \
 @property (readonly, copy) TArray(Element) allObjects; \
 - (Element Ptr )anyObject; \
@@ -28,15 +28,15 @@ _TWeakSetForward(Element) \
 - (Element Ptr )member:(Element Ptr )object; \
 - (NSEnumerator *)objectEnumerator; \
 @property(readonly, copy) TSet(Element) setRepresentation; \
+/*! Mutating a Set */ \
+- (BOOL)addObject:(Element Ptr)object; \
+- (void)removeObject:(Element Ptr)object; \
+- (void)removeAllObjects; \
 /*! Comparing Sets */ \
 - (BOOL)isEqual:(TWeakSet(Element))other; \
 - (BOOL)isEqualToWeakSet:(TWeakSet(Element))other; \
 - (BOOL)isSubsetOfWeakSet:(TWeakSet(Element))other; \
 - (BOOL)intersectsWeakSet:(TWeakSet(Element))other; \
-/*! Manipulating Membership */ \
-- (BOOL)addObject:(Element Ptr)object; \
-- (void)removeObject:(Element Ptr)object; \
-- (void)removeAllObjects; \
 /*! Set Operations */ \
 - (void)unionWeakSet:(TWeakSet(Element))other; \
 - (void)intersectWeakSet:(TWeakSet(Element))other; \

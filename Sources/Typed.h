@@ -9,6 +9,7 @@
 #import "TCollections.h"
 
 #import "TMutableArray.h"
+#import "TWeakArray.h"
 #import "TMutableSet.h"
 #import "TCountedSet.h"
 #import "TMutableOrderedSet.h"
@@ -16,7 +17,6 @@
 #import "TCache.h"
 #import "TWeakSet.h"
 
-//TODO: TPointerArray (Strong or Weak)
 //TODO: TMapTable (Strong or Weak Keys, Strong or Weak Values)
 
 

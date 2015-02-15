@@ -62,6 +62,7 @@
 #define TGenerate(Type, Ptr) \
 _TArrayCreateProtocol(Type, Ptr) \
 _TMutableArrayCreateProtocol(Type, Ptr) \
+_TWeakArrayCreateProtocol(Type, Ptr) \
 _TSetCreateProtocol(Type, Ptr) \
 _TMutableSetCreateProtocol(Type, Ptr) \
 _TCountedSetCreateProtocol(Type, Ptr) \
@@ -106,6 +107,18 @@ _TCacheCreateProtocol(Key,KeyPtr, Value,ValuePtr) \
 #define _TMutableArrayForward(Type) \
     @protocol _TConcat2(TMutableArray_, Type); \
     typedef id<_TConcat2(TMutableArray_, Type)> _TConcat2(Type, MutableArray); \
+
+
+
+#pragma mark TWeakArray
+
+#define TWeakArray(Type)                     _TConcat2(Type, WeakArray)
+#define TWeakArrayCreate(Type)               ( (TWeakArray(Type)) [NSPointerArray weakObjectsPointerArray] )
+#define TWeakArrayMake(Type, Objects...)     _TCollectionMakeByAdding(TWeakArray, Type, Objects)
+#define TWeakArrayFromVariadic(Type, First)  _TCollectionFromVariadic(TWeakArray, Type, First)
+#define _TWeakArrayForward(Type) \
+    @protocol _TConcat2(TWeakArray_, Type); \
+    typedef id<_TConcat2(TWeakArray_, Type)> _TConcat2(Type, WeakArray); \
 
 
 
