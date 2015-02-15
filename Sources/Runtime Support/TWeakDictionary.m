@@ -10,6 +10,8 @@
 
 
 
+//! This category provides implementations for new and renamed method of NSMapTable, a.k.a. TWeakDictionary.
+
 
 
 @implementation NSMapTable (TWeakDictionary)

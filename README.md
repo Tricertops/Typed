@@ -131,6 +131,33 @@ TAssociativeGenerate(NSString,*, TArray(NSString),)
 > **Note 2:** Typed collections have no pointer star, since they are derived from `id`.
 
 
+### Weaks
+_TWeakArray_, _TWeakSet_ and _TWeakDictionary_ are alternative interfaces for `NSPointerArray`, `NSHashTable` and `NSMapTable`. Some of their methods have been **renamed** to better match the purpose and Typed compatibility. Here are the changes:
+
+   - _TWeakArray_:
+     - Method `.allObjects` was renamed to `.strong` for consistency.
+     - Methods that included word _Pointer_ were renamed to _Object_ and their argument/return types were changed appropriately (no bridging needed).
+     - Added support for indexed subscripts.
+     - Removed `.pointerFunctions` method.
+   - _TWeakSet_:
+     - Method `.setRepresentation` was renamed to `.strong` for consistency.
+     - Methods that included word _HashTable_ were renamed to _WeakSet_.
+     - Removed `.pointerFunctions` method.
+   - _TWeakDictionary_:
+     - Method `.dictionaryRepresentation` was renamed to `.strong` for consistency.
+     - Added support for keyed subscripts.
+     - Removed `.keyPointerFunctions` and `.valuePointerFunctions` methods.
+     - Added 3 shorter constructor methods.
+
+> To obtain raw underlying object, call `.untyped` on the Typed collection.
+
+You can use these weak collections similarily to their strong counterparts. The only major difference is, that they cannot be allocated directly, since they require specific constructor to be called. For _TWeakDictionary_, you can choose among three constructors (passed as third parameter to _Create_ macro):
+
+  - `TWeakDictionaryCreate(id, id, weakToWeak)`
+  - `TWeakDictionaryCreate(id, id, weakToStrong)`
+  - `TWeakDictionaryCreate(id, id, strongToStrong)`
+
+
 Typed Examples
 --------------
 > You can find these code examples in `Test/main.m`.

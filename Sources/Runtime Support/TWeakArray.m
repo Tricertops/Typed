@@ -10,6 +10,8 @@
 
 
 
+//! This category provides implementations for new and renamed method of NSPointerArray, a.k.a. TWeakArray.
+
 
 
 @implementation NSPointerArray (TWeakArray)

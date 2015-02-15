@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/NSHashTable.h>
-#import "TWeakSet.h"
 
 
 
-//! This category provides implementations for renamed method of NSHashTable, a.k.a. TWeakSet.
+//! This category provides implementations for new and renamed method of NSHashTable, a.k.a. TWeakSet.
 
 
 
@@ -24,6 +23,9 @@
 - (NSSet *)strong {
     return self.setRepresentation;
 }
+
+
+
 
 
 - (BOOL)isEqualToWeakSet:(NSHashTable *)other {
