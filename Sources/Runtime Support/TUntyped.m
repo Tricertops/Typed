@@ -10,6 +10,16 @@
 
 
 
+
+
+// This crap is here to supress compiler warning about empty library. It’s not empty, you see?
+@interface TypedLibraryPresence : NSObject @end
+@implementation TypedLibraryPresence @end
+
+
+
+
+
 @implementation NSArray (TUntyped)
 - (instancetype)untyped {
     return self;
