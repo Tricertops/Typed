@@ -87,6 +87,7 @@ _TCacheCreateProtocol(Key,KeyPtr, Value,ValuePtr) \
 
 #define TArray(Type)                        _TConcat2(Type, Array)
 #define TArrayAlloc(Type)                   ( (TArray(Type)) [NSArray alloc] )
+#define TArrayCreate(Type)                  ( (TArray(Type)) [NSArray new] )
 #define TArrayMake(Type, Objects...)        _TCollectionMake(TArray, Type, Objects)
 #define TArrayFromVariadic(Type, First)     _TCollectionFromVariadic(TMutableArray, Type, First)
 #define _TArrayForward(Type) \
@@ -99,6 +100,7 @@ _TCacheCreateProtocol(Key,KeyPtr, Value,ValuePtr) \
 
 #define TMutableArray(Type)                     _TConcat2(Type, MutableArray)
 #define TMutableArrayAlloc(Type)                ( (TMutableArray(Type)) [NSMutableArray alloc] )
+#define TMutableArrayCreate(Type)               ( (TMutableArray(Type)) [NSMutableArray new] )
 #define TMutableArrayMake(Type, Objects...)     _TCollectionMake(TMutableArray, Type, Objects)
 #define TMutableArrayFromVariadic(Type, First)  _TCollectionFromVariadic(TMutableArray, Type, First)
 #define _TMutableArrayForward(Type) \
@@ -112,6 +114,7 @@ _TCacheCreateProtocol(Key,KeyPtr, Value,ValuePtr) \
 
 #define TSet(Type)                      _TConcat2(Type, Set)
 #define TSetAlloc(Type)                 ( (TSet(Type)) [NSSet alloc] )
+#define TSetCreate(Type)                ( (TSet(Type)) [NSSet new] )
 #define TSetMake(Type, Objects...)      _TCollectionMake(TSet, Type, Objects)
 #define TSetFromVariadic(Type, First)   _TCollectionFromVariadic(TMutableSet, Type, First)
 #define _TSetForward(Type) \
@@ -124,6 +127,7 @@ _TCacheCreateProtocol(Key,KeyPtr, Value,ValuePtr) \
 
 #define TMutableSet(Type)                       _TConcat2(Type, MutableSet)
 #define TMutableSetAlloc(Type)                  ( (TMutableSet(Type)) [NSMutableSet alloc] )
+#define TMutableSetCreate(Type)                 ( (TMutableSet(Type)) [NSMutableSet new] )
 #define TMutableSetMake(Type, Objects...)       _TCollectionMake(TMutableSet, Type, Objects)
 #define TMutableSetFromVariadic(Type, First)    _TCollectionFromVariadic(TMutableSet, Type, First)
 #define _TMutableSetForward(Type) \
@@ -136,6 +140,7 @@ _TCacheCreateProtocol(Key,KeyPtr, Value,ValuePtr) \
 
 #define TCountedSet(Type)                       _TConcat2(Type, CountedSet)
 #define TCountedSetAlloc(Type)                  ( (TCountedSet(Type)) [NSCountedSet alloc] )
+#define TCountedSetCreate(Type)                 ( (TCountedSet(Type)) [NSCountedSet new] )
 #define TCountedSetMake(Type, Objects...)       _TCollectionMake(TCountedSet, Type, Objects)
 #define TCountedSetFromVariadic(Type, First)    _TCollectionFromVariadic(TCountedSet, Type, First)
 #define _TCountedSetForward(Type) \
@@ -149,6 +154,7 @@ _TCacheCreateProtocol(Key,KeyPtr, Value,ValuePtr) \
 
 #define TOrderedSet(Type)                       _TConcat2(Type, OrderedSet)
 #define TOrderedSetAlloc(Type)                  ( (TOrderedSet(Type)) [NSOrderedSet alloc] )
+#define TOrderedSetCreate(Type)                 ( (TOrderedSet(Type)) [NSOrderedSet new] )
 #define TOrderedSetMake(Type, Objects...)       _TCollectionMake(TOrderedSet, Type, Objects)
 #define TOrderedSetFromVariadic(Type, First)    _TCollectionFromVariadic(TMutableOrderedSet, Type, First)
 #define _TOrderedSetForward(Type) \
@@ -161,6 +167,7 @@ _TCacheCreateProtocol(Key,KeyPtr, Value,ValuePtr) \
 
 #define TMutableOrderedSet(Type)                    _TConcat2(Type, MutableOrderedSet)
 #define TMutableOrderedSetAlloc(Type)               ( (TMutableOrderedSet(Type)) [NSMutableOrderedSet alloc] )
+#define TMutableOrderedSetCreate(Type)              ( (TMutableOrderedSet(Type)) [NSMutableOrderedSet new] )
 #define TMutableOrderedSetMake(Type, Objects...)    _TCollectionMake(TMutableOrderedSet, Type, Objects)
 #define TMutableOrderedSetFromVariadic(Type, First) _TCollectionFromVariadic(TMutableOrderedSet, Type, First)
 #define _TMutableOrderedSetForward(Type) \
@@ -186,6 +193,7 @@ _TCacheCreateProtocol(Key,KeyPtr, Value,ValuePtr) \
 
 #define TDictionary(Key, Value)                 _TConcat4(Key, To, Value, Dictionary)
 #define TDictionaryAlloc(Key, Value)            ( (TDictionary(Key, Value)) [NSDictionary alloc] )
+#define TDictionaryCreate(Key, Value)           ( (TDictionary(Key, Value)) [NSDictionary new] )
 #define TDictionaryMake(Key, Value, TPairs...)  ( (TDictionary(Key, Value)) _TAssociativeCollectionMake(TMutableDictionary, Key, Value, TPairs) )
 #define _TDictionaryForward(Key, Value) \
     @protocol _TConcat4(TDictionary_, Key, _, Value); \
@@ -197,6 +205,7 @@ _TCacheCreateProtocol(Key,KeyPtr, Value,ValuePtr) \
 
 #define TMutableDictionary(Key, Value)                  _TConcat4(Key, To, Value, MutableDictionary)
 #define TMutableDictionaryAlloc(Key, Value)             ( (TMutableDictionary(Key, Value)) [NSMutableDictionary alloc] )
+#define TMutableDictionaryCreate(Key, Value)            ( (TMutableDictionary(Key, Value)) [NSMutableDictionary new] )
 #define TMutableDictionaryMake(Key, Value, TPairs...)   _TAssociativeCollectionMake(TMutableDictionary, Key, Value, TPairs)
 #define _TMutableDictionaryForward(Key, Value) \
     @protocol _TConcat4(TMutableDictionary_, Key, _, Value); \
@@ -208,6 +217,7 @@ _TCacheCreateProtocol(Key,KeyPtr, Value,ValuePtr) \
 
 #define TCache(Key, Value)                  _TConcat4(Key, To, Value, Cache)
 #define TCacheAlloc(Key, Value)             ( (TCache(Key, Value)) [NSCache alloc] )
+#define TCacheCreate(Key, Value)            ( (TCache(Key, Value)) [NSCache new] )
 #define TCacheMake(Key, Value, TPairs...)   _TAssociativeCollectionMake(TCache, Key, Value, TPairs)
 #define _TCacheForward(Key, Value) \
     @protocol _TConcat4(TCache_, Key, _, Value); \
