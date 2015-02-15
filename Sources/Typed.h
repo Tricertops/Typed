@@ -19,9 +19,6 @@
 //TODO: TPointerArray (Strong or Weak)
 //TODO: TMapTable (Strong or Weak Keys, Strong or Weak Values)
 
-//TODO: Create from variadic arguments (Array, Set, OrderedSet).
-
-#import "TUntyped.h"
 
 //TODO: Extensibility, since categories doesn’t work.
 //TODO: Create prepopulated with copies of single object (Array).

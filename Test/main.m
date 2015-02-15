@@ -158,6 +158,8 @@ int main(int argc, const char * argv[]) {
             NSURL *URL = [URLs anyObject];
             [URLs addObject:URL];
             
+            [URLs intersectWeakSet:URLs];
+            
 //            NSString *name = [URLs anyObject];
 //            [URLs addObject:name];
         }

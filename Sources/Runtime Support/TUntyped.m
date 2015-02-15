@@ -6,9 +6,7 @@
 //  Copyright (c) 2014 Triceratops. All rights reserved.
 //
 
-#import "TUntyped.h"
-
-
+#import <Foundation/Foundation.h>
 
 
 
@@ -16,6 +14,10 @@
 @interface TypedLibraryPresence : NSObject @end
 @implementation TypedLibraryPresence @end
 
+
+
+
+//! These categories provide implementation for -untyped method which simply returns self.
 
 
 
@@ -53,6 +55,14 @@
 
 
 @implementation NSCache (TUntyped)
+- (instancetype)untyped {
+    return self;
+}
+@end
+
+
+
+@implementation NSHashTable (TUntyped)
 - (instancetype)untyped {
     return self;
 }

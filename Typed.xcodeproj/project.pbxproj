@@ -7,11 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5BB485FD1A1A1A6200AB82BE /* TUntyped.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB485FC1A1A1A6200AB82BE /* TUntyped.m */; };
 		5BD2A11A1A90CE8500EA58CC /* TUntyped.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB485FC1A1A1A6200AB82BE /* TUntyped.m */; };
 		5BD2A13C1A90CF2900EA58CC /* TUntyped.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB485FC1A1A1A6200AB82BE /* TUntyped.m */; };
+		5BD2A1421A90DE3000EA58CC /* TWeakSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD2A1401A90DE3000EA58CC /* TWeakSet.m */; };
+		5BD2A1431A90DE3000EA58CC /* TWeakSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD2A1401A90DE3000EA58CC /* TWeakSet.m */; };
+		5BD2A1461A90DE4700EA58CC /* libTypedRuntimeSupport_OSX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD2A1251A90CF0400EA58CC /* libTypedRuntimeSupport_OSX.a */; };
 		5BDA3FD51A023EEB00B3F9E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA3FD41A023EEB00B3F9E0 /* main.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5BD2A1441A90DE4200EA58CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BDA3FA21A0235F600B3F9E0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BD2A1241A90CF0400EA58CC;
+			remoteInfo = "Typed OS X Runtime Support";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		5BD2A1011A90CE5300EA58CC /* CopyFiles */ = {
@@ -44,11 +56,11 @@
 		5B8F5BAE1A06999400253734 /* TOrderedSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOrderedSet.h; sourceTree = "<group>"; };
 		5B8F5BC11A08C69A00253734 /* TMutableOrderedSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMutableOrderedSet.h; sourceTree = "<group>"; };
 		5B8F5BC21A08CB3800253734 /* TCountedSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCountedSet.h; sourceTree = "<group>"; };
-		5BB485FB1A1A1A6200AB82BE /* TUntyped.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUntyped.h; sourceTree = "<group>"; };
 		5BB485FC1A1A1A6200AB82BE /* TUntyped.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TUntyped.m; sourceTree = "<group>"; };
 		5BD2A1031A90CE5300EA58CC /* libTypedRuntimeSupport_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTypedRuntimeSupport_iOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD2A1251A90CF0400EA58CC /* libTypedRuntimeSupport_OSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTypedRuntimeSupport_OSX.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD2A13D1A90D51700EA58CC /* TWeakSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWeakSet.h; sourceTree = "<group>"; };
+		5BD2A1401A90DE3000EA58CC /* TWeakSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWeakSet.m; sourceTree = "<group>"; };
 		5BDA3FD21A023EEB00B3F9E0 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BDA3FD41A023EEB00B3F9E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5BFA59181A0A1865003027A8 /* TDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDictionary.h; sourceTree = "<group>"; };
@@ -75,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BD2A1461A90DE4700EA58CC /* libTypedRuntimeSupport_OSX.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,8 +118,8 @@
 		5BB485FA1A1A19FA00AB82BE /* Runtime Support */ = {
 			isa = PBXGroup;
 			children = (
-				5BB485FB1A1A1A6200AB82BE /* TUntyped.h */,
 				5BB485FC1A1A1A6200AB82BE /* TUntyped.m */,
+				5BD2A1401A90DE3000EA58CC /* TWeakSet.m */,
 			);
 			path = "Runtime Support";
 			sourceTree = "<group>";
@@ -196,6 +209,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5BD2A1451A90DE4200EA58CC /* PBXTargetDependency */,
 			);
 			name = Test;
 			productName = Test;
@@ -247,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BD2A11A1A90CE8500EA58CC /* TUntyped.m in Sources */,
+				5BD2A1421A90DE3000EA58CC /* TWeakSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BD2A13C1A90CF2900EA58CC /* TUntyped.m in Sources */,
+				5BD2A1431A90DE3000EA58CC /* TWeakSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,12 +278,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BB485FD1A1A1A6200AB82BE /* TUntyped.m in Sources */,
 				5BDA3FD51A023EEB00B3F9E0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5BD2A1451A90DE4200EA58CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5BD2A1241A90CF0400EA58CC /* Typed OS X Runtime Support */;
+			targetProxy = 5BD2A1441A90DE4200EA58CC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5BD2A1141A90CE5300EA58CC /* Debug */ = {
@@ -354,6 +377,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -389,6 +413,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = macosx;
 			};
 			name = Release;
