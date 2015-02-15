@@ -18,6 +18,7 @@ _TWeakSetForward(Element) \
 @protocol TWeakSet_##Element <_TWeakProtocols> \
 - (TWeakSet(Element))self; \
 - (NSHashTable *)untyped; \
+- (TSet(Element))strong; \
 - (Element Ptr)T_Element; \
 - (Element Ptr)T_Enumeration; \
 /*! Querying a Set */ \
@@ -27,7 +28,6 @@ _TWeakSetForward(Element) \
 - (BOOL)containsObject:(Element Ptr )object; \
 - (Element Ptr )member:(Element Ptr )object; \
 - (NSEnumerator *)objectEnumerator; \
-@property(readonly, copy) TSet(Element) setRepresentation; \
 /*! Mutating a Set */ \
 - (BOOL)addObject:(Element Ptr)object; \
 - (void)removeObject:(Element Ptr)object; \

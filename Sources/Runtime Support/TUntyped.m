@@ -62,6 +62,14 @@
 
 
 
+@implementation NSPointerArray (TUntyped)
+- (instancetype)untyped {
+    return self;
+}
+@end
+
+
+
 @implementation NSHashTable (TUntyped)
 - (instancetype)untyped {
     return self;

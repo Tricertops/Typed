@@ -21,6 +21,11 @@
 
 
 
+- (NSSet *)strong {
+    return self.setRepresentation;
+}
+
+
 - (BOOL)isEqualToWeakSet:(NSHashTable *)other {
     return [self isEqualToHashTable: other];
 }

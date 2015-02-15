@@ -20,11 +20,11 @@ _TWeakArrayForward(Element) \
 @protocol TWeakArray_##Element <_TWeakProtocols> \
 - (TWeakArray(Element))self; \
 - (NSPointerArray *)untyped; \
+- (TArray(Element))strong; \
 - (Element Ptr)T_Element; \
 - (Element Ptr)T_Enumeration; \
 /*! Querying an Array */ \
 @property (readonly) NSUInteger count; \
-@property (readonly) TArray(Element) allObjects; \
 - (Element Ptr )objectAtIndex:(NSUInteger)index; \
 - (Element Ptr )objectAtIndexedSubscript:(NSUInteger)index; \
 /*! Adding Objects */ \

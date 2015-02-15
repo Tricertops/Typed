@@ -18,6 +18,11 @@
 
 
 
+- (NSArray *)strong {
+    return self.allObjects;
+}
+
+
 - (id)objectAtIndex:(NSUInteger)index {
     return [self pointerAtIndex:index];
 }
