@@ -152,6 +152,15 @@ int main(int argc, const char * argv[]) {
 //            NSString *websiteHost = keywords[@"Website"].host;
             
         }
+#pragma mark - Weak Set
+        {
+            TWeakSet(NSURL) URLs = TWeakSetMake(NSURL, [NSURL URLWithString:@"http:"]);
+            NSURL *URL = [URLs anyObject];
+            [URLs addObject:URL];
+            
+//            NSString *name = [URLs anyObject];
+//            [URLs addObject:name];
+        }
     }
     return EXIT_SUCCESS;
 }

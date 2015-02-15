@@ -48,6 +48,7 @@
 		5BB485FC1A1A1A6200AB82BE /* TUntyped.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TUntyped.m; sourceTree = "<group>"; };
 		5BD2A1031A90CE5300EA58CC /* libTypedRuntimeSupport_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTypedRuntimeSupport_iOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD2A1251A90CF0400EA58CC /* libTypedRuntimeSupport_OSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTypedRuntimeSupport_OSX.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BD2A13D1A90D51700EA58CC /* TWeakSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWeakSet.h; sourceTree = "<group>"; };
 		5BDA3FD21A023EEB00B3F9E0 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BDA3FD41A023EEB00B3F9E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5BFA59181A0A1865003027A8 /* TDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDictionary.h; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 				5B8F5BAD1A06945700253734 /* TMutableSet.h */,
 				5B8F5BC21A08CB3800253734 /* TCountedSet.h */,
 				5B8F5BAE1A06999400253734 /* TOrderedSet.h */,
+				5BD2A13D1A90D51700EA58CC /* TWeakSet.h */,
 				5B8F5BC11A08C69A00253734 /* TMutableOrderedSet.h */,
 				5BFA59181A0A1865003027A8 /* TDictionary.h */,
 				5BFA59191A0A3978003027A8 /* TMutableDictionary.h */,

@@ -14,9 +14,9 @@
 #import "TMutableOrderedSet.h"
 #import "TMutableDictionary.h"
 #import "TCache.h"
+#import "TWeakSet.h"
 
 //TODO: TPointerArray (Strong or Weak)
-//TODO: THashTable (Strong or Weak)
 //TODO: TMapTable (Strong or Weak Keys, Strong or Weak Values)
 
 //TODO: Create from variadic arguments (Array, Set, OrderedSet).

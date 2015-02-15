@@ -12,12 +12,24 @@
 #define _TConcat2(A, B)         A##B
 #define _TConcat4(A, B, C, D)   A##B##C##D
 #define _TProtocols     NSObject, NSFastEnumeration, NSCopying, NSMutableCopying, NSSecureCoding
+#define _TWeakProtocols NSObject, NSFastEnumeration, NSCopying, NSCoding
 
 #define _TCollectionMake(Type, Element, ...) \
 (Type(Element))({ \
     Element * __autoreleasing objects[] = { __VA_ARGS__ }; \
     NSUInteger count = sizeof(objects) / sizeof(Element *); \
     [_TConcat2(Type, Alloc)(Element) initWithObjects:objects count:count]; \
+})
+
+#define _TCollectionMakeByAdding(Type, Element, ...) \
+(Type(Element))({ \
+    Element * __autoreleasing objects[] = { __VA_ARGS__ }; \
+    NSUInteger count = sizeof(objects) / sizeof(Element *); \
+    Type(Element) collection = _TConcat2(Type, Create)(Element); \
+    for (NSUInteger index = 0; index < count; index++) { \
+        [collection addObject:objects[index]];\
+    } \
+    collection; \
 })
 
 #define _TCollectionFromVariadic(MutableType, Element, First) \
@@ -55,6 +67,7 @@ _TMutableSetCreateProtocol(Type, Ptr) \
 _TCountedSetCreateProtocol(Type, Ptr) \
 _TOrderedSetCreateProtocol(Type, Ptr) \
 _TMutableOrderedSetCreateProtocol(Type, Ptr) \
+_TWeakSetCreateProtocol(Type, Ptr) \
 
 #define TAssociativeGenerate(Key,KeyPtr, Value,ValuePtr) \
 _TDictionaryCreateProtocol(Key,KeyPtr, Value,ValuePtr) \
@@ -153,6 +166,18 @@ _TCacheCreateProtocol(Key,KeyPtr, Value,ValuePtr) \
 #define _TMutableOrderedSetForward(Type) \
     @protocol _TConcat2(TMutableOrderedSet_, Type); \
     typedef id<_TConcat2(TMutableOrderedSet_, Type)> _TConcat2(Type, MutableOrderedSet); \
+
+
+
+#pragma mark TWeakSet
+
+#define TWeakSet(Type)                    _TConcat2(Type, WeakSet)
+#define TWeakSetCreate(Type)              ( (TWeakSet(Type)) [NSHashTable weakObjectsHashTable] )
+#define TWeakSetMake(Type, Objects...)    _TCollectionMakeByAdding(TWeakSet, Type, Objects)
+#define TWeakSetFromVariadic(Type, First) _TCollectionFromVariadic(TWeakSet, Type, First)
+#define _TWeakSetForward(Type) \
+    @protocol _TConcat2(TWeakSet_, Type); \
+    typedef id<_TConcat2(TWeakSet_, Type)> _TConcat2(Type, WeakSet); \
 
 
 
