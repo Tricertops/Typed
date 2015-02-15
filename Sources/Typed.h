@@ -12,12 +12,11 @@
 #import "TWeakArray.h"
 #import "TMutableSet.h"
 #import "TCountedSet.h"
+#import "TWeakSet.h"
 #import "TMutableOrderedSet.h"
 #import "TMutableDictionary.h"
 #import "TCache.h"
-#import "TWeakSet.h"
-
-//TODO: TMapTable (Strong or Weak Keys, Strong or Weak Values)
+#import "TWeakDictionary.h"
 
 
 //TODO: Extensibility, since categories doesn’t work.

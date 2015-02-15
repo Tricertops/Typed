@@ -77,3 +77,11 @@
 @end
 
 
+
+@implementation NSMapTable (TUntyped)
+- (instancetype)untyped {
+    return self;
+}
+@end
+
+

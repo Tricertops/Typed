@@ -7,15 +7,16 @@ Do you like typed arrays in Swift (or other languages)? Would you like to have t
 
 Typed Collections
 -----------------
-  - **_TArray_**, _TMutableArray_
-  - **_TSet_**, _TMutableSet_, _TCountedSet_
+  - **_TArray_**, _TMutableArray_, _TWeakArray_
+  - **_TSet_**, _TMutableSet_, _TCountedSet_, _TWeakSet_
   - _TOrderedSet_, _TMutableOrderedSet_
-  - **_TDictionary_**, _TMutableDictionary_
+  - **_TDictionary_**, _TMutableDictionary_, _TWeakDictionary_
   - _TCache_
  
 These typed collection are **parametrized drop-in replacements** for Foundation classes: `NSArray`, `NSSet`, `NSDictionary` and more. Their parameters are the element class you wish to store, for example `TArray(NSString)`. Associative collections take two parameters, one for keys and one for values, for example `TDictionary(NSString, NSURL)`.
 
-> These collections, in fact, only exists at compiler level since they are just alternative interfaces for the underlying Foundation collections.
+> **Note 1:** These collections, in fact, only exists at compiler level since they are just alternative interfaces for the underlying Foundation collections.  
+> **Note 2:** _TWeakArray_ is replacement for `NSPointerArray`, _TWeakSet_ is replacement for `NSHashTable`, and _TWeakDictionary_ is replacement for `NSMapTable`. They are customized.
 
 However, for **every element class** or association class pair you plan to use, you’ll need to generate the appropriate interfaces using a macro:
 

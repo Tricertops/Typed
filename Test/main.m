@@ -168,9 +168,19 @@ int main(int argc, const char * argv[]) {
             [URLs addObject:URL];
             
             [URLs intersectWeakSet:URLs];
+            NSSet *strongURls = URLs.strong;
             
 //            NSString *name = [URLs anyObject];
 //            [URLs addObject:name];
+        }
+#pragma mark - Weak Dictionary
+        {
+            TWeakDictionary(NSString, NSString) map = TWeakDictionaryCreate(NSString, NSString, strongToWeak);
+            map[@"A"] = @"hguu";
+            NSString *stringForA = [map objectForKey:@"A"];
+            
+//            map[@"A"] = @42;
+//            NSURL *URLFor42 = [map objectForKey:@42];
         }
     }
     return EXIT_SUCCESS;

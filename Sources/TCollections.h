@@ -73,6 +73,7 @@ _TWeakSetCreateProtocol(Type, Ptr) \
 #define TAssociativeGenerate(Key,KeyPtr, Value,ValuePtr) \
 _TDictionaryCreateProtocol(Key,KeyPtr, Value,ValuePtr) \
 _TMutableDictionaryCreateProtocol(Key,KeyPtr, Value,ValuePtr) \
+_TWeakDictionaryCreateProtocol(Key,KeyPtr, Value,ValuePtr) \
 _TCacheCreateProtocol(Key,KeyPtr, Value,ValuePtr) \
 
 #pragma mark Helpers
@@ -223,6 +224,16 @@ _TCacheCreateProtocol(Key,KeyPtr, Value,ValuePtr) \
 #define _TMutableDictionaryForward(Key, Value) \
     @protocol _TConcat4(TMutableDictionary_, Key, _, Value); \
     typedef id<_TConcat4(TMutableDictionary_, Key, _, Value)> _TConcat4(Key, To, Value, MutableDictionary); \
+
+
+
+#pragma mark TWeakDictionary
+
+#define TWeakDictionary(Key, Value)                     _TConcat4(Key, To, Value, WeakDictionary)
+#define TWeakDictionaryCreate(Key, Value, constructor)  ( (TWeakDictionary(Key, Value)) [NSMapTable constructor] )
+#define _TWeakDictionaryForward(Key, Value) \
+    @protocol _TConcat4(TWeakDictionary_, Key, _, Value); \
+    typedef id<_TConcat4(TWeakDictionary_, Key, _, Value)> _TConcat4(Key, To, Value, WeakDictionary); \
 
 
 
