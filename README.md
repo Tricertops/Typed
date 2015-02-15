@@ -241,6 +241,25 @@ NSString *keyword = keywords[@"Apple"][2].lowercaseString
 NSString *host = keywords[@"Website"][2].host;
 ```
 
+
+Limitations
+-----------
+  - It is **not** possible to use types with protocols with these Typed collections. **Workaround:** Use `typedef` to create regular type from protocol:
+
+    ```objc
+    typedef NSObject<NSCopying> NSCopyable;
+    TGenerate(NSCopyable,)
+    ```
+
+  - Parameter types do **not** respect type inheritance. Array of mutable strings is **not subtype** of an array of immutable strings, you have to cast them:
+  
+    ```objc
+    TArray(NSMutableString) mutableNames = ...;
+    TArray(NSString) names = (TArray(NSString))mutableNames;
+    ```
+    
+    On the other hand, mutable array of strings **is subtype** of immutable array of strings.
+
 ---
 The MIT License (MIT)  
 Copyright © 2014 Martin Kiss
