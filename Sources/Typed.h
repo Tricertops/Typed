@@ -32,6 +32,7 @@
 #pragma mark -
 
 TGenerate(id,)
+TGenerate(Class,)
 TAssociativeGenerate(id,, id,)
 
 #import "Typed+Foundation.h"
