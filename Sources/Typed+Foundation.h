@@ -36,5 +36,6 @@ TAssociativeGenerate(NSObject,*, NSObject,*)
 TAssociativeGenerate(NSString,*, NSNumber,*)
 TAssociativeGenerate(NSString,*, NSObject,*) // Useds for KVC methods.
 TAssociativeGenerate(NSString,*, NSString,*)
+TAssociativeGenerate(NSString,*, TArray(NSString),)
 
 
