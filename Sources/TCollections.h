@@ -80,6 +80,14 @@ _TCacheCreateProtocol(Key,KeyPtr, Value,ValuePtr) \
 
 #define TPair(Key, Value)               [_associative setObject:(Value) forKey:(Key)]
 #define TForIn(variable, TCollection)   for (typeof(TCollection.T_Enumeration) variable in TCollection)
+#define TMap(source, destination, variable, expression) \
+(typeof(destination))({ \
+    NSMutableArray *__T_builder = [[source.class new] mutableCopy]; \
+    TForIn(variable, source) { \
+         [__T_builder addObject: (typeof(destination.T_Element))(expression) ]; \
+    } \
+    __T_builder; \
+})
 
 
 
