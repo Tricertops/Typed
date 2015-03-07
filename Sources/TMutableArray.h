@@ -57,6 +57,9 @@ _TMutableArrayForward(Element) \
 - (void)sortWithOptions:(NSSortOptions)options usingComparator:(TComparator_##Element)comparator; \
 - (void)sortUsingFunction:(TSortFunction_##Element)compare context:(void *)context; \
 - (void)sortUsingSelector:(SEL)comparator; \
+/*! Extension: Random */ \
+@property (readonly) NSUInteger randomInsertionIndex; \
+- (void)randomizeObjects; \
 @end
 
 

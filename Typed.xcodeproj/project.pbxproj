@@ -16,6 +16,8 @@
 		5BD2A14B1A90E37600EA58CC /* TWeakArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD2A1481A90E37600EA58CC /* TWeakArray.m */; };
 		5BD2A1501A90E76F00EA58CC /* TWeakDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD2A14E1A90E76F00EA58CC /* TWeakDictionary.m */; };
 		5BD2A1511A90E76F00EA58CC /* TWeakDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD2A14E1A90E76F00EA58CC /* TWeakDictionary.m */; };
+		5BD8A5E31AAB6F5500B0C398 /* TRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD8A5E11AAB6F5500B0C398 /* TRandom.m */; };
+		5BD8A5E41AAB6F5500B0C398 /* TRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD8A5E11AAB6F5500B0C398 /* TRandom.m */; };
 		5BDA3FD51A023EEB00B3F9E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA3FD41A023EEB00B3F9E0 /* main.m */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +73,7 @@
 		5BD2A1481A90E37600EA58CC /* TWeakArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWeakArray.m; sourceTree = "<group>"; };
 		5BD2A14C1A90E52000EA58CC /* TWeakDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWeakDictionary.h; sourceTree = "<group>"; };
 		5BD2A14E1A90E76F00EA58CC /* TWeakDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWeakDictionary.m; sourceTree = "<group>"; };
+		5BD8A5E11AAB6F5500B0C398 /* TRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRandom.m; sourceTree = "<group>"; };
 		5BDA3FD21A023EEB00B3F9E0 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BDA3FD41A023EEB00B3F9E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5BFA59181A0A1865003027A8 /* TDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDictionary.h; sourceTree = "<group>"; };
@@ -133,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				5BB485FC1A1A1A6200AB82BE /* TUntyped.m */,
+				5BD8A5E11AAB6F5500B0C398 /* TRandom.m */,
 				5BD2A1481A90E37600EA58CC /* TWeakArray.m */,
 				5BD2A1401A90DE3000EA58CC /* TWeakSet.m */,
 				5BD2A14E1A90E76F00EA58CC /* TWeakDictionary.m */,
@@ -278,6 +282,7 @@
 			files = (
 				5BD2A11A1A90CE8500EA58CC /* TUntyped.m in Sources */,
 				5BD2A1421A90DE3000EA58CC /* TWeakSet.m in Sources */,
+				5BD8A5E31AAB6F5500B0C398 /* TRandom.m in Sources */,
 				5BD2A14A1A90E37600EA58CC /* TWeakArray.m in Sources */,
 				5BD2A1501A90E76F00EA58CC /* TWeakDictionary.m in Sources */,
 			);
@@ -289,6 +294,7 @@
 			files = (
 				5BD2A13C1A90CF2900EA58CC /* TUntyped.m in Sources */,
 				5BD2A1431A90DE3000EA58CC /* TWeakSet.m in Sources */,
+				5BD8A5E41AAB6F5500B0C398 /* TRandom.m in Sources */,
 				5BD2A14B1A90E37600EA58CC /* TWeakArray.m in Sources */,
 				5BD2A1511A90E76F00EA58CC /* TWeakDictionary.m in Sources */,
 			);

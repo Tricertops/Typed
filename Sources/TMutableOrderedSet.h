@@ -64,6 +64,9 @@ _TMutableOrderedSetForward(Element) \
 - (void)sortUsingComparator:(TComparator_##Element)comparator; \
 - (void)sortWithOptions:(NSSortOptions)options usingComparator:(TComparator_##Element)comparator; \
 - (void)sortRange:(NSRange)range options:(NSSortOptions)options usingComparator:(TComparator_##Element)comparator; \
+/*! Extension: Random */ \
+@property (readonly) NSUInteger randomInsertionIndex; \
+- (void)randomizeObjects; \
 @end
 
 

@@ -111,6 +111,10 @@ _TArrayForward(Element) \
 - (void)setValue:(id)value forKeyPath:(NSString *)keyPath; \
 - (TDictionary(NSString, NSObject))dictionaryWithValuesForKeys:(TArray(NSString))keys; \
 - (void)setValuesForKeysWithDictionary:(TDictionary(NSString, NSObject))keyedValues; \
+/*! Extension: Random */ \
+@property (readonly) Element Ptr randomObject; \
+@property (readonly) NSUInteger randomIndex; \
+- (TArray(Element))arrayByRandomizingObjects; \
 @end \
 
 

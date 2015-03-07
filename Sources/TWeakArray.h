@@ -43,6 +43,9 @@ _TWeakArrayForward(Element) \
 - (TWeakArray(Element))copyWithZone:(NSZone *)zone; \
 /*! Creating a Description */ \
 @property (readonly, copy) NSString *description; \
+/*! Extension: Random */ \
+@property (readonly) Element Ptr randomObject; \
+@property (readonly) NSUInteger randomIndex; \
 @end \
 
 
