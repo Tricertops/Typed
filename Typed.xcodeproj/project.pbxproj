@@ -242,7 +242,7 @@
 		5BDA3FA21A0235F600B3F9E0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = Triceratops;
 				TargetAttributes = {
 					5BD2A1021A90CE5300EA58CC = {
@@ -349,6 +349,7 @@
 		5BD2A1371A90CF0400EA58CC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -361,6 +362,7 @@
 		5BD2A1381A90CF0400EA58CC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				PRODUCT_NAME = TypedRuntimeSupport_OSX;
 			};
