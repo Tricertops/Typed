@@ -269,21 +269,6 @@ NSString *keyword = keywords[@"Apple"][2].lowercaseString
 NSString *host = keywords[@"Website"][2].host;
 ```
 
-**Enumerating** collections:
-
-```objc
-TForIn(string, strings) {
-    total += string.length;
-}
-```
-
-```objc
-// Warning: Incompatible pointer types:
-TForIn(string, strings) {
-    total += string.count;
-}
-```
-
 **Mapping** objects to objects of another class:
 
 ```objc
