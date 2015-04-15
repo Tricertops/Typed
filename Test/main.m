@@ -45,6 +45,11 @@ int main(int argc, const char * argv[]) {
 //                NSURL *host = fruit.host;
             }
             
+            //! Mapping objects:
+            TArray(NSNumber) lengths = TMap(strings, lengths, enumeratedString, {
+                @(enumeratedString.length);
+            });
+            
             //! Finding objects:
             BOOL containsApple = [strings containsObject:@"Apple"];
             NSUInteger orangeIndex = [strings indexOfObject:@"Orange"];
