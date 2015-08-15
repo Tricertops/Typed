@@ -7,40 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5BD2A11A1A90CE8500EA58CC /* TUntyped.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB485FC1A1A1A6200AB82BE /* TUntyped.m */; };
-		5BD2A13C1A90CF2900EA58CC /* TUntyped.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB485FC1A1A1A6200AB82BE /* TUntyped.m */; };
-		5BD2A1421A90DE3000EA58CC /* TWeakSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD2A1401A90DE3000EA58CC /* TWeakSet.m */; };
-		5BD2A1431A90DE3000EA58CC /* TWeakSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD2A1401A90DE3000EA58CC /* TWeakSet.m */; };
-		5BD2A1461A90DE4700EA58CC /* libTypedRuntimeSupport_OSX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD2A1251A90CF0400EA58CC /* libTypedRuntimeSupport_OSX.a */; };
-		5BD2A14A1A90E37600EA58CC /* TWeakArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD2A1481A90E37600EA58CC /* TWeakArray.m */; };
-		5BD2A14B1A90E37600EA58CC /* TWeakArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD2A1481A90E37600EA58CC /* TWeakArray.m */; };
-		5BD2A1501A90E76F00EA58CC /* TWeakDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD2A14E1A90E76F00EA58CC /* TWeakDictionary.m */; };
-		5BD2A1511A90E76F00EA58CC /* TWeakDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD2A14E1A90E76F00EA58CC /* TWeakDictionary.m */; };
-		5BD8A5E31AAB6F5500B0C398 /* TRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD8A5E11AAB6F5500B0C398 /* TRandom.m */; };
-		5BD8A5E41AAB6F5500B0C398 /* TRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD8A5E11AAB6F5500B0C398 /* TRandom.m */; };
 		5BDA3FD51A023EEB00B3F9E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA3FD41A023EEB00B3F9E0 /* main.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		5BD2A1441A90DE4200EA58CC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5BDA3FA21A0235F600B3F9E0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5BD2A1241A90CF0400EA58CC;
-			remoteInfo = "Typed OS X Runtime Support";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		5BD2A1011A90CE5300EA58CC /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5BDA3FD01A023EEB00B3F9E0 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -53,54 +23,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5B79EA451A98B72F0031ED59 /* Typed+UIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Typed+UIKit.h"; sourceTree = "<group>"; };
-		5B79EA461A98B7A50031ED59 /* Typed+Foundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Typed+Foundation.h"; sourceTree = "<group>"; };
-		5B8F5BA81A06619600253734 /* TArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TArray.h; sourceTree = "<group>"; };
-		5B8F5BA91A06619600253734 /* TCollections.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCollections.h; sourceTree = "<group>"; };
-		5B8F5BAA1A06619600253734 /* Typed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Typed.h; sourceTree = "<group>"; };
-		5B8F5BAB1A06683400253734 /* TMutableArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMutableArray.h; sourceTree = "<group>"; };
-		5B8F5BAC1A06710C00253734 /* TSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSet.h; sourceTree = "<group>"; };
-		5B8F5BAD1A06945700253734 /* TMutableSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMutableSet.h; sourceTree = "<group>"; };
-		5B8F5BAE1A06999400253734 /* TOrderedSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOrderedSet.h; sourceTree = "<group>"; };
-		5B8F5BC11A08C69A00253734 /* TMutableOrderedSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMutableOrderedSet.h; sourceTree = "<group>"; };
-		5B8F5BC21A08CB3800253734 /* TCountedSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCountedSet.h; sourceTree = "<group>"; };
-		5BB485FC1A1A1A6200AB82BE /* TUntyped.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TUntyped.m; sourceTree = "<group>"; };
-		5BD2A1031A90CE5300EA58CC /* libTypedRuntimeSupport_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTypedRuntimeSupport_iOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BD2A1251A90CF0400EA58CC /* libTypedRuntimeSupport_OSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTypedRuntimeSupport_OSX.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BD2A13D1A90D51700EA58CC /* TWeakSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWeakSet.h; sourceTree = "<group>"; };
-		5BD2A13E1A90DDC500EA58CC /* TWeakArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWeakArray.h; sourceTree = "<group>"; };
-		5BD2A1401A90DE3000EA58CC /* TWeakSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWeakSet.m; sourceTree = "<group>"; };
-		5BD2A1481A90E37600EA58CC /* TWeakArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWeakArray.m; sourceTree = "<group>"; };
-		5BD2A14C1A90E52000EA58CC /* TWeakDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWeakDictionary.h; sourceTree = "<group>"; };
-		5BD2A14E1A90E76F00EA58CC /* TWeakDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWeakDictionary.m; sourceTree = "<group>"; };
-		5BD8A5E11AAB6F5500B0C398 /* TRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRandom.m; sourceTree = "<group>"; };
+		5B0312F41B7FC587007D3481 /* Typed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Typed.h; sourceTree = "<group>"; };
 		5BDA3FD21A023EEB00B3F9E0 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BDA3FD41A023EEB00B3F9E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5BFA59181A0A1865003027A8 /* TDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDictionary.h; sourceTree = "<group>"; };
-		5BFA59191A0A3978003027A8 /* TMutableDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMutableDictionary.h; sourceTree = "<group>"; };
-		5BFA591A1A0A3ECA003027A8 /* TCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCache.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5BD2A1001A90CE5300EA58CC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5BD2A1221A90CF0400EA58CC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5BDA3FCF1A023EEB00B3F9E0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BD2A1461A90DE4700EA58CC /* libTypedRuntimeSupport_OSX.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,38 +42,9 @@
 		5B8F5BA71A06619600253734 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				5B8F5BAA1A06619600253734 /* Typed.h */,
-				5B79EA461A98B7A50031ED59 /* Typed+Foundation.h */,
-				5B79EA451A98B72F0031ED59 /* Typed+UIKit.h */,
-				5B8F5BA91A06619600253734 /* TCollections.h */,
-				5B8F5BA81A06619600253734 /* TArray.h */,
-				5B8F5BAB1A06683400253734 /* TMutableArray.h */,
-				5BD2A13E1A90DDC500EA58CC /* TWeakArray.h */,
-				5B8F5BAC1A06710C00253734 /* TSet.h */,
-				5B8F5BAD1A06945700253734 /* TMutableSet.h */,
-				5B8F5BC21A08CB3800253734 /* TCountedSet.h */,
-				5B8F5BAE1A06999400253734 /* TOrderedSet.h */,
-				5BD2A13D1A90D51700EA58CC /* TWeakSet.h */,
-				5B8F5BC11A08C69A00253734 /* TMutableOrderedSet.h */,
-				5BFA59181A0A1865003027A8 /* TDictionary.h */,
-				5BFA59191A0A3978003027A8 /* TMutableDictionary.h */,
-				5BD2A14C1A90E52000EA58CC /* TWeakDictionary.h */,
-				5BFA591A1A0A3ECA003027A8 /* TCache.h */,
-				5BB485FA1A1A19FA00AB82BE /* Runtime Support */,
+				5B0312F41B7FC587007D3481 /* Typed.h */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		5BB485FA1A1A19FA00AB82BE /* Runtime Support */ = {
-			isa = PBXGroup;
-			children = (
-				5BB485FC1A1A1A6200AB82BE /* TUntyped.m */,
-				5BD8A5E11AAB6F5500B0C398 /* TRandom.m */,
-				5BD2A1481A90E37600EA58CC /* TWeakArray.m */,
-				5BD2A1401A90DE3000EA58CC /* TWeakSet.m */,
-				5BD2A14E1A90E76F00EA58CC /* TWeakDictionary.m */,
-			);
-			path = "Runtime Support";
 			sourceTree = "<group>";
 		};
 		5BDA3FA11A0235F600B3F9E0 = {
@@ -157,8 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				5BDA3FD21A023EEB00B3F9E0 /* Test */,
-				5BD2A1031A90CE5300EA58CC /* libTypedRuntimeSupport_iOS.a */,
-				5BD2A1251A90CF0400EA58CC /* libTypedRuntimeSupport_OSX.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,51 +74,7 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		5BD2A1231A90CF0400EA58CC /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		5BD2A1021A90CE5300EA58CC /* Typed iOS Runtime Support */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5BD2A1181A90CE5300EA58CC /* Build configuration list for PBXNativeTarget "Typed iOS Runtime Support" */;
-			buildPhases = (
-				5BD2A0FF1A90CE5300EA58CC /* Sources */,
-				5BD2A1001A90CE5300EA58CC /* Frameworks */,
-				5BD2A1011A90CE5300EA58CC /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Typed iOS Runtime Support";
-			productName = "Typed iOS Runtime Support";
-			productReference = 5BD2A1031A90CE5300EA58CC /* libTypedRuntimeSupport_iOS.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		5BD2A1241A90CF0400EA58CC /* Typed OS X Runtime Support */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5BD2A1361A90CF0400EA58CC /* Build configuration list for PBXNativeTarget "Typed OS X Runtime Support" */;
-			buildPhases = (
-				5BD2A1211A90CF0400EA58CC /* Sources */,
-				5BD2A1221A90CF0400EA58CC /* Frameworks */,
-				5BD2A1231A90CF0400EA58CC /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Typed OS X Runtime Support";
-			productName = "Typed OS X Runtime Support";
-			productReference = 5BD2A1251A90CF0400EA58CC /* libTypedRuntimeSupport_OSX.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 		5BDA3FD11A023EEB00B3F9E0 /* Test */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BDA3FD61A023EEB00B3F9E0 /* Build configuration list for PBXNativeTarget "Test" */;
@@ -229,7 +86,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				5BD2A1451A90DE4200EA58CC /* PBXTargetDependency */,
 			);
 			name = Test;
 			productName = Test;
@@ -242,15 +98,9 @@
 		5BDA3FA21A0235F600B3F9E0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Triceratops;
 				TargetAttributes = {
-					5BD2A1021A90CE5300EA58CC = {
-						CreatedOnToolsVersion = 6.1.1;
-					};
-					5BD2A1241A90CF0400EA58CC = {
-						CreatedOnToolsVersion = 6.1.1;
-					};
 					5BDA3FD11A023EEB00B3F9E0 = {
 						CreatedOnToolsVersion = 6.1;
 					};
@@ -269,37 +119,11 @@
 			projectRoot = "";
 			targets = (
 				5BDA3FD11A023EEB00B3F9E0 /* Test */,
-				5BD2A1021A90CE5300EA58CC /* Typed iOS Runtime Support */,
-				5BD2A1241A90CF0400EA58CC /* Typed OS X Runtime Support */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5BD2A0FF1A90CE5300EA58CC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5BD2A11A1A90CE8500EA58CC /* TUntyped.m in Sources */,
-				5BD2A1421A90DE3000EA58CC /* TWeakSet.m in Sources */,
-				5BD8A5E31AAB6F5500B0C398 /* TRandom.m in Sources */,
-				5BD2A14A1A90E37600EA58CC /* TWeakArray.m in Sources */,
-				5BD2A1501A90E76F00EA58CC /* TWeakDictionary.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5BD2A1211A90CF0400EA58CC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5BD2A13C1A90CF2900EA58CC /* TUntyped.m in Sources */,
-				5BD2A1431A90DE3000EA58CC /* TWeakSet.m in Sources */,
-				5BD8A5E41AAB6F5500B0C398 /* TRandom.m in Sources */,
-				5BD2A14B1A90E37600EA58CC /* TWeakArray.m in Sources */,
-				5BD2A1511A90E76F00EA58CC /* TWeakDictionary.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5BDA3FCE1A023EEB00B3F9E0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -310,64 +134,7 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		5BD2A1451A90DE4200EA58CC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5BD2A1241A90CF0400EA58CC /* Typed OS X Runtime Support */;
-			targetProxy = 5BD2A1441A90DE4200EA58CC /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		5BD2A1141A90CE5300EA58CC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = TypedRuntimeSupport_iOS;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		5BD2A1151A90CE5300EA58CC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = TypedRuntimeSupport_iOS;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		5BD2A1371A90CF0400EA58CC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = lib;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				PRODUCT_NAME = TypedRuntimeSupport_OSX;
-			};
-			name = Debug;
-		};
-		5BD2A1381A90CF0400EA58CC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = lib;
-				PRODUCT_NAME = TypedRuntimeSupport_OSX;
-			};
-			name = Release;
-		};
 		5BDA3FBC1A0235F700B3F9E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -387,6 +154,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -469,24 +237,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5BD2A1181A90CE5300EA58CC /* Build configuration list for PBXNativeTarget "Typed iOS Runtime Support" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5BD2A1141A90CE5300EA58CC /* Debug */,
-				5BD2A1151A90CE5300EA58CC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5BD2A1361A90CF0400EA58CC /* Build configuration list for PBXNativeTarget "Typed OS X Runtime Support" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5BD2A1371A90CF0400EA58CC /* Debug */,
-				5BD2A1381A90CF0400EA58CC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		5BDA3FA51A0235F600B3F9E0 /* Build configuration list for PBXProject "Typed" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

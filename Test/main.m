@@ -11,190 +11,68 @@
 
 
 
-TGenerate(TArray(NSString),)
-TAssociativeGenerate(NSString,*, TArray(NSString),)
-
-
-static TArray(NSString) collect(NSString *string, ...) NS_REQUIRES_NIL_TERMINATION;
-
-
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-#pragma mark - TArray
+        //! LET() for const variables with type inference.
         {
-            //! Creating:
-            TArray(NSString) strings = TArrayMake(NSString, @"Apple", @"Orange", @"Pear");
-            strings = [TArrayAlloc(NSString) initWithArray:strings];
-//          TArray(NSString) strings = TArrayMake(NSString, @"Apple", @42);
-            
-            //! Casting to NSArray:
-            NSArray *objects = strings;
-            NSArray *untyped = strings.untyped;
-//          TArray(NSString) strings = [NSArray new];
-            
-            //! Accessing objects:
-            NSString *apple = strings.firstObject;
-            NSString *orange = strings[1];
-//          NSURL *websiteURL = strings.firstObject;
-//          NSNumber *ultimateAnswer = strings[1];
-            
-            //! Enumerating objects:
-            TForIn(fruit, strings) {
-                NSString *lowercase = fruit.lowercaseString;
-//                NSURL *host = fruit.host;
+            LET(string =, @"String");
+            LET(integer =, 5);
+        }
+        
+        //! VAR() for mutable variables with type inference.
+        {
+            VAR(string =, @"String");
+            string = @"Another";
+            VAR(integer =, 5);
+            integer += 2;
+        }
+        
+        //! IN() for enumeration with type inference.
+        {
+            NSArray<NSString *> *fruits = @[ @"Apple", @"Pear", @"Orange" ];
+            for IN(fruit in, fruits) {
+                (void)fruit.length;
             }
-            
-            //! Mapping objects:
-            TArray(NSNumber) lengths = TMap(strings, lengths, enumeratedString, {
-                @(enumeratedString.length);
-            });
-            
-            //! Finding objects:
-            BOOL containsApple = [strings containsObject:@"Apple"];
-            NSUInteger orangeIndex = [strings indexOfObject:@"Orange"];
-//          BOOL containsUltimateAnswer = [strings containsObject:@42];
-//          NSUInteger websiteURLIndex = [strings indexOfObject:@[]];
-            
-            //! Deriving arrays:
-            strings = [strings copy];
-            strings = [strings arrayByAddingObject:@"Peach"];
-            strings = [strings subarrayWithRange:NSMakeRange(0, 3)];
-//          TArray(NSURL) URLs = [strings copy];
-//          TArray(NSDate) dates = [strings arrayByAddingObject:@"Peach"];
-//          TArray(NSNumber) answers = [strings subarrayWithRange:NSMakeRange(0, 3)];
-            
-            //! Mutating array:
-            TMutableArray(NSString) mutableStrings = [strings mutableCopy];
-            
-            [mutableStrings addObject:@"Pineapple"];
-            [mutableStrings replaceObjectAtIndex:2 withObject:@"Lemon"];
-//          [mutableStrings addObject:@42];
-//          [mutableStrings replaceObjectAtIndex:2 withObject:@[]];
-            
-            //! Creating from variadic:
-            TArray(NSString) collected = collect(@"Apple", @"Orange", @"Pear", nil);
         }
         
-#pragma mark - TSet
+        //! MAP() for mapping arrays to other arrays.
         {
-            //! Creating:
-            TSet(NSString) strings = TSetMake(NSString, @"Apple", @"Orange", @"Pear");
-            strings = [TSetAlloc(NSString) initWithArray:[strings allObjects]];
-//          TSet(NSString) strings = TSetMake(NSString, @"Apple", @42);
-
-            //! Casting to NSSet:
-            NSSet *objects = strings;
-            NSSet *untyped = strings.untyped;
-//          strings = [NSSet new];
-            
-            //! Accessing objects:
-            NSString *fruit = [strings anyObject];
-            TArray(NSString) fruits = [strings allObjects];
-//          NSNumber *answer = [strings anyObject];
-//          TArray(NSURL) websiteURLs = [strings allObjects];
-            
-            //! Deriving collections:
-            NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES];
-            TArray(NSSortDescriptor) descriptors = TArrayMake(NSSortDescriptor, descriptor);
-            
-            strings = [strings setByAddingObject:@"Peach"];
-            TArray(NSString) sorted = [strings sortedArrayUsingDescriptors:descriptors];
-//          strings = [strings setByAddingObject:@42];
-//          TArray(NSNumber) sorted = [strings sortedArrayUsingDescriptors:descriptors];
-            
-            //! Mutating set:
-            TMutableSet(NSString) mutableStrings = [strings mutableCopy];
-            
-            [mutableStrings addObject:@"Pineapple"];
-            [mutableStrings removeObject:@"Pear"];
-//          [mutableStrings addObject:@42];
-//          [mutableStrings removeObject:@[]];
-        }
-#pragma mark - TDictionary
-        {
-            //! Creating:
-            TDictionary(NSString, NSNumber) fruitCounts = TDictionaryMake(NSString, NSNumber,
-                                                                          TPair(@"Apple", @5),
-                                                                          TPair(@"Orange", @2),
-                                                                          TPair(@"Pear", @4));
-//            fruitCounts = TDictionaryMake(NSString, NSNumber,
-//                                          TPair(@"Apple", @"5"),
-//                                          TPair(@0, @0),
-//                                          TPair(@"Pear", @4));
-            
-            //! Casting to NSDictionary:
-            NSDictionary *dictionary = fruitCounts;
-            NSDictionary *untyped = fruitCounts.untyped;
-//            fruitCounts = [NSDictionary new];
-            
-            //! Lookup:
-            NSUInteger apples = fruitCounts[@"Apple"].unsignedIntegerValue;
-//            NSURL *website = fruitCounts[@"Apple"];
-//            NSNumber *answer = fruitCounts[@42];
-            
-            //! Accessing keys and values:
-            TArray(NSString) fruits = fruitCounts.allKeys;
-            TArray(NSNumber) counts = fruitCounts.allValues;
-//            TArray(NSURL) websites = fruitCounts.allKeys;
-//            TArray(NSString) titles = fruitCounts.allValues;
+            NSArray<NSString *> *fruits = @[ @"Apple", @"Pear", @"Orange" ];
+            NSArray<NSNumber *> *lengths = MAP(fruits, NSNumber *, @(x.length)); //! x is implicit name of the enumerated object.
         }
         
-#pragma mark - Nested
+        //! All together
         {
-            TDictionary(NSString, TArray(NSString)) keywords = (NSStringToNSStringArrayDictionary)
-            @{
-              @"Apple": @[@"Mac",@"iPhone",@"iPad"],
-              @"Orange": @[@"Carrier",@"Cellular",@"Phone"],
-              @"Pear": @[@"Fruit",@"Sweet",@"Food"],
-              };
+            NSDictionary<NSString *, NSDictionary<NSString *, NSURL *> *> *table = nil; // Imagine a table.
             
-            TArray(NSString) appleKeywords = keywords[@"Apple"];
-            NSUInteger orangeCount = keywords[@"Orange"].count;
-            NSString *pearKeyword = keywords[@"Pear"][2].lowercaseString;
+            LET(resource =, table[@"users"]);
+        //  NSDictionary<NSString *, NSURL *> *resource = table[@"GET"];
             
-//            TArray(NSNumber) answerKeywords = keywords[@42];
-//            NSString *websiteHost = keywords[@"Website"].host;
+            LET(hosts =, MAP(resource.allValues, NSString *, x.host));
+        //  NSMutableArray<NSString *> *hosts = [NSMutableArray new];
+        //  for (NSURL *URL in table.allValues)
+        //      [hosts addObject: URL.host];
             
+            LET(hostsByResource =, MAP(table.allKeys, typeof(hosts), {
+                LET(resource =, table[x]);
+                LET(hosts =, MAP(resource.allValues, NSString *, x.host));
+                yield hosts;
+            }));
+        //  NSMutableArray<NSArray<NSString *> *> *hostsByResource = [NSMutableArray new];
+        //  for (NSString *key in table.allKeys) {
+        //      NSDictionary<NSString *, NSURL *> *resource = table[key];
+        //      NSMutableArray<NSString *> *hosts = [NSMutableArray new];
+        //      for (NSURL *URL in table.allValues)
+        //          [hosts addObject: URL.host];
+        //      [hostsByResource addObject:hosts];
+        //  }
         }
-#pragma mark - Weak Array
-        {
-            TWeakArray(NSURL) URLs = TWeakArrayMake(NSURL, [NSURL URLWithString:@"http:"]);
-            NSURL *URL = URLs[0];
-            [URLs addObject:URL];
-            
-//            NSString *name = URLs[0];
-//            [URLs addObject:name];
-        }
-#pragma mark - Weak Set
-        {
-            TWeakSet(NSURL) URLs = TWeakSetMake(NSURL, [NSURL URLWithString:@"http:"]);
-            NSURL *URL = [URLs anyObject];
-            [URLs addObject:URL];
-            
-            [URLs intersectWeakSet:URLs];
-            NSSet *strongURls = URLs.strong;
-            
-//            NSString *name = [URLs anyObject];
-//            [URLs addObject:name];
-        }
-#pragma mark - Weak Dictionary
-        {
-            TWeakDictionary(NSString, NSString) map = TWeakDictionaryCreate(NSString, NSString, strongToWeak);
-            map[@"A"] = @"hguu";
-            NSString *stringForA = [map objectForKey:@"A"];
-            
-//            map[@"A"] = @42;
-//            NSURL *URLFor42 = [map objectForKey:@42];
-        }
+        
+        //TODO: Creation of collections with type-checking.
+        //TODO: Variadic collection.
     }
     return EXIT_SUCCESS;
-}
-
-
-
-static TArray(NSString) collect(NSString *string, ...) {
-    return TArrayFromVariadic(NSString, string);
 }
 
 
