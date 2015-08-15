@@ -1,6 +1,6 @@
 Macros for Objective-C generics <a href="https://flattr.com/submit/auto?user_id=Tricertops&url=https%3A%2F%2Fgithub.com%2FiMartinKiss%2FTyped" target="_blank"><img src="https://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
 =============================
-So we got Objective-C generics for collections and the language got even more verbose. This little project provided a working implementation of generics before their inclusion in the language. See branch [`legacy`]() for more details.
+So we got Objective-C generics for collections and the language got even more verbose. This little project provided a working implementation of generics before their inclusion in the language. See branch [`legacy`](https://github.com/iMartinKiss/Typed/tree/legacy) for more details.
 
 The new purpose is to simplify working with existing generics system by introducing the missing type inferrence from Swift.
 
