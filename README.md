@@ -57,15 +57,14 @@ for IN(fruit in, fruits) {
 MAP
 ---
 
-Map arrays to othr arrays without specifying the type (almost). `MAP()` takes existing array and an expression that is applied to all elements. If the expression returns `nil` it is not added to the result array. The macro requires specifiying the type of the resulted array elements (`NSString *` in the examples below).
+Map arrays to other arrays without specifying the type (almost). `MAP()` takes existing array and an expression that is applied to all elements. If the expression returns `nil` it is not added to the result array. The macro requires specifiying the type of the resulted array elements (`NSString *` in the examples below).
 
 ```objc
-LET(URLs, self.allURLs);
+LET(URLs =, self.allURLs);
 LET(hosts =, MAP(URLs, NSString *, x.host));
 ```
 
-Compound statement is also supported. This is nto a block, so calling `break` and `continue` applies to the inner enumeration loop (you can skip elements or break the mapping). Calling `return` would terminate current function. Proper way to return
- a value from this expression, is to just write it as the last statement (GNU thing, don’t ask me why).
+Compound statement is also supported. This is not a block, so calling `break` and `continue` applies to the internal enumeration loop (you can skip elements or interrupt the mapping). Calling `return` would terminate current function. Proper way to return a value from this expression, is to just write it as the last statement (GNU thing, don’t ask me why).
  
 ```objc
 LET(descriptions =, MAP(URLs, NSString *, {
