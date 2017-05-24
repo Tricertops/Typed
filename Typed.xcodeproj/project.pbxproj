@@ -24,6 +24,8 @@
 
 /* Begin PBXFileReference section */
 		5B0312F41B7FC587007D3481 /* Typed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Typed.h; sourceTree = "<group>"; };
+		5BC8701A1ED568EC00380728 /* TypedNSFastEnumeration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypedNSFastEnumeration.h; sourceTree = "<group>"; };
+		5BC8701F1ED56A3900380728 /* TypedNSCopying.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypedNSCopying.h; sourceTree = "<group>"; };
 		5BDA3FD21A023EEB00B3F9E0 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BDA3FD41A023EEB00B3F9E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -43,6 +45,8 @@
 			isa = PBXGroup;
 			children = (
 				5B0312F41B7FC587007D3481 /* Typed.h */,
+				5BC8701A1ED568EC00380728 /* TypedNSFastEnumeration.h */,
+				5BC8701F1ED56A3900380728 /* TypedNSCopying.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -98,7 +102,7 @@
 		5BDA3FA21A0235F600B3F9E0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Triceratops;
 				TargetAttributes = {
 					5BDA3FD11A023EEB00B3F9E0 = {
@@ -148,8 +152,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
@@ -157,6 +163,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -191,8 +198,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
@@ -200,6 +209,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
