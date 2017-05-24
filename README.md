@@ -1,10 +1,10 @@
-Type inferrence in Objective-C
+Type inference in Objective-C
 =============================
 
-This project includes several macros and class categories that provide hints for compiler type inferrence. From simple `let` and `var` that are inspired by Swift, to `foreach () {}` construct that replaces `for (in) {}` loops.
+This project includes several macros and class categories that provide hints for compiler type inference. From simple `let` and `var` that are inspired by Swift, to `foreach () {}` construct that replaces `for (in) {}` loops.
 
 
-**Without type inferrence, the types are error-prone:**
+**Without type inference, the types are error-prone:**
 
 ```objc
 NSString *name = @"Martin";
@@ -24,7 +24,7 @@ for (NSString *letter in letters) {
 - Loop `for (in) {}` ignores element type of enumerated collection.
 
 
-**With type inferrence, this is still pure Objective-C:**
+**With type inference, this is still pure Objective-C:**
 
 ```objc
 let name = @"Martin";
@@ -40,6 +40,6 @@ foreach (letter, letters) {
 
 - Types of *all* variables are inferred from context.
 - Methods `-mutableCopy` are redeclared with proper return type.
-- Macro `NSArray(…)` doesnt’t accept mixed types as arguments and returns `NSArray` with proper element type.
+- Macro `NSArray(…)` doesn’t accept mixed types as arguments and returns `NSArray` with proper element type.
 - Macro `foreach () {}` infers type of the variable from the enumerated collection.
 

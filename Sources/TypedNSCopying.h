@@ -11,7 +11,7 @@
 
 
 
-//! Many classes that conform to NSCopying and mainly to NSMutableCopying are extended to provide type inferrence hint about their copies.
+//! Many classes that conform to NSCopying and mainly to NSMutableCopying are extended to provide type inference hint about their copies.
 
 
 

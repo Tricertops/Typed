@@ -11,7 +11,7 @@
 
 
 
-//! Formalized method for type inferrence. All classes that conform to NSFastEnumeration should be extended with this protocol.
+//! Formalized method for type inference. All classes that conform to NSFastEnumeration should be extended with this protocol.
 //! The method doesn’t need implementation, since it’s only used for typeof(…) compiler feature in foreach(…) macro.
 @protocol TypedNSFastEnumeration <NSFastEnumeration>
 

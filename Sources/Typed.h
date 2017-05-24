@@ -13,11 +13,11 @@
 
 
 
-//! Swift-like macro for type inferrence of local or global variables.
+//! Swift-like macro for type inference of local or global variables.
 #define var  __auto_type
 
 
-//! Swift-like macro for type inferrence of local or global variables that cannot be re-assigned.
+//! Swift-like macro for type inference of local or global variables that cannot be re-assigned.
 #define let  __auto_type const
 
 
@@ -28,7 +28,7 @@
 #import "TypedNSFastEnumeration.h"
 
 
-//! Type inferrence for -copy and -mutableCopy methods.
+//! Type inference for -copy and -mutableCopy methods.
 #import "TypedNSCopying.h"
 
 
