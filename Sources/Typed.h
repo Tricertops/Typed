@@ -32,3 +32,7 @@
 #import "TypedNSCopying.h"
 
 
+//! Type-checked collection literals as a replacement for built-in @[…].
+#import "TypedCollectionLiterals.h"
+
+
