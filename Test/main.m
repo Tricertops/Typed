@@ -20,10 +20,10 @@ int main(int argc, const char * argv[]) {
         //! Some example usage:
         
         let name = @"Martin"; // NSString * const
-        var mutableName = name.mutableCopy; // NSMutableString *
+        var mutableName = [name mutableCopy]; // NSMutableString *
         
         let letters = NSArray(@"A", @"B", @"C"); // NSArray<NSString *> * const
-        var mutableLetters = letters.mutableCopy; // NSMutableArray<NSString *> *
+        var mutableLetters = [letters mutableCopy]; // NSMutableArray<NSString *> *
         
         foreach (letter, letters) {
             // NSString *
