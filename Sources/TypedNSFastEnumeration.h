@@ -11,6 +11,12 @@
 
 
 
+//! Replacement for for-in loop that infers type of enumerated variable from the collection.
+#define foreach(element, collection) \
+    for (typeof((collection).Typed_enumeratedType) element in (collection))
+
+
+
 //! Formalized method for type inference. All classes that conform to NSFastEnumeration should be extended with this protocol.
 //! The method doesn’t need implementation, since it’s only used for typeof(…) compiler feature in foreach(…) macro.
 @protocol TypedNSFastEnumeration <NSFastEnumeration>

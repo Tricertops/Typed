@@ -29,6 +29,7 @@
 		5BC870201ED5749A00380728 /* TypedCollectionLiterals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypedCollectionLiterals.h; sourceTree = "<group>"; };
 		5BDA3FD21A023EEB00B3F9E0 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BDA3FD41A023EEB00B3F9E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5BF07E0C1EF1C1DE00562966 /* TypedKeyPaths.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypedKeyPaths.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +50,7 @@
 				5BC8701A1ED568EC00380728 /* TypedNSFastEnumeration.h */,
 				5BC8701F1ED56A3900380728 /* TypedNSCopying.h */,
 				5BC870201ED5749A00380728 /* TypedCollectionLiterals.h */,
+				5BF07E0C1EF1C1DE00562966 /* TypedKeyPaths.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";

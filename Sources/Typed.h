@@ -22,9 +22,6 @@
 
 
 //! Macro that expands to for-in loop with inferred type of enumerated variable.
-#define foreach(element, collection) \
-    for (typeof((collection).Typed_enumeratedType) element in (collection))
-
 #import "TypedNSFastEnumeration.h"
 
 
@@ -34,5 +31,9 @@
 
 //! Type-checked collection literals as a replacement for built-in @[…].
 #import "TypedCollectionLiterals.h"
+
+
+//! Type-checked keypath building macro @keypath(…).
+#import "TypedKeyPaths.h"
 
 
