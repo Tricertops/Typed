@@ -14,6 +14,14 @@
 //! Many classes that conform to NSCopying and mainly to NSMutableCopying are extended to provide type inference hint about their copies.
 
 
+#if defined(APPKIT_EXTERN)
+@import AppKit;
+#endif
+
+#if defined(UIKIT_EXTERN)
+@import UIKit;
+#endif
+
 
 @interface NSArray<ElementType> (TypedNSCopying)
 
