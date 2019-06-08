@@ -106,7 +106,7 @@
 		5BDA3FA21A0235F600B3F9E0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = Triceratops;
 				TargetAttributes = {
 					5BDA3FD11A023EEB00B3F9E0 = {
@@ -248,6 +248,7 @@
 		5BDA3FD71A023EEB00B3F9E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -260,6 +261,7 @@
 		5BDA3FD81A023EEB00B3F9E0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
